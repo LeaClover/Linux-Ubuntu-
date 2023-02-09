@@ -1,0 +1,149 @@
+leaclover@leaclover-VirtualBox:~$ sudo apt install mc
+
+Чтение списков пакетов… Готово
+
+Построение дерева зависимостей… Готово
+
+Чтение информации о состоянии… Готово         
+
+Уже установлен пакет mc самой новой версии (3:4.8.27-1).
+
+Следующий пакет устанавливался автоматически и больше не требуется:
+
+  systemd-hwe-hwdb
+
+Для его удаления используйте «sudo apt autoremove».
+
+Обновлено 0 пакетов, установлено 0 новых пакетов, для удаления отмечено 0 пакетов, и 137 пакетов не обновлено.
+
+leaclover@leaclover-VirtualBox:~$ mc
+
+
+
+leaclover@leaclover-VirtualBox:~$ whoami
+
+leaclover
+
+leaclover@leaclover-VirtualBox:~$ ip a
+
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+
+    inet 127.0.0.1/8 scope host lo
+
+       valid_lft forever preferred_lft forever
+
+    inet6 ::1/128 scope host 
+
+       valid_lft forever preferred_lft forever
+
+2: enp0s3: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UP group default qlen 1000
+
+    link/ether 08:00:27:1c:1c:72 brd ff:ff:ff:ff:ff:ff
+
+    inet 192.168.3.32/24 brd 192.168.3.255 scope global dynamic noprefixroute enp0s3
+
+       valid_lft 85798sec preferred_lft 85798sec
+
+    inet6 fe80::b66b:b0cb:2dca:eb35/64 scope link noprefixroute 
+
+       valid_lft forever preferred_lft forever
+
+leaclover@leaclover-VirtualBox:~$ uname
+
+Linux
+
+leaclover@leaclover-VirtualBox:~$ uname -a
+
+Linux leaclover-VirtualBox 5.15.0-58-generic #64-Ubuntu SMP Thu Jan 5 11:43:13 UTC 2023 x86_64 x86_64 x86_64 GNU/Linux
+
+leaclover@leaclover-VirtualBox:~$ hostname
+
+leaclover-VirtualBox
+
+leaclover@leaclover-VirtualBox:~$ hostnamectl
+
+ Static hostname: leaclover-VirtualBox
+
+       Icon name: computer-vm
+
+         Chassis: vm
+
+      Machine ID: beea646fb39c40fb9f8052c4b36a4259
+
+         Boot ID: de6bd4b917d04373bba719328858f588
+
+  Virtualization: oracle
+
+Operating System: Ubuntu 22.04.1 LTS              
+
+          Kernel: Linux 5.15.0-58-generic
+
+    Architecture: x86-64
+
+ Hardware Vendor: innotek GmbH
+
+  Hardware Model: VirtualBox
+
+leaclover@leaclover-VirtualBox:~$ hostname -I
+
+192.168.3.32 
+
+leaclover@leaclover-VirtualBox:~$ sudo apt install openssh-server -y
+
+Чтение списков пакетов… Готово
+
+Построение дерева зависимостей… Готово
+
+Чтение информации о состоянии… Готово         
+
+Уже установлен пакет openssh-server самой новой версии (1:8.9p1-3ubuntu0.1).
+
+Следующий пакет устанавливался автоматически и больше не требуется:
+
+  systemd-hwe-hwdb
+
+Для его удаления используйте «sudo apt autoremove».
+
+Обновлено 0 пакетов, установлено 0 новых пакетов, для удаления отмечено 0 пакетов, и 137 пакетов не обновлено.
+
+leaclover@leaclover-VirtualBox:~$ sudo systemctl status ssh
+
+● ssh.service - OpenBSD Secure Shell server
+
+     Loaded: loaded (/lib/systemd/system/ssh.service; enabled; vendor preset: enabled)
+
+     Active: active (running) since Thu 2023-01-19 00:49:23 MSK; 14min ago
+
+       Docs: man:sshd(8)
+
+             man:sshd_config(5)
+
+    Process: 726 ExecStartPre=/usr/sbin/sshd -t (code=exited, status=0/SUCCESS)
+
+   Main PID: 734 (sshd)
+
+      Tasks: 1 (limit: 2287)
+
+     Memory: 6.1M
+
+        CPU: 127ms
+
+     CGroup: /system.slice/ssh.service
+
+             └─734 "sshd: /usr/sbin/sshd -D [listener] 0 of 10-100 startups"
+
+
+
+янв 19 00:49:23 leaclover-VirtualBox systemd[1]: Starting OpenBSD Secure Shell server...
+
+янв 19 00:49:23 leaclover-VirtualBox sshd[734]: Server listening on 0.0.0.0 port 22.
+
+янв 19 00:49:23 leaclover-VirtualBox sshd[734]: Server listening on :: port 22.
+
+янв 19 00:49:23 leaclover-VirtualBox systemd[1]: Started OpenBSD Secure Shell server.
+
+янв 19 00:52:35 leaclover-VirtualBox sshd[2562]: Accepted password for leaclover from 192.168.3.15 port 54459 ssh2
+
+янв 19 00:52:35 leaclover-VirtualBox sshd[2562]: pam_unix(sshd:session): session opened for user leaclover(uid=1000) by (uid=0)
