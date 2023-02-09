@@ -1,0 +1,338 @@
+leaclover@leaclover-VirtualBox:~$ sudo apt install iptables
+
+[sudo] пароль для leaclover: 
+
+Чтение списков пакетов… Готово
+
+Построение дерева зависимостей… Готово
+
+Чтение информации о состоянии… Готово         
+
+Уже установлен пакет iptables самой новой версии (1.8.7-1ubuntu5).
+
+Следующий пакет устанавливался автоматически и больше не требуется:
+
+  systemd-hwe-hwdb
+
+Для его удаления используйте «sudo apt autoremove».
+
+Обновлено 0 пакетов, установлено 0 новых пакетов, для удаления отмечено 0 пакетов, и 148 пакетов не обновлено.
+
+leaclover@leaclover-VirtualBox:~$ sudo iptables -L
+
+Chain INPUT (policy DROP)
+
+target     prot opt source               destination         
+
+ACCEPT     tcp  --  anywhere             anywhere             tcp dpt:ssh
+
+ACCEPT     tcp  --  anywhere             anywhere             tcp dpt:http
+
+
+
+Chain FORWARD (policy ACCEPT)
+
+target     prot opt source               destination         
+
+
+
+Chain OUTPUT (policy ACCEPT)
+
+target     prot opt source               destination         
+
+DROP       tcp  --  3.4.5.6              anywhere            
+
+leaclover@leaclover-VirtualBox:~$ sudo iptables -F
+
+leaclover@leaclover-VirtualBox:~$ sudo iptables -P INPUT ACCEPT
+
+leaclover@leaclover-VirtualBox:~$ sudo iptables -L
+
+Chain INPUT (policy ACCEPT)
+
+target     prot opt source               destination         
+
+
+
+Chain FORWARD (policy ACCEPT)
+
+target     prot opt source               destination         
+
+
+
+Chain OUTPUT (policy ACCEPT)
+
+target     prot opt source               destination         
+
+leaclover@leaclover-VirtualBox:~$ sudo iptables -P INPUT DROP
+
+leaclover@leaclover-VirtualBox:~$ sudo iptables -L
+
+Chain INPUT (policy DROP)
+
+target     prot opt source               destination         
+
+
+
+Chain FORWARD (policy ACCEPT)
+
+target     prot opt source               destination         
+
+
+
+Chain OUTPUT (policy ACCEPT)
+
+target     prot opt source               destination         
+
+leaclover@leaclover-VirtualBox:~$ sudo iptables -A INPUT -p tcp --dport 22 -j ACCEPT
+
+leaclover@leaclover-VirtualBox:~$ sudo iptables -A INPUT -p tcp --dport 80 -j ACCEPT
+
+leaclover@leaclover-VirtualBox:~$ sudo iptables -L
+
+Chain INPUT (policy DROP)
+
+target     prot opt source               destination         
+
+ACCEPT     tcp  --  anywhere             anywhere             tcp dpt:ssh
+
+ACCEPT     tcp  --  anywhere             anywhere             tcp dpt:http
+
+
+
+Chain FORWARD (policy ACCEPT)
+
+target     prot opt source               destination         
+
+
+
+Chain OUTPUT (policy ACCEPT)
+
+target     prot opt source               destination         
+
+leaclover@leaclover-VirtualBox:~$ sudo iptables -t nat -I PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 8080
+
+leaclover@leaclover-VirtualBox:~$ sudo iptables -L -nv -t nat
+
+Chain PREROUTING (policy ACCEPT 0 packets, 0 bytes)
+
+ pkts bytes target     prot opt in     out     source               destination         
+
+    0     0 REDIRECT   tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp dpt:80 redir ports 8080
+
+    0     0 REDIRECT   tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp dpt:80 redir ports 8080
+
+
+
+Chain INPUT (policy ACCEPT 0 packets, 0 bytes)
+
+ pkts bytes target     prot opt in     out     source               destination         
+
+
+
+Chain OUTPUT (policy ACCEPT 0 packets, 0 bytes)
+
+ pkts bytes target     prot opt in     out     source               destination         
+
+
+
+Chain POSTROUTING (policy ACCEPT 0 packets, 0 bytes)
+
+ pkts bytes target     prot opt in     out     source               destination         
+
+leaclover@leaclover-VirtualBox:~$ sudo iptables -A OUTPUT -p tcp -s 3.4.5.6 -j DROP
+
+leaclover@leaclover-VirtualBox:~$ sudo iptables -L -nv -t nat
+
+Chain PREROUTING (policy ACCEPT 0 packets, 0 bytes)
+
+ pkts bytes target     prot opt in     out     source               destination         
+
+    0     0 REDIRECT   tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp dpt:80 redir ports 8080
+
+    0     0 REDIRECT   tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp dpt:80 redir ports 8080
+
+
+
+Chain INPUT (policy ACCEPT 0 packets, 0 bytes)
+
+ pkts bytes target     prot opt in     out     source               destination         
+
+
+
+Chain OUTPUT (policy ACCEPT 0 packets, 0 bytes)
+
+ pkts bytes target     prot opt in     out     source               destination         
+
+
+
+Chain POSTROUTING (policy ACCEPT 0 packets, 0 bytes)
+
+ pkts bytes target     prot opt in     out     source               destination         
+
+leaclover@leaclover-VirtualBox:~$ sudo iptables -L
+
+Chain INPUT (policy DROP)
+
+target     prot opt source               destination         
+
+ACCEPT     tcp  --  anywhere             anywhere             tcp dpt:ssh
+
+ACCEPT     tcp  --  anywhere             anywhere             tcp dpt:http
+
+
+
+Chain FORWARD (policy ACCEPT)
+
+target     prot opt source               destination         
+
+
+
+Chain OUTPUT (policy ACCEPT)
+
+target     prot opt source               destination         
+
+DROP       tcp  --  3.4.5.6              anywhere            
+
+leaclover@leaclover-VirtualBox:~$ top -o PID
+
+
+
+top - 02:35:35 up  3:20,  1 user,  load average: 0,20, 0,25, 0,26
+
+Tasks: 225 total,   1 running, 224 sleeping,   0 stopped,   0 zombie
+
+%Cpu(s):  3,7 us,  1,2 sy,  0,0 ni, 94,9 id,  0,1 wa,  0,0 hi,  0,1 si,  0,0 st
+
+МиБ Mem :   1975,3 total,     78,2 free,   1114,3 used,    782,9 buff/cache
+
+МиБ Swap:   2140,0 total,   2056,0 free,     84,0 used.    653,4 avail Mem 
+
+
+
+    PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND                                                                          
+
+   8740 leaclov+  20   0   21944   4012   3408 R   0,0   0,2   0:00.05 top                                                                              
+
+   8734 leaclov+  20   0   19792   5128   3636 S   0,0   0,3   0:00.01 bash                                                                             
+
+   8732 leaclov+  20   0   32192  10284   8108 S   0,0   0,5   0:00.02 mc                                                                               
+
+   8725 leaclov+  20   0   19792   5036   3556 S   0,0   0,2   0:00.01 bash                                                                             
+
+   8677 root      20   0       0      0      0 I   0,0   0,0   0:00.00 kworker/2:0-events                                                               
+
+   8564 leaclov+  20   0   19792   5124   3636 S   0,0   0,3   0:00.07 bash                                                                             
+
+   8538 leaclov+  20   0  570040  58864  44440 S   0,3   2,9   0:04.16 gnome-terminal-                                                                  
+
+   6620 root      20   0       0      0      0 I   0,0   0,0   0:00.17 kworker/u8:2-events_unbound                                                      
+
+   6512 root      20   0       0      0      0 I   0,0   0,0   0:00.00 kworker/1:2-events                                                               
+
+   6504 root      20   0       0      0      0 I   0,0   0,0   0:00.00 kworker/3:1                                                                      
+
+   6460 leaclov+  20   0 2868704  62776  47848 S   0,0   3,1   0:00.87 gjs                                                                              
+
+   6272 root      20   0       0      0      0 I   0,0   0,0   0:00.26 kworker/u8:0-events_freezable_power_                                             
+
+   6201 root      20   0       0      0      0 I   0,0   0,0   0:00.00 kworker/0:0                                                                      
+
+   6022 root      20   0       0      0      0 I   0,0   0,0   0:00.73 kworker/u8:4-flush-8:0                                                           
+
+   5664 root      20   0       0      0      0 I   0,0   0,0   0:00.00 kworker/2:1-events                                                               
+
+   5143 root      20   0       0      0      0 I   0,0   0,0   0:00.80 kworker/1:0-ata_sff                                                              
+
+   5058 leaclov+  20   0 2410800  63080  51064 S   0,0   3,1   0:00.14 Web Content                                                                      
+
+   5014 leaclov+  20   0 2410800  63636  51684 S   0,0   3,1   0:00.15 Web Content                                                                      
+
+   4990 root      20   0       0      0      0 I   0,0   0,0   0:00.99 kworker/3:0-events                                                               
+
+   4935 leaclov+  20   0 2410796  63568  51552 S   0,0   3,1   0:00.16 Web Content                                                                      
+
+   4930 leaclov+  20   0 2432316  96356  78252 S   0,0   4,8   0:00.58 Isolated Web Co                                                                  
+
+   4758 leaclov+  20   0 2443316  87488  67212 S   0,0   4,3   0:00.75 WebExtensions                                                                    
+
+   4600 leaclov+  20   0 2441100 104884  79988 S   0,0   5,2   0:01.52 Privileged Cont                                                                  
+
+leaclover@leaclover-VirtualBox:~$ sudo ps aux | grep mc
+
+leaclov+    8732  0.0  0.5  32192 10284 pts/1    S+   02:35   0:00 mc
+
+leaclov+    8743  0.0  0.1  17756  2404 pts/0    S+   02:35   0:00 grep --color=auto mc
+
+leaclover@leaclover-VirtualBox:~$ sudo kill -s 9 8732
+
+leaclover@leaclover-VirtualBox:~$ top -o PID
+
+
+
+top - 02:36:20 up  3:20,  1 user,  load average: 0,31, 0,26, 0,26
+
+Tasks: 223 total,   1 running, 222 sleeping,   0 stopped,   0 zombie
+
+%Cpu(s): 22,1 us,  2,9 sy,  0,0 ni, 75,0 id,  0,0 wa,  0,0 hi,  0,0 si,  0,0 st
+
+МиБ Mem :   1975,3 total,     77,4 free,   1114,9 used,    783,0 buff/cache
+
+МиБ Swap:   2140,0 total,   2056,0 free,     84,0 used.    652,7 avail Mem 
+
+
+
+    PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND                                                                          
+
+   8750 leaclov+  20   0   21952   3960   3352 R   0,0   0,2   0:00.01 top                                                                              
+
+   8725 leaclov+  20   0   19976   5036   3556 S   0,0   0,2   0:00.01 bash                                                                             
+
+   8677 root      20   0       0      0      0 I   0,0   0,0   0:00.00 kworker/2:0-events                                                               
+
+   8564 leaclov+  20   0   19792   5124   3636 S   0,0   0,3   0:00.09 bash                                                                             
+
+   8538 leaclov+  20   0  570040  58992  44440 S  12,5   2,9   0:05.20 gnome-terminal-                                                                  
+
+   6620 root      20   0       0      0      0 I   0,0   0,0   0:00.17 kworker/u8:2-events_unbound                                                      
+
+   6512 root      20   0       0      0      0 I   0,0   0,0   0:00.00 kworker/1:2-events                                                               
+
+   6504 root      20   0       0      0      0 I   0,0   0,0   0:00.00 kworker/3:1                                                                      
+
+   6460 leaclov+  20   0 2868704  62776  47848 S   0,0   3,1   0:00.87 gjs                                                                              
+
+   6272 root      20   0       0      0      0 I   0,0   0,0   0:00.29 kworker/u8:0-ext4-rsv-conversion                                                 
+
+   6201 root      20   0       0      0      0 I   0,0   0,0   0:00.00 kworker/0:0                                                                      
+
+   6022 root      20   0       0      0      0 I   0,0   0,0   0:00.74 kworker/u8:4-events_unbound                                                      
+
+   5664 root      20   0       0      0      0 I   0,0   0,0   0:00.00 kworker/2:1-events                                                               
+
+   5143 root      20   0       0      0      0 I   0,0   0,0   0:00.81 kworker/1:0-events                                                               
+
+   5058 leaclov+  20   0 2410800  63080  51064 S   0,0   3,1   0:00.14 Web Content                                                                      
+
+   5014 leaclov+  20   0 2410800  63636  51684 S   0,0   3,1   0:00.15 Web Content                                                                      
+
+   4990 root      20   0       0      0      0 I   0,0   0,0   0:01.00 kworker/3:0-events                                                               
+
+   4935 leaclov+  20   0 2410796  63568  51552 S   0,0   3,1   0:00.16 Web Content                                                                      
+
+   4930 leaclov+  20   0 2432316  96356  78252 S   0,0   4,8   0:00.58 Isolated Web Co                                                                  
+
+   4758 leaclov+  20   0 2443316  87488  67212 S   0,0   4,3   0:00.76 WebExtensions                                                                    
+
+   4600 leaclov+  20   0 2441100 104884  79988 S   0,0   5,2   0:01.52 Privileged Cont                                                                  
+
+   4574 leaclov+  20   0  223412  37256  28976 S   0,0   1,8   0:00.32 Socket Process                                                                   
+
+   4434 leaclov+  20   0 3201488 385968 152720 S  12,5  19,1  13:36.55 firefox                                                                          
+
+leaclover@leaclover-VirtualBox:~$ sudo ps aux | grep mc
+
+leaclov+    8752  0.0  0.1  17756  2412 pts/0    S+   02:36   0:00 grep --color=auto mc
+
+leaclover@leaclover-VirtualBox:~$ 
+
