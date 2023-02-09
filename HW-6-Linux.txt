@@ -1,0 +1,2012 @@
+leaclover@leaclover-VirtualBox:/$ sudo apt install nginx
+
+Чтение списков пакетов… Готово
+
+Построение дерева зависимостей… Готово
+
+Чтение информации о состоянии… Готово         
+
+Уже установлен пакет nginx самой новой версии (1.22.1-1~jammy).
+
+Следующий пакет устанавливался автоматически и больше не требуется:
+
+  systemd-hwe-hwdb
+
+Для его удаления используйте «sudo apt autoremove».
+
+Обновлено 0 пакетов, установлено 0 новых пакетов, для удаления отмечено 0 пакетов, и 156 пакетов не обновлено.
+
+leaclover@leaclover-VirtualBox:/$ sudo apt install php8.1-fpm
+
+Чтение списков пакетов… Готово
+
+Построение дерева зависимостей… Готово
+
+Чтение информации о состоянии… Готово         
+
+Уже установлен пакет php8.1-fpm самой новой версии (8.1.2-1ubuntu2.10).
+
+Следующий пакет устанавливался автоматически и больше не требуется:
+
+  systemd-hwe-hwdb
+
+Для его удаления используйте «sudo apt autoremove».
+
+Обновлено 0 пакетов, установлено 0 новых пакетов, для удаления отмечено 0 пакетов, и 156 пакетов не обновлено.
+
+leaclover@leaclover-VirtualBox:/$ sudo nano /etc/php/8.1/fpm/php.ini 
+
+
+#### Исправляем на >>
+cgi.fix_pathinfo=0
+####
+
+leaclover@leaclover-VirtualBox:/$ sudo /etc/init.d/php8.1-fpm restart
+
+Restarting php8.1-fpm (via systemctl): php8.1-fpm.service.
+
+leaclover@leaclover-VirtualBox:/$ sudo nano /etc/nginx/conf.d/leaclover.conf 
+
+
+#### Настройка конфигурации
+server {
+
+    listen   80;            
+
+    root /var/www/leaclover.local; # 
+
+
+
+    access_log  /var/log/nginx/test.access.log;  #расположение логов данного хоста
+
+    error_log  /var/log/nginx/test.error.log;
+
+
+
+    server_name leaclover.local;
+
+ 
+
+    location / {
+
+        index index.php index.html index.htm;
+
+    }
+
+ 
+
+    location ~ \.php$ {
+
+        include        fastcgi_params;
+
+        #fastcgi_pass unix:/var/run/php8.1-fpm.sock;
+
+        fastcgi_pass   127.0.0.1:9000;
+
+        fastcgi_index  index.php;
+
+        fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
+
+    }
+
+}
+####
+
+
+leaclover@leaclover-VirtualBox:/$ sudo nano var/www/leaclover.local/index.php 
+
+leaclover@leaclover-VirtualBox:/$ cat var/www/leaclover.local/index.php 
+
+<?php
+
+  echo "Hello EveryOne!!!";
+
+?>
+
+leaclover@leaclover-VirtualBox:/$ sudo nginx -t
+
+nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+
+nginx: configuration file /etc/nginx/nginx.conf test is successful
+
+leaclover@leaclover-VirtualBox:/$ sudo service nginx restart
+
+leaclover@leaclover-VirtualBox:/$ sudo systemctl restart php8.1-fpm.service 
+
+leaclover@leaclover-VirtualBox:/$ sudo apt install apache2 -y
+
+Чтение списков пакетов… Готово
+
+Построение дерева зависимостей… Готово
+
+Чтение информации о состоянии… Готово         
+
+Следующий пакет устанавливался автоматически и больше не требуется:
+
+  systemd-hwe-hwdb
+
+Для его удаления используйте «sudo apt autoremove».
+
+Будут установлены следующие дополнительные пакеты:
+
+  apache2-bin apache2-data apache2-utils libapr1 libaprutil1 libaprutil1-dbd-sqlite3 libaprutil1-ldap liblua5.3-0
+
+Предлагаемые пакеты:
+
+  apache2-doc apache2-suexec-pristine | apache2-suexec-custom www-browser
+
+Следующие НОВЫЕ пакеты будут установлены:
+
+  apache2 apache2-bin apache2-data apache2-utils libapr1 libaprutil1 libaprutil1-dbd-sqlite3 libaprutil1-ldap liblua5.3-0
+
+Обновлено 0 пакетов, установлено 9 новых пакетов, для удаления отмечено 0 пакетов, и 156 пакетов не обновлено.
+
+Необходимо скачать 2 057 kB архивов.
+
+После данной операции объём занятого дискового пространства возрастёт на 8 216 kB.
+
+Пол:1 http://ru.archive.ubuntu.com/ubuntu jammy/main amd64 libapr1 amd64 1.7.0-8build1 [107 kB]
+
+Пол:2 http://ru.archive.ubuntu.com/ubuntu jammy/main amd64 libaprutil1 amd64 1.6.1-5ubuntu4 [92,4 kB]
+
+Пол:3 http://ru.archive.ubuntu.com/ubuntu jammy/main amd64 libaprutil1-dbd-sqlite3 amd64 1.6.1-5ubuntu4 [11,3 kB]
+
+Пол:4 http://ru.archive.ubuntu.com/ubuntu jammy/main amd64 libaprutil1-ldap amd64 1.6.1-5ubuntu4 [9 162 B]
+
+Пол:5 http://ru.archive.ubuntu.com/ubuntu jammy/main amd64 liblua5.3-0 amd64 5.3.6-1build1 [140 kB]
+
+Пол:6 http://ru.archive.ubuntu.com/ubuntu jammy-updates/main amd64 apache2-bin amd64 2.4.52-1ubuntu4.3 [1 345 kB]
+
+Пол:7 http://ru.archive.ubuntu.com/ubuntu jammy-updates/main amd64 apache2-data all 2.4.52-1ubuntu4.3 [165 kB]
+
+Пол:8 http://ru.archive.ubuntu.com/ubuntu jammy-updates/main amd64 apache2-utils amd64 2.4.52-1ubuntu4.3 [89,3 kB]
+
+Пол:9 http://ru.archive.ubuntu.com/ubuntu jammy-updates/main amd64 apache2 amd64 2.4.52-1ubuntu4.3 [97,9 kB]
+
+Получено 2 057 kB за 1с (1 415 kB/s)       
+
+Выбор ранее не выбранного пакета libapr1:amd64.
+
+(Чтение базы данных … на данный момент установлено 185495 файлов и каталогов.)
+
+Подготовка к распаковке …/0-libapr1_1.7.0-8build1_amd64.deb …
+
+Распаковывается libapr1:amd64 (1.7.0-8build1) …
+
+Выбор ранее не выбранного пакета libaprutil1:amd64.
+
+Подготовка к распаковке …/1-libaprutil1_1.6.1-5ubuntu4_amd64.deb …
+
+Распаковывается libaprutil1:amd64 (1.6.1-5ubuntu4) …
+
+Выбор ранее не выбранного пакета libaprutil1-dbd-sqlite3:amd64.
+
+Подготовка к распаковке …/2-libaprutil1-dbd-sqlite3_1.6.1-5ubuntu4_amd64.deb …
+
+Распаковывается libaprutil1-dbd-sqlite3:amd64 (1.6.1-5ubuntu4) …
+
+Выбор ранее не выбранного пакета libaprutil1-ldap:amd64.
+
+Подготовка к распаковке …/3-libaprutil1-ldap_1.6.1-5ubuntu4_amd64.deb …
+
+Распаковывается libaprutil1-ldap:amd64 (1.6.1-5ubuntu4) …
+
+Выбор ранее не выбранного пакета liblua5.3-0:amd64.
+
+Подготовка к распаковке …/4-liblua5.3-0_5.3.6-1build1_amd64.deb …
+
+Распаковывается liblua5.3-0:amd64 (5.3.6-1build1) …
+
+Выбор ранее не выбранного пакета apache2-bin.
+
+Подготовка к распаковке …/5-apache2-bin_2.4.52-1ubuntu4.3_amd64.deb …
+
+Распаковывается apache2-bin (2.4.52-1ubuntu4.3) …
+
+Выбор ранее не выбранного пакета apache2-data.
+
+Подготовка к распаковке …/6-apache2-data_2.4.52-1ubuntu4.3_all.deb …
+
+Распаковывается apache2-data (2.4.52-1ubuntu4.3) …
+
+Выбор ранее не выбранного пакета apache2-utils.
+
+Подготовка к распаковке …/7-apache2-utils_2.4.52-1ubuntu4.3_amd64.deb …
+
+Распаковывается apache2-utils (2.4.52-1ubuntu4.3) …
+
+Выбор ранее не выбранного пакета apache2.
+
+Подготовка к распаковке …/8-apache2_2.4.52-1ubuntu4.3_amd64.deb …
+
+Распаковывается apache2 (2.4.52-1ubuntu4.3) …
+
+Настраивается пакет libapr1:amd64 (1.7.0-8build1) …
+
+Настраивается пакет liblua5.3-0:amd64 (5.3.6-1build1) …
+
+Настраивается пакет apache2-data (2.4.52-1ubuntu4.3) …
+
+Настраивается пакет libaprutil1:amd64 (1.6.1-5ubuntu4) …
+
+Настраивается пакет libaprutil1-ldap:amd64 (1.6.1-5ubuntu4) …
+
+Настраивается пакет libaprutil1-dbd-sqlite3:amd64 (1.6.1-5ubuntu4) …
+
+Настраивается пакет apache2-utils (2.4.52-1ubuntu4.3) …
+
+Настраивается пакет apache2-bin (2.4.52-1ubuntu4.3) …
+
+Настраивается пакет apache2 (2.4.52-1ubuntu4.3) …
+
+Enabling module mpm_event.
+
+Enabling module authz_core.
+
+Enabling module authz_host.
+
+Enabling module authn_core.
+
+Enabling module auth_basic.
+
+Enabling module access_compat.
+
+Enabling module authn_file.
+
+Enabling module authz_user.
+
+Enabling module alias.
+
+Enabling module dir.
+
+Enabling module autoindex.
+
+Enabling module env.
+
+Enabling module mime.
+
+Enabling module negotiation.
+
+Enabling module setenvif.
+
+Enabling module filter.
+
+Enabling module deflate.
+
+Enabling module status.
+
+Enabling module reqtimeout.
+
+Enabling conf charset.
+
+Enabling conf localized-error-pages.
+
+Enabling conf other-vhosts-access-log.
+
+Enabling conf security.
+
+Enabling conf serve-cgi-bin.
+
+Enabling site 000-default.
+
+Created symlink /etc/systemd/system/multi-user.target.wants/apache2.service → /lib/systemd/system/apache2.service.
+
+Could not execute systemctl:  at /usr/bin/deb-systemd-invoke line 142.
+
+Created symlink /etc/systemd/system/multi-user.target.wants/apache-htcacheclean.service → /lib/systemd/system/apache-htcacheclean.service.
+
+Обрабатываются триггеры для ufw (0.36.1-4build1) …
+
+Обрабатываются триггеры для man-db (2.10.2-1) …
+
+Обрабатываются триггеры для libc-bin (2.35-0ubuntu3.1) …
+
+leaclover@leaclover-VirtualBox:/$ sudo systemctl status apache2
+
+× apache2.service - The Apache HTTP Server
+
+     Loaded: loaded (/lib/systemd/system/apache2.service; enabled; vendor preset: enabled)
+
+     Active: failed (Result: exit-code) since Tue 2023-02-07 17:24:04 MSK; 59s ago
+
+       Docs: https://httpd.apache.org/docs/2.4/
+
+        CPU: 24ms
+
+
+
+фев 07 17:24:04 leaclover-VirtualBox apachectl[28776]: AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 1>
+
+фев 07 17:24:04 leaclover-VirtualBox apachectl[28776]: (98)Address already in use: AH00072: make_sock: could not bind to address [::]:80
+
+фев 07 17:24:04 leaclover-VirtualBox apachectl[28776]: (98)Address already in use: AH00072: make_sock: could not bind to address 0.0.0.0:80
+
+фев 07 17:24:04 leaclover-VirtualBox apachectl[28776]: no listening sockets available, shutting down
+
+фев 07 17:24:04 leaclover-VirtualBox apachectl[28776]: AH00015: Unable to open logs
+
+фев 07 17:24:04 leaclover-VirtualBox apachectl[28766]: Action 'start' failed.
+
+фев 07 17:24:04 leaclover-VirtualBox apachectl[28766]: The Apache error log may have more information.
+
+фев 07 17:24:04 leaclover-VirtualBox systemd[1]: apache2.service: Control process exited, code=exited, status=1/FAILURE
+
+фев 07 17:24:04 leaclover-VirtualBox systemd[1]: apache2.service: Failed with result 'exit-code'.
+
+фев 07 17:24:04 leaclover-VirtualBox systemd[1]: Failed to start The Apache HTTP Server.
+
+lines 1-16/16 (END)
+
+leaclover@leaclover-VirtualBox:/$ sudo ss -ntlp
+
+State               Recv-Q              Send-Q                            Local Address:Port                             Peer Address:Port              Process                                                                                                                                                 
+
+LISTEN              0                   511                                     0.0.0.0:80                                    0.0.0.0:*                  users:(("nginx",pid=28061,fd=8),("nginx",pid=28060,fd=8),("nginx",pid=28059,fd=8),("nginx",pid=28058,fd=8),("nginx",pid=28057,fd=8))                   
+
+LISTEN              0                   4096                              127.0.0.53%lo:53                                    0.0.0.0:*                  users:(("systemd-resolve",pid=467,fd=14))                                                                                                              
+
+LISTEN              0                   128                                     0.0.0.0:22                                    0.0.0.0:*                  users:(("sshd",pid=775,fd=3))                                                                                                                          
+
+LISTEN              0                   128                                   127.0.0.1:631                                   0.0.0.0:*                  users:(("cupsd",pid=4166,fd=7))                                                                                                                        
+
+LISTEN              0                   511                                   127.0.0.1:9000                                  0.0.0.0:*                  users:(("php-fpm8.1",pid=28071,fd=9),("php-fpm8.1",pid=28070,fd=9),("php-fpm8.1",pid=28069,fd=7))                                                      
+
+LISTEN              0                   128                                        [::]:22                                       [::]:*                  users:(("sshd",pid=775,fd=4))                                                                                                                          
+
+LISTEN              0                   128                                       [::1]:631                                      [::]:*                  users:(("cupsd",pid=4166,fd=6))                                                                                                                        
+
+leaclover@leaclover-VirtualBox:/$ sudo apachectl -t
+
+AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 127.0.1.1. Set the 'ServerName' directive globally to suppress this message
+
+Syntax OK
+
+leaclover@leaclover-VirtualBox:/$ ll /etc/apache2/
+
+итого 96
+
+drwxr-xr-x   8 root root  4096 фев  7 17:24 ./
+
+drwxr-xr-x 133 root root 12288 фев  7 17:24 ../
+
+-rw-r--r--   1 root root  7224 янв 23 21:34 apache2.conf
+
+drwxr-xr-x   2 root root  4096 фев  7 17:24 conf-available/
+
+drwxr-xr-x   2 root root  4096 фев  7 17:24 conf-enabled/
+
+-rw-r--r--   1 root root  1782 сен  8 06:07 envvars
+
+-rw-r--r--   1 root root 31063 сен  8 06:07 magic
+
+drwxr-xr-x   2 root root 12288 фев  7 17:24 mods-available/
+
+drwxr-xr-x   2 root root  4096 фев  7 17:24 mods-enabled/
+
+-rw-r--r--   1 root root   320 сен  8 06:07 ports.conf
+
+drwxr-xr-x   2 root root  4096 фев  7 17:24 sites-available/
+
+drwxr-xr-x   2 root root  4096 фев  7 17:24 sites-enabled/
+
+
+leaclover@leaclover-VirtualBox:/$ sudo nano /etc/apache2/ports.conf 
+
+
+#### Прописываем порт
+Listen 8080
+
+
+
+<IfModule ssl_module>
+
+#       Listen 443
+
+</IfModule>
+
+
+
+<IfModule mod_gnutls.c>
+
+#       Listen 443
+
+</IfModule>
+
+####
+
+leaclover@leaclover-VirtualBox:/$ sudo apachectl -t
+
+AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 127.0.1.1. Set the 'ServerName' directive globally to suppress this message
+
+Syntax OK
+
+leaclover@leaclover-VirtualBox:/$ sudo systemctl status apache2
+
+× apache2.service - The Apache HTTP Server
+
+     Loaded: loaded (/lib/systemd/system/apache2.service; enabled; vendor preset: enabled)
+
+     Active: failed (Result: exit-code) since Tue 2023-02-07 17:24:04 MSK; 11min ago
+
+       Docs: https://httpd.apache.org/docs/2.4/
+
+        CPU: 24ms
+
+
+
+фев 07 17:24:04 leaclover-VirtualBox apachectl[28776]: AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 1>
+
+фев 07 17:24:04 leaclover-VirtualBox apachectl[28776]: (98)Address already in use: AH00072: make_sock: could not bind to address [::]:80
+
+фев 07 17:24:04 leaclover-VirtualBox apachectl[28776]: (98)Address already in use: AH00072: make_sock: could not bind to address 0.0.0.0:80
+
+фев 07 17:24:04 leaclover-VirtualBox apachectl[28776]: no listening sockets available, shutting down
+
+фев 07 17:24:04 leaclover-VirtualBox apachectl[28776]: AH00015: Unable to open logs
+
+фев 07 17:24:04 leaclover-VirtualBox apachectl[28766]: Action 'start' failed.
+
+фев 07 17:24:04 leaclover-VirtualBox apachectl[28766]: The Apache error log may have more information.
+
+фев 07 17:24:04 leaclover-VirtualBox systemd[1]: apache2.service: Control process exited, code=exited, status=1/FAILURE
+
+фев 07 17:24:04 leaclover-VirtualBox systemd[1]: apache2.service: Failed with result 'exit-code'.
+
+фев 07 17:24:04 leaclover-VirtualBox systemd[1]: Failed to start The Apache HTTP Server.
+
+
+
+leaclover@leaclover-VirtualBox:/$ sudo systemctl start apache2
+
+leaclover@leaclover-VirtualBox:/$ sudo systemctl status apache2
+
+● apache2.service - The Apache HTTP Server
+
+     Loaded: loaded (/lib/systemd/system/apache2.service; enabled; vendor preset: enabled)
+
+     Active: active (running) since Tue 2023-02-07 17:36:59 MSK; 13s ago
+
+       Docs: https://httpd.apache.org/docs/2.4/
+
+    Process: 29431 ExecStart=/usr/sbin/apachectl start (code=exited, status=0/SUCCESS)
+
+   Main PID: 29435 (apache2)
+
+      Tasks: 55 (limit: 2287)
+
+     Memory: 5.1M
+
+        CPU: 61ms
+
+     CGroup: /system.slice/apache2.service
+
+             ├─29435 /usr/sbin/apache2 -k start
+
+             ├─29436 /usr/sbin/apache2 -k start
+
+             └─29437 /usr/sbin/apache2 -k start
+
+
+
+фев 07 17:36:59 leaclover-VirtualBox systemd[1]: Starting The Apache HTTP Server...
+
+фев 07 17:36:59 leaclover-VirtualBox apachectl[29434]: AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 1>
+
+фев 07 17:36:59 leaclover-VirtualBox systemd[1]: Started The Apache HTTP Server.
+
+
+
+leaclover@leaclover-VirtualBox:/$ sudo nano /etc/apache2/sites-enabled/000-default.conf 
+
+
+
+#### Меняем хост
+<VirtualHost 127.0.0.1:8080>
+...
+
+####
+
+leaclover@leaclover-VirtualBox:/$ sudo systemctl restart apache2
+
+leaclover@leaclover-VirtualBox:/$ sudo ss -ntlp
+
+State               Recv-Q              Send-Q                            Local Address:Port                             Peer Address:Port              Process                                                                                                                                                 
+
+LISTEN              0                   511                                     0.0.0.0:80                                    0.0.0.0:*                  users:(("nginx",pid=28061,fd=8),("nginx",pid=28060,fd=8),("nginx",pid=28059,fd=8),("nginx",pid=28058,fd=8),("nginx",pid=28057,fd=8))                   
+
+LISTEN              0                   4096                              127.0.0.53%lo:53                                    0.0.0.0:*                  users:(("systemd-resolve",pid=467,fd=14))                                                                                                              
+
+LISTEN              0                   128                                     0.0.0.0:22                                    0.0.0.0:*                  users:(("sshd",pid=775,fd=3))                                                                                                                          
+
+LISTEN              0                   128                                   127.0.0.1:631                                   0.0.0.0:*                  users:(("cupsd",pid=4166,fd=7))                                                                                                                        
+
+LISTEN              0                   511                                   127.0.0.1:9000                                  0.0.0.0:*                  users:(("php-fpm8.1",pid=28071,fd=9),("php-fpm8.1",pid=28070,fd=9),("php-fpm8.1",pid=28069,fd=7))                                                      
+
+LISTEN              0                   511                                           *:8080                                        *:*                  users:(("apache2",pid=29604,fd=4),("apache2",pid=29603,fd=4),("apache2",pid=29602,fd=4))                                                               
+
+LISTEN              0                   128                                        [::]:22                                       [::]:*                  users:(("sshd",pid=775,fd=4))                                                                                                                          
+
+LISTEN              0                   128                                       [::1]:631                                      [::]:*                  users:(("cupsd",pid=4166,fd=6))                                                                                                                        
+
+leaclover@leaclover-VirtualBox:/$ sudo apt install libapache2-mod-php8.1 php8.1
+
+Чтение списков пакетов… Готово
+
+Построение дерева зависимостей… Готово
+
+Чтение информации о состоянии… Готово         
+
+Следующий пакет устанавливался автоматически и больше не требуется:
+
+  systemd-hwe-hwdb
+
+Для его удаления используйте «sudo apt autoremove».
+
+Предлагаемые пакеты:
+
+  php-pear
+
+Следующие НОВЫЕ пакеты будут установлены:
+
+  libapache2-mod-php8.1 php8.1
+
+Обновлено 0 пакетов, установлено 2 новых пакетов, для удаления отмечено 0 пакетов, и 156 пакетов не обновлено.
+
+Необходимо скачать 1 776 kB архивов.
+
+После данной операции объём занятого дискового пространства возрастёт на 5 464 kB.
+
+Пол:1 http://ru.archive.ubuntu.com/ubuntu jammy-updates/main amd64 libapache2-mod-php8.1 amd64 8.1.2-1ubuntu2.10 [1 767 kB]
+
+Пол:2 http://ru.archive.ubuntu.com/ubuntu jammy-updates/main amd64 php8.1 all 8.1.2-1ubuntu2.10 [9 156 B]
+
+Получено 1 776 kB за 1с (1 292 kB/s)
+
+Выбор ранее не выбранного пакета libapache2-mod-php8.1.
+
+(Чтение базы данных … на данный момент установлен 186201 файл и каталог.)
+
+Подготовка к распаковке …/libapache2-mod-php8.1_8.1.2-1ubuntu2.10_amd64.deb …
+
+Распаковывается libapache2-mod-php8.1 (8.1.2-1ubuntu2.10) …
+
+Выбор ранее не выбранного пакета php8.1.
+
+Подготовка к распаковке …/php8.1_8.1.2-1ubuntu2.10_all.deb …
+
+Распаковывается php8.1 (8.1.2-1ubuntu2.10) …
+
+Настраивается пакет php8.1 (8.1.2-1ubuntu2.10) …
+
+Настраивается пакет libapache2-mod-php8.1 (8.1.2-1ubuntu2.10) …
+
+
+
+Creating config file /etc/php/8.1/apache2/php.ini with new version
+
+Module mpm_event disabled.
+
+Enabling module mpm_prefork.
+
+apache2_switch_mpm Switch to prefork
+
+apache2_invoke: Enable module php8.1
+
+Обрабатываются триггеры для libapache2-mod-php8.1 (8.1.2-1ubuntu2.10) …
+
+leaclover@leaclover-VirtualBox:/$ sudo nano /etc/apache2/sites-enabled/000-default.conf
+
+#### Меняем путь в директорию с php
+...
+	DocumentRoot /var/www/leaclover.local
+...
+####
+
+leaclover@leaclover-VirtualBox:/$ sudo systemctl restart apache2
+
+leaclover@leaclover-VirtualBox:/$ sudo nano etc/nginx/conf.d/leaclover.conf 
+
+
+#### Прописываем настройки обратного прокси
+location / {
+
+        index index.php index.html index.htm;
+
+        proxy_pass http://localhost:8080;
+
+        proxy_set_header Host $host;
+
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+
+        proxy_set_header X-Real-IP $remote_addr;
+
+    }
+####
+
+leaclover@leaclover-VirtualBox:/$ sudo nginx -t
+
+nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+
+nginx: configuration file /etc/nginx/nginx.conf test is successful
+
+leaclover@leaclover-VirtualBox:/$ sudo systemctl reload apache2
+
+leaclover@leaclover-VirtualBox:/$ sudo service nginx reload
+
+leaclover@leaclover-VirtualBox:/$ sudo ss -ntlp
+
+State               Recv-Q              Send-Q                            Local Address:Port                             Peer Address:Port              Process                                                                                                                                                 
+
+LISTEN              0                   511                                     0.0.0.0:80                                    0.0.0.0:*                  users:(("nginx",pid=31710,fd=8),("nginx",pid=31709,fd=8),("nginx",pid=31708,fd=8),("nginx",pid=31707,fd=8),("nginx",pid=28057,fd=8))                   
+
+LISTEN              0                   4096                              127.0.0.53%lo:53                                    0.0.0.0:*                  users:(("systemd-resolve",pid=467,fd=14))                                                                                                              
+
+LISTEN              0                   128                                     0.0.0.0:22                                    0.0.0.0:*                  users:(("sshd",pid=775,fd=3))                                                                                                                          
+
+LISTEN              0                   128                                   127.0.0.1:631                                   0.0.0.0:*                  users:(("cupsd",pid=4166,fd=7))                                                                                                                        
+
+LISTEN              0                   511                                   127.0.0.1:9000                                  0.0.0.0:*                  users:(("php-fpm8.1",pid=28071,fd=9),("php-fpm8.1",pid=28070,fd=9),("php-fpm8.1",pid=28069,fd=7))                                                      
+
+LISTEN              0                   511                                           *:8080                                        *:*                  users:(("apache2",pid=31725,fd=4),("apache2",pid=31723,fd=4),("apache2",pid=31722,fd=4),("apache2",pid=31721,fd=4),("apache2",pid=31720,fd=4),("apache2",pid=31719,fd=4),("apache2",pid=31314,fd=4))
+
+LISTEN              0                   128                                        [::]:22                                       [::]:*                  users:(("sshd",pid=775,fd=4))                                                                                                                          
+
+LISTEN              0                   128                                       [::1]:631                                      [::]:*                  users:(("cupsd",pid=4166,fd=6))       
+
+
+leaclover@leaclover-VirtualBox:/$ sudo apt install mysql-server-8.0 -y
+
+Чтение списков пакетов… Готово
+
+Построение дерева зависимостей… Готово
+
+Чтение информации о состоянии… Готово         
+
+Следующий пакет устанавливался автоматически и больше не требуется:
+
+  systemd-hwe-hwdb
+
+Для его удаления используйте «sudo apt autoremove».
+
+Будут установлены следующие дополнительные пакеты:
+
+  libaio1 libcgi-fast-perl libcgi-pm-perl libevent-core-2.1-7 libevent-pthreads-2.1-7 libfcgi-bin libfcgi-perl libfcgi0ldbl libhtml-template-perl
+
+  libmecab2 libprotobuf-lite23 mecab-ipadic mecab-ipadic-utf8 mecab-utils mysql-client-8.0 mysql-client-core-8.0 mysql-common mysql-server-core-8.0
+
+Предлагаемые пакеты:
+
+  libipc-sharedcache-perl mailx tinyca
+
+Следующие НОВЫЕ пакеты будут установлены:
+
+  libaio1 libcgi-fast-perl libcgi-pm-perl libevent-core-2.1-7 libevent-pthreads-2.1-7 libfcgi-bin libfcgi-perl libfcgi0ldbl libhtml-template-perl
+
+  libmecab2 libprotobuf-lite23 mecab-ipadic mecab-ipadic-utf8 mecab-utils mysql-client-8.0 mysql-client-core-8.0 mysql-common mysql-server-8.0
+
+  mysql-server-core-8.0
+
+Обновлено 0 пакетов, установлено 19 новых пакетов, для удаления отмечено 0 пакетов, и 156 пакетов не обновлено.
+
+Необходимо скачать 29,2 MB архивов.
+
+После данной операции объём занятого дискового пространства возрастёт на 242 MB.
+
+Пол:1 http://ru.archive.ubuntu.com/ubuntu jammy/main amd64 mysql-common all 5.8+1.0.8 [7 212 B]
+
+Пол:2 http://ru.archive.ubuntu.com/ubuntu jammy-updates/main amd64 mysql-client-core-8.0 amd64 8.0.32-0ubuntu0.22.04.2 [2 677 kB]
+
+Пол:3 http://ru.archive.ubuntu.com/ubuntu jammy-updates/main amd64 mysql-client-8.0 amd64 8.0.32-0ubuntu0.22.04.2 [22,7 kB]
+
+Пол:4 http://ru.archive.ubuntu.com/ubuntu jammy/main amd64 libaio1 amd64 0.3.112-13build1 [7 176 B]
+
+Пол:5 http://ru.archive.ubuntu.com/ubuntu jammy/main amd64 libevent-core-2.1-7 amd64 2.1.12-stable-1build3 [93,9 kB]
+
+Пол:6 http://ru.archive.ubuntu.com/ubuntu jammy/main amd64 libevent-pthreads-2.1-7 amd64 2.1.12-stable-1build3 [7 642 B]
+
+Пол:7 http://ru.archive.ubuntu.com/ubuntu jammy/main amd64 libmecab2 amd64 0.996-14build9 [199 kB]
+
+Пол:8 http://ru.archive.ubuntu.com/ubuntu jammy/main amd64 libprotobuf-lite23 amd64 3.12.4-1ubuntu7 [208 kB]
+
+Пол:9 http://ru.archive.ubuntu.com/ubuntu jammy-updates/main amd64 mysql-server-core-8.0 amd64 8.0.32-0ubuntu0.22.04.2 [17,5 MB]
+
+Пол:10 http://ru.archive.ubuntu.com/ubuntu jammy-updates/main amd64 mysql-server-8.0 amd64 8.0.32-0ubuntu0.22.04.2 [1 427 kB]                          
+
+Пол:11 http://ru.archive.ubuntu.com/ubuntu jammy/main amd64 libcgi-pm-perl all 4.54-1 [188 kB]                                                         
+
+Пол:12 http://ru.archive.ubuntu.com/ubuntu jammy/main amd64 libfcgi0ldbl amd64 2.4.2-2build2 [28,0 kB]                                                 
+
+Пол:13 http://ru.archive.ubuntu.com/ubuntu jammy/main amd64 libfcgi-perl amd64 0.82+ds-1build1 [22,8 kB]                                               
+
+Пол:14 http://ru.archive.ubuntu.com/ubuntu jammy/main amd64 libcgi-fast-perl all 1:2.15-1 [10,5 kB]                                                    
+
+Пол:15 http://ru.archive.ubuntu.com/ubuntu jammy/main amd64 libfcgi-bin amd64 2.4.2-2build2 [11,2 kB]                                                  
+
+Пол:16 http://ru.archive.ubuntu.com/ubuntu jammy/main amd64 libhtml-template-perl all 2.97-1.1 [59,1 kB]                                               
+
+Пол:17 http://ru.archive.ubuntu.com/ubuntu jammy/main amd64 mecab-utils amd64 0.996-14build9 [4 850 B]                                                 
+
+Пол:18 http://ru.archive.ubuntu.com/ubuntu jammy/main amd64 mecab-ipadic all 2.7.0-20070801+main-3 [6 718 kB]                                          
+
+Пол:19 http://ru.archive.ubuntu.com/ubuntu jammy/main amd64 mecab-ipadic-utf8 all 2.7.0-20070801+main-3 [4 384 B]                                      
+
+Получено 29,2 MB за 24с (1 228 kB/s)                                                                                                                   
+
+Предварительная настройка пакетов …
+
+Выбор ранее не выбранного пакета mysql-common.
+
+(Чтение базы данных … на данный момент установлено 186217 файлов и каталогов.)
+
+Подготовка к распаковке …/0-mysql-common_5.8+1.0.8_all.deb …
+
+Распаковывается mysql-common (5.8+1.0.8) …
+
+Выбор ранее не выбранного пакета mysql-client-core-8.0.
+
+Подготовка к распаковке …/1-mysql-client-core-8.0_8.0.32-0ubuntu0.22.04.2_amd64.deb …
+
+Распаковывается mysql-client-core-8.0 (8.0.32-0ubuntu0.22.04.2) …
+
+Выбор ранее не выбранного пакета mysql-client-8.0.
+
+Подготовка к распаковке …/2-mysql-client-8.0_8.0.32-0ubuntu0.22.04.2_amd64.deb …
+
+Распаковывается mysql-client-8.0 (8.0.32-0ubuntu0.22.04.2) …
+
+Выбор ранее не выбранного пакета libaio1:amd64.
+
+Подготовка к распаковке …/3-libaio1_0.3.112-13build1_amd64.deb …
+
+Распаковывается libaio1:amd64 (0.3.112-13build1) …
+
+Выбор ранее не выбранного пакета libevent-core-2.1-7:amd64.
+
+Подготовка к распаковке …/4-libevent-core-2.1-7_2.1.12-stable-1build3_amd64.deb …
+
+Распаковывается libevent-core-2.1-7:amd64 (2.1.12-stable-1build3) …
+
+Выбор ранее не выбранного пакета libevent-pthreads-2.1-7:amd64.
+
+Подготовка к распаковке …/5-libevent-pthreads-2.1-7_2.1.12-stable-1build3_amd64.deb …
+
+Распаковывается libevent-pthreads-2.1-7:amd64 (2.1.12-stable-1build3) …
+
+Выбор ранее не выбранного пакета libmecab2:amd64.
+
+Подготовка к распаковке …/6-libmecab2_0.996-14build9_amd64.deb …
+
+Распаковывается libmecab2:amd64 (0.996-14build9) …
+
+Выбор ранее не выбранного пакета libprotobuf-lite23:amd64.
+
+Подготовка к распаковке …/7-libprotobuf-lite23_3.12.4-1ubuntu7_amd64.deb …
+
+Распаковывается libprotobuf-lite23:amd64 (3.12.4-1ubuntu7) …
+
+Выбор ранее не выбранного пакета mysql-server-core-8.0.
+
+Подготовка к распаковке …/8-mysql-server-core-8.0_8.0.32-0ubuntu0.22.04.2_amd64.deb …
+
+Распаковывается mysql-server-core-8.0 (8.0.32-0ubuntu0.22.04.2) …
+
+Настраивается пакет mysql-common (5.8+1.0.8) …
+
+update-alternatives: используется /etc/mysql/my.cnf.fallback для предоставления /etc/mysql/my.cnf (my.cnf) в автоматическом режиме
+
+Выбор ранее не выбранного пакета mysql-server-8.0.
+
+(Чтение базы данных … на данный момент установлен 186441 файл и каталог.)
+
+Подготовка к распаковке …/0-mysql-server-8.0_8.0.32-0ubuntu0.22.04.2_amd64.deb …
+
+Распаковывается mysql-server-8.0 (8.0.32-0ubuntu0.22.04.2) …
+
+Выбор ранее не выбранного пакета libcgi-pm-perl.
+
+Подготовка к распаковке …/1-libcgi-pm-perl_4.54-1_all.deb …
+
+Распаковывается libcgi-pm-perl (4.54-1) …
+
+Выбор ранее не выбранного пакета libfcgi0ldbl:amd64.
+
+Подготовка к распаковке …/2-libfcgi0ldbl_2.4.2-2build2_amd64.deb …
+
+Распаковывается libfcgi0ldbl:amd64 (2.4.2-2build2) …
+
+Выбор ранее не выбранного пакета libfcgi-perl:amd64.
+
+Подготовка к распаковке …/3-libfcgi-perl_0.82+ds-1build1_amd64.deb …
+
+Распаковывается libfcgi-perl:amd64 (0.82+ds-1build1) …
+
+Выбор ранее не выбранного пакета libcgi-fast-perl.
+
+Подготовка к распаковке …/4-libcgi-fast-perl_1%3a2.15-1_all.deb …
+
+Распаковывается libcgi-fast-perl (1:2.15-1) …
+
+Выбор ранее не выбранного пакета libfcgi-bin.
+
+Подготовка к распаковке …/5-libfcgi-bin_2.4.2-2build2_amd64.deb …
+
+Распаковывается libfcgi-bin (2.4.2-2build2) …
+
+Выбор ранее не выбранного пакета libhtml-template-perl.
+
+Подготовка к распаковке …/6-libhtml-template-perl_2.97-1.1_all.deb …
+
+Распаковывается libhtml-template-perl (2.97-1.1) …
+
+Выбор ранее не выбранного пакета mecab-utils.
+
+Подготовка к распаковке …/7-mecab-utils_0.996-14build9_amd64.deb …
+
+Распаковывается mecab-utils (0.996-14build9) …
+
+Выбор ранее не выбранного пакета mecab-ipadic.
+
+Подготовка к распаковке …/8-mecab-ipadic_2.7.0-20070801+main-3_all.deb …
+
+Распаковывается mecab-ipadic (2.7.0-20070801+main-3) …
+
+Выбор ранее не выбранного пакета mecab-ipadic-utf8.
+
+Подготовка к распаковке …/9-mecab-ipadic-utf8_2.7.0-20070801+main-3_all.deb …
+
+Распаковывается mecab-ipadic-utf8 (2.7.0-20070801+main-3) …
+
+Настраивается пакет libmecab2:amd64 (0.996-14build9) …
+
+Настраивается пакет mysql-client-core-8.0 (8.0.32-0ubuntu0.22.04.2) …
+
+Настраивается пакет libfcgi0ldbl:amd64 (2.4.2-2build2) …
+
+Настраивается пакет libcgi-pm-perl (4.54-1) …
+
+Настраивается пакет libfcgi-bin (2.4.2-2build2) …
+
+Настраивается пакет libhtml-template-perl (2.97-1.1) …
+
+Настраивается пакет libprotobuf-lite23:amd64 (3.12.4-1ubuntu7) …
+
+Настраивается пакет mecab-utils (0.996-14build9) …
+
+Настраивается пакет libevent-core-2.1-7:amd64 (2.1.12-stable-1build3) …
+
+Настраивается пакет mysql-client-8.0 (8.0.32-0ubuntu0.22.04.2) …
+
+Настраивается пакет libfcgi-perl:amd64 (0.82+ds-1build1) …
+
+Настраивается пакет libaio1:amd64 (0.3.112-13build1) …
+
+Настраивается пакет libevent-pthreads-2.1-7:amd64 (2.1.12-stable-1build3) …
+
+Настраивается пакет mecab-ipadic (2.7.0-20070801+main-3) …
+
+Compiling IPA dictionary for Mecab.  This takes long time...
+
+reading /usr/share/mecab/dic/ipadic/unk.def ... 40
+
+emitting double-array: 100% |###########################################| 
+
+/usr/share/mecab/dic/ipadic/model.def is not found. skipped.
+
+reading /usr/share/mecab/dic/ipadic/Noun.place.csv ... 72999
+
+reading /usr/share/mecab/dic/ipadic/Noun.org.csv ... 16668
+
+reading /usr/share/mecab/dic/ipadic/Adnominal.csv ... 135
+
+reading /usr/share/mecab/dic/ipadic/Filler.csv ... 19
+
+reading /usr/share/mecab/dic/ipadic/Verb.csv ... 130750
+
+reading /usr/share/mecab/dic/ipadic/Noun.adjv.csv ... 3328
+
+reading /usr/share/mecab/dic/ipadic/Noun.nai.csv ... 42
+
+reading /usr/share/mecab/dic/ipadic/Conjunction.csv ... 171
+
+reading /usr/share/mecab/dic/ipadic/Others.csv ... 2
+
+reading /usr/share/mecab/dic/ipadic/Postp-col.csv ... 91
+
+reading /usr/share/mecab/dic/ipadic/Interjection.csv ... 252
+
+reading /usr/share/mecab/dic/ipadic/Noun.proper.csv ... 27328
+
+reading /usr/share/mecab/dic/ipadic/Adverb.csv ... 3032
+
+reading /usr/share/mecab/dic/ipadic/Noun.name.csv ... 34202
+
+reading /usr/share/mecab/dic/ipadic/Noun.others.csv ... 151
+
+reading /usr/share/mecab/dic/ipadic/Auxil.csv ... 199
+
+reading /usr/share/mecab/dic/ipadic/Adj.csv ... 27210
+
+reading /usr/share/mecab/dic/ipadic/Postp.csv ... 146
+
+reading /usr/share/mecab/dic/ipadic/Noun.adverbal.csv ... 795
+
+reading /usr/share/mecab/dic/ipadic/Suffix.csv ... 1393
+
+reading /usr/share/mecab/dic/ipadic/Noun.number.csv ... 42
+
+reading /usr/share/mecab/dic/ipadic/Noun.demonst.csv ... 120
+
+reading /usr/share/mecab/dic/ipadic/Noun.verbal.csv ... 12146
+
+reading /usr/share/mecab/dic/ipadic/Symbol.csv ... 208
+
+reading /usr/share/mecab/dic/ipadic/Prefix.csv ... 221
+
+reading /usr/share/mecab/dic/ipadic/Noun.csv ... 60477
+
+emitting double-array: 100% |###########################################| 
+
+reading /usr/share/mecab/dic/ipadic/matrix.def ... 1316x1316
+
+emitting matrix      : 100% |###########################################| 
+
+
+
+done!
+
+update-alternatives: используется /var/lib/mecab/dic/ipadic для предоставления /var/lib/mecab/dic/debian (mecab-dictionary) в автоматическом режиме
+
+Настраивается пакет libcgi-fast-perl (1:2.15-1) …
+
+Настраивается пакет mysql-server-core-8.0 (8.0.32-0ubuntu0.22.04.2) …
+
+Настраивается пакет mecab-ipadic-utf8 (2.7.0-20070801+main-3) …
+
+Compiling IPA dictionary for Mecab.  This takes long time...
+
+reading /usr/share/mecab/dic/ipadic/unk.def ... 40
+
+emitting double-array: 100% |###########################################| 
+
+/usr/share/mecab/dic/ipadic/model.def is not found. skipped.
+
+reading /usr/share/mecab/dic/ipadic/Noun.place.csv ... 72999
+
+reading /usr/share/mecab/dic/ipadic/Noun.org.csv ... 16668
+
+reading /usr/share/mecab/dic/ipadic/Adnominal.csv ... 135
+
+reading /usr/share/mecab/dic/ipadic/Filler.csv ... 19
+
+reading /usr/share/mecab/dic/ipadic/Verb.csv ... 130750
+
+reading /usr/share/mecab/dic/ipadic/Noun.adjv.csv ... 3328
+
+reading /usr/share/mecab/dic/ipadic/Noun.nai.csv ... 42
+
+reading /usr/share/mecab/dic/ipadic/Conjunction.csv ... 171
+
+reading /usr/share/mecab/dic/ipadic/Others.csv ... 2
+
+reading /usr/share/mecab/dic/ipadic/Postp-col.csv ... 91
+
+reading /usr/share/mecab/dic/ipadic/Interjection.csv ... 252
+
+reading /usr/share/mecab/dic/ipadic/Noun.proper.csv ... 27328
+
+reading /usr/share/mecab/dic/ipadic/Adverb.csv ... 3032
+
+reading /usr/share/mecab/dic/ipadic/Noun.name.csv ... 34202
+
+reading /usr/share/mecab/dic/ipadic/Noun.others.csv ... 151
+
+reading /usr/share/mecab/dic/ipadic/Auxil.csv ... 199
+
+reading /usr/share/mecab/dic/ipadic/Adj.csv ... 27210
+
+reading /usr/share/mecab/dic/ipadic/Postp.csv ... 146
+
+reading /usr/share/mecab/dic/ipadic/Noun.adverbal.csv ... 795
+
+reading /usr/share/mecab/dic/ipadic/Suffix.csv ... 1393
+
+reading /usr/share/mecab/dic/ipadic/Noun.number.csv ... 42
+
+reading /usr/share/mecab/dic/ipadic/Noun.demonst.csv ... 120
+
+reading /usr/share/mecab/dic/ipadic/Noun.verbal.csv ... 12146
+
+reading /usr/share/mecab/dic/ipadic/Symbol.csv ... 208
+
+reading /usr/share/mecab/dic/ipadic/Prefix.csv ... 221
+
+reading /usr/share/mecab/dic/ipadic/Noun.csv ... 60477
+
+emitting double-array: 100% |###########################################| 
+
+reading /usr/share/mecab/dic/ipadic/matrix.def ... 1316x1316
+
+emitting matrix      : 100% |###########################################| 
+
+
+
+done!
+
+update-alternatives: используется /var/lib/mecab/dic/ipadic-utf8 для предоставления /var/lib/mecab/dic/debian (mecab-dictionary) в автоматическом режиме
+
+Настраивается пакет mysql-server-8.0 (8.0.32-0ubuntu0.22.04.2) …
+
+update-alternatives: используется /etc/mysql/mysql.cnf для предоставления /etc/mysql/my.cnf (my.cnf) в автоматическом режиме
+
+Renaming removed key_buffer and myisam-recover options (if present)
+
+mysqld will log errors to /var/log/mysql/error.log
+
+mysqld is running as pid 32209
+
+Created symlink /etc/systemd/system/multi-user.target.wants/mysql.service → /lib/systemd/system/mysql.service.
+
+Обрабатываются триггеры для man-db (2.10.2-1) …
+
+Обрабатываются триггеры для libc-bin (2.35-0ubuntu3.1) …
+
+leaclover@leaclover-VirtualBox:/$ systemctl status mysql
+
+● mysql.service - MySQL Community Server
+
+     Loaded: loaded (/lib/systemd/system/mysql.service; enabled; vendor preset: enabled)
+
+     Active: active (running) since Tue 2023-02-07 18:23:16 MSK; 28s ago
+
+    Process: 32395 ExecStartPre=/usr/share/mysql/mysql-systemd-start pre (code=exited, status=0/SUCCESS)
+
+   Main PID: 32403 (mysqld)
+
+     Status: "Server is operational"
+
+      Tasks: 39 (limit: 2287)
+
+     Memory: 362.4M
+
+        CPU: 1.098s
+
+     CGroup: /system.slice/mysql.service
+
+             └─32403 /usr/sbin/mysqld
+
+
+
+фев 07 18:23:15 leaclover-VirtualBox systemd[1]: Starting MySQL Community Server...
+
+фев 07 18:23:16 leaclover-VirtualBox systemd[1]: Started MySQL Community Server.
+
+leaclover@leaclover-VirtualBox:/$ sudo mysql
+
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+
+Your MySQL connection id is 8
+
+Server version: 8.0.32-0ubuntu0.22.04.2 (Ubuntu)
+
+
+
+Copyright (c) 2000, 2023, Oracle and/or its affiliates.
+
+
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+
+affiliates. Other names may be trademarks of their respective
+
+owners.
+
+
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+
+
+mysql> show databases;
+
++--------------------+
+
+| Database           |
+
++--------------------+
+
+| information_schema |
+
+| mysql              |
+
+| performance_schema |
+
+| sys                |
+
++--------------------+
+
+4 rows in set (0,01 sec)
+
+
+
+mysql> CREATE DATABASE leaclover;
+
+Query OK, 1 row affected (0,02 sec)
+
+
+
+mysql> show databases;
+
++--------------------+
+
+| Database           |
+
++--------------------+
+
+| information_schema |
+
+| leaclover          |
+
+| mysql              |
+
+| performance_schema |
+
+| sys                |
+
++--------------------+
+
+5 rows in set (0,00 sec)
+
+
+
+mysql> use leaclover;
+
+Database changed
+
+mysql> CREATE TABLE students(id INT, name TEXT, phone INT);
+
+Query OK, 0 rows affected (0,04 sec)
+
+mysql> SHOW TABLES;
+
++---------------------+
+
+| Tables_in_leaclover |
+
++---------------------+
+
+| students            |
+
++---------------------+
+
+1 row in set (0,00 sec)
+
+
+
+mysql> INSERT INTO students VALUES (1, 'ABC', 4567),(2, 'QWE', 3333),(3, 'GHJ', 5674);
+
+Query OK, 3 rows affected (0,03 sec)
+
+Records: 3  Duplicates: 0  Warnings: 0
+
+
+
+mysql> SHOW TABLES;
+
++---------------------+
+
+| Tables_in_leaclover |
+
++---------------------+
+
+| students            |
+
++---------------------+
+
+1 row in set (0,00 sec)
+
+
+
+mysql> SELECT * FROM students\G;
+
+*************************** 1. row ***************************
+
+   id: 1
+
+ name: ABC
+
+phone: 4567
+
+*************************** 2. row ***************************
+
+   id: 2
+
+ name: QWE
+
+phone: 3333
+
+*************************** 3. row ***************************
+
+   id: 3
+
+ name: GHJ
+
+phone: 5674
+
+3 rows in set (0,00 sec)
+
+
+
+ERROR: 
+
+No query specified
+
+
+
+mysql> exit
+
+Bye
+
+leaclover@leaclover-VirtualBox:/$ sudo apt install phpmyadmin -y
+
+[sudo] пароль для leaclover: 
+
+Чтение списков пакетов… Готово
+
+Построение дерева зависимостей… Готово
+
+Чтение информации о состоянии… Готово         
+
+Следующий пакет устанавливался автоматически и больше не требуется:
+
+  systemd-hwe-hwdb
+
+Для его удаления используйте «sudo apt autoremove».
+
+Будут установлены следующие дополнительные пакеты:
+
+  dbconfig-common dbconfig-mysql icc-profiles-free javascript-common libjs-bootstrap4 libjs-codemirror libjs-jquery libjs-jquery-mousewheel
+
+  libjs-jquery-timepicker libjs-jquery-ui libjs-popper.js libjs-sizzle libjs-sphinxdoc libjs-underscore libonig5 libzip4 node-jquery php-bz2 php-curl
+
+  php-gd php-google-recaptcha php-json php-mariadb-mysql-kbs php-mbstring php-mysql php-nikic-fast-route php-phpmyadmin-motranslator
+
+  php-phpmyadmin-shapefile php-phpmyadmin-sql-parser php-phpseclib php-psr-cache php-psr-container php-psr-log php-symfony-cache
+
+  php-symfony-cache-contracts php-symfony-config php-symfony-dependency-injection php-symfony-deprecation-contracts php-symfony-expression-language
+
+  php-symfony-filesystem php-symfony-polyfill-php80 php-symfony-polyfill-php81 php-symfony-service-contracts php-symfony-var-exporter php-tcpdf
+
+  php-twig php-twig-i18n-extension php-xml php-zip php8.1-bz2 php8.1-curl php8.1-gd php8.1-mbstring php8.1-mysql php8.1-xml php8.1-zip
+
+Предлагаемые пакеты:
+
+  libjs-requirejs libjs-jquery-ui-docs php-dbase php-libsodium php-mcrypt php-gmp php-symfony-yaml php-symfony-finder php-symfony-proxy-manager-bridge
+
+  php-imagick php-twig-doc php-recode www-browser php-gd2 php-pragmarx-google2fa-qrcode php-samyoul-u2f-php-server
+
+Рекомендуемые пакеты:
+
+  php-mcrypt
+
+Следующие НОВЫЕ пакеты будут установлены:
+
+  dbconfig-common dbconfig-mysql icc-profiles-free javascript-common libjs-bootstrap4 libjs-codemirror libjs-jquery libjs-jquery-mousewheel
+
+  libjs-jquery-timepicker libjs-jquery-ui libjs-popper.js libjs-sizzle libjs-sphinxdoc libjs-underscore libonig5 libzip4 node-jquery php-bz2 php-curl
+
+  php-gd php-google-recaptcha php-json php-mariadb-mysql-kbs php-mbstring php-mysql php-nikic-fast-route php-phpmyadmin-motranslator
+
+  php-phpmyadmin-shapefile php-phpmyadmin-sql-parser php-phpseclib php-psr-cache php-psr-container php-psr-log php-symfony-cache
+
+  php-symfony-cache-contracts php-symfony-config php-symfony-dependency-injection php-symfony-deprecation-contracts php-symfony-expression-language
+
+  php-symfony-filesystem php-symfony-polyfill-php80 php-symfony-polyfill-php81 php-symfony-service-contracts php-symfony-var-exporter php-tcpdf
+
+  php-twig php-twig-i18n-extension php-xml php-zip php8.1-bz2 php8.1-curl php8.1-gd php8.1-mbstring php8.1-mysql php8.1-xml php8.1-zip phpmyadmin
+
+Обновлено 0 пакетов, установлено 57 новых пакетов, для удаления отмечено 0 пакетов, и 156 пакетов не обновлено.
+
+Необходимо скачать 18,1 MB архивов.
+
+После данной операции объём занятого дискового пространства возрастёт на 84,1 MB.
+
+Пол:1 http://ru.archive.ubuntu.com/ubuntu jammy/universe amd64 dbconfig-common all 2.0.21 [597 kB]
+
+Пол:2 http://ru.archive.ubuntu.com/ubuntu jammy/universe amd64 dbconfig-mysql all 2.0.21 [938 B]
+
+Пол:3 http://ru.archive.ubuntu.com/ubuntu jammy/main amd64 icc-profiles-free all 2.0.1+dfsg-1.1 [214 kB]
+
+Пол:4 http://ru.archive.ubuntu.com/ubuntu jammy/main amd64 javascript-common all 11+nmu1 [5 936 B]
+
+Пол:5 http://ru.archive.ubuntu.com/ubuntu jammy/universe amd64 libjs-popper.js all 1.16.1+ds-5 [53,8 kB]
+
+Пол:6 http://ru.archive.ubuntu.com/ubuntu jammy/universe amd64 libjs-bootstrap4 all 4.6.0+dfsg1-4 [534 kB]
+
+Пол:7 http://ru.archive.ubuntu.com/ubuntu jammy/main amd64 libjs-jquery all 3.6.0+dfsg+~3.5.13-1 [321 kB]
+
+Пол:8 http://ru.archive.ubuntu.com/ubuntu jammy/universe amd64 libjs-jquery-mousewheel all 1:3.1.13-5 [6 324 B]
+
+Пол:9 http://ru.archive.ubuntu.com/ubuntu jammy/universe amd64 libjs-jquery-ui all 1.13.1+dfsg-1 [253 kB]
+
+Пол:10 http://ru.archive.ubuntu.com/ubuntu jammy/universe amd64 libjs-jquery-timepicker all 1.6.3-1 [48,2 kB]
+
+Пол:11 http://ru.archive.ubuntu.com/ubuntu jammy/universe amd64 libjs-sizzle all 2.3.6+ds+~2.3.3-1 [32,3 kB]
+
+Пол:12 http://ru.archive.ubuntu.com/ubuntu jammy/main amd64 libjs-underscore all 1.13.2~dfsg-2 [118 kB]
+
+Пол:13 http://ru.archive.ubuntu.com/ubuntu jammy/main amd64 libjs-sphinxdoc all 4.3.2-1 [139 kB]
+
+Пол:14 http://ru.archive.ubuntu.com/ubuntu jammy/main amd64 libonig5 amd64 6.9.7.1-2build1 [172 kB]
+
+Пол:15 http://ru.archive.ubuntu.com/ubuntu jammy/universe amd64 libzip4 amd64 1.7.3-1ubuntu2 [55,0 kB]
+
+Пол:16 http://ru.archive.ubuntu.com/ubuntu jammy/universe amd64 node-jquery all 3.6.0+dfsg+~3.5.13-1 [160 kB]
+
+Пол:17 http://ru.archive.ubuntu.com/ubuntu jammy-updates/universe amd64 php8.1-bz2 amd64 8.1.2-1ubuntu2.10 [11,5 kB]
+
+Пол:18 http://ru.archive.ubuntu.com/ubuntu jammy/universe amd64 php-bz2 all 2:8.1+92ubuntu1 [1 832 B]
+
+Пол:19 http://ru.archive.ubuntu.com/ubuntu jammy-updates/main amd64 php8.1-curl amd64 8.1.2-1ubuntu2.10 [38,7 kB]
+
+Пол:20 http://ru.archive.ubuntu.com/ubuntu jammy/main amd64 php-curl all 2:8.1+92ubuntu1 [1 834 B]
+
+Пол:21 http://ru.archive.ubuntu.com/ubuntu jammy-updates/main amd64 php8.1-gd amd64 8.1.2-1ubuntu2.10 [32,6 kB]
+
+Пол:22 http://ru.archive.ubuntu.com/ubuntu jammy/main amd64 php-gd all 2:8.1+92ubuntu1 [1 828 B]
+
+Пол:23 http://ru.archive.ubuntu.com/ubuntu jammy/universe amd64 php-google-recaptcha all 1.2.4-3 [17,1 kB]
+
+Пол:24 http://ru.archive.ubuntu.com/ubuntu jammy/main amd64 php-json all 2:8.1+92ubuntu1 [1 834 B]
+
+Пол:25 http://ru.archive.ubuntu.com/ubuntu jammy/universe amd64 php-mariadb-mysql-kbs all 1.2.12-1 [31,5 kB]
+
+Пол:26 http://ru.archive.ubuntu.com/ubuntu jammy-updates/main amd64 php8.1-mbstring amd64 8.1.2-1ubuntu2.10 [484 kB]
+
+Пол:27 http://ru.archive.ubuntu.com/ubuntu jammy/universe amd64 php-mbstring all 2:8.1+92ubuntu1 [1 844 B]
+
+Пол:28 http://ru.archive.ubuntu.com/ubuntu jammy-updates/main amd64 php8.1-mysql amd64 8.1.2-1ubuntu2.10 [130 kB]
+
+Пол:29 http://ru.archive.ubuntu.com/ubuntu jammy/main amd64 php-mysql all 2:8.1+92ubuntu1 [1 834 B]
+
+Пол:30 http://ru.archive.ubuntu.com/ubuntu jammy/universe amd64 php-nikic-fast-route all 1.3.0-3 [13,0 kB]
+
+Пол:31 http://ru.archive.ubuntu.com/ubuntu jammy/universe amd64 php-psr-cache all 3.0.0-1 [5 680 B]
+
+Пол:32 http://ru.archive.ubuntu.com/ubuntu jammy/universe amd64 php-psr-log all 3.0.0-1 [6 862 B]
+
+Пол:33 http://ru.archive.ubuntu.com/ubuntu jammy/universe amd64 php-symfony-cache-contracts all 2.4.0-1ubuntu2 [7 132 B]
+
+Пол:34 http://ru.archive.ubuntu.com/ubuntu jammy/universe amd64 php-symfony-deprecation-contracts all 2.4.0-1ubuntu2 [4 700 B]
+
+Пол:35 http://ru.archive.ubuntu.com/ubuntu jammy/universe amd64 php-symfony-polyfill-php80 all 1.24.0-1ubuntu2 [6 642 B]
+
+Пол:36 http://ru.archive.ubuntu.com/ubuntu jammy/universe amd64 php-psr-container all 2.0.2-1 [3 878 B]
+
+Пол:37 http://ru.archive.ubuntu.com/ubuntu jammy/universe amd64 php-symfony-service-contracts all 2.4.0-1ubuntu2 [8 136 B]
+
+Пол:38 http://ru.archive.ubuntu.com/ubuntu jammy/universe amd64 php-symfony-var-exporter all 5.4.4+dfsg-1ubuntu8 [19,1 kB]
+
+Пол:39 http://ru.archive.ubuntu.com/ubuntu jammy/universe amd64 php-symfony-cache all 5.4.4+dfsg-1ubuntu8 [56,9 kB]
+
+Пол:40 http://ru.archive.ubuntu.com/ubuntu jammy/universe amd64 php-symfony-expression-language all 5.4.4+dfsg-1ubuntu8 [21,0 kB]
+
+Пол:41 http://ru.archive.ubuntu.com/ubuntu jammy/universe amd64 php-phpmyadmin-motranslator all 5.2.0-1build1 [11,5 kB]
+
+Пол:42 http://ru.archive.ubuntu.com/ubuntu jammy/universe amd64 php-phpmyadmin-shapefile all 2.1-5 [45,1 kB]
+
+Пол:43 http://ru.archive.ubuntu.com/ubuntu jammy/universe amd64 php-phpmyadmin-sql-parser all 5.4.1-2 [75,8 kB]
+
+Пол:44 http://ru.archive.ubuntu.com/ubuntu jammy/universe amd64 php-phpseclib all 2.0.36-1 [198 kB]
+
+Пол:45 http://ru.archive.ubuntu.com/ubuntu jammy/universe amd64 php-symfony-filesystem all 5.4.4+dfsg-1ubuntu8 [23,9 kB]
+
+Пол:46 http://ru.archive.ubuntu.com/ubuntu jammy/universe amd64 php-symfony-polyfill-php81 all 1.24.0-1ubuntu2 [5 218 B]
+
+Пол:47 http://ru.archive.ubuntu.com/ubuntu jammy/universe amd64 php-symfony-config all 5.4.4+dfsg-1ubuntu8 [49,7 kB]
+
+Пол:48 http://ru.archive.ubuntu.com/ubuntu jammy/universe amd64 php-symfony-dependency-injection all 5.4.4+dfsg-1ubuntu8 [115 kB]
+
+Пол:49 http://ru.archive.ubuntu.com/ubuntu jammy/universe amd64 php-tcpdf all 6.4.4+dfsg1-1 [8 063 kB]
+
+Пол:50 http://ru.archive.ubuntu.com/ubuntu jammy/universe amd64 php-twig all 3.3.8-2ubuntu4 [83,4 kB]                                                  
+
+Пол:51 http://ru.archive.ubuntu.com/ubuntu jammy/universe amd64 php-twig-i18n-extension all 3.0.0-2 [7 756 B]                                          
+
+Пол:52 http://ru.archive.ubuntu.com/ubuntu jammy-updates/main amd64 php8.1-xml amd64 8.1.2-1ubuntu2.10 [118 kB]                                        
+
+Пол:53 http://ru.archive.ubuntu.com/ubuntu jammy/main amd64 php-xml all 2:8.1+92ubuntu1 [1 850 B]                                                      
+
+Пол:54 http://ru.archive.ubuntu.com/ubuntu jammy-updates/universe amd64 php8.1-zip amd64 8.1.2-1ubuntu2.10 [27,1 kB]                                   
+
+Пол:55 http://ru.archive.ubuntu.com/ubuntu jammy/universe amd64 php-zip all 2:8.1+92ubuntu1 [1 830 B]                                                  
+
+Пол:56 http://ru.archive.ubuntu.com/ubuntu jammy/universe amd64 libjs-codemirror all 5.65.0+~cs5.83.9-1 [757 kB]                                       
+
+Пол:57 http://ru.archive.ubuntu.com/ubuntu jammy/universe amd64 phpmyadmin all 4:5.1.1+dfsg1-5ubuntu1 [4 937 kB]                                       
+
+Получено 18,1 MB за 10с (1 860 kB/s)                                                                                                                   
+
+Извлекаются шаблоны из пакетов: 100%
+
+Предварительная настройка пакетов …
+
+Выбор ранее не выбранного пакета dbconfig-common.
+
+(Чтение базы данных … на данный момент установлено 186606 файлов и каталогов.)
+
+Подготовка к распаковке …/00-dbconfig-common_2.0.21_all.deb …
+
+Распаковывается dbconfig-common (2.0.21) …
+
+Выбор ранее не выбранного пакета dbconfig-mysql.
+
+Подготовка к распаковке …/01-dbconfig-mysql_2.0.21_all.deb …
+
+Распаковывается dbconfig-mysql (2.0.21) …
+
+Выбор ранее не выбранного пакета icc-profiles-free.
+
+Подготовка к распаковке …/02-icc-profiles-free_2.0.1+dfsg-1.1_all.deb …
+
+Распаковывается icc-profiles-free (2.0.1+dfsg-1.1) …
+
+Выбор ранее не выбранного пакета javascript-common.
+
+Подготовка к распаковке …/03-javascript-common_11+nmu1_all.deb …
+
+Распаковывается javascript-common (11+nmu1) …
+
+Выбор ранее не выбранного пакета libjs-popper.js.
+
+Подготовка к распаковке …/04-libjs-popper.js_1.16.1+ds-5_all.deb …
+
+Распаковывается libjs-popper.js (1.16.1+ds-5) …
+
+Выбор ранее не выбранного пакета libjs-bootstrap4.
+
+Подготовка к распаковке …/05-libjs-bootstrap4_4.6.0+dfsg1-4_all.deb …
+
+Распаковывается libjs-bootstrap4 (4.6.0+dfsg1-4) …
+
+Выбор ранее не выбранного пакета libjs-jquery.
+
+Подготовка к распаковке …/06-libjs-jquery_3.6.0+dfsg+~3.5.13-1_all.deb …
+
+Распаковывается libjs-jquery (3.6.0+dfsg+~3.5.13-1) …
+
+Выбор ранее не выбранного пакета libjs-jquery-mousewheel.
+
+Подготовка к распаковке …/07-libjs-jquery-mousewheel_1%3a3.1.13-5_all.deb …
+
+Распаковывается libjs-jquery-mousewheel (1:3.1.13-5) …
+
+Выбор ранее не выбранного пакета libjs-jquery-ui.
+
+Подготовка к распаковке …/08-libjs-jquery-ui_1.13.1+dfsg-1_all.deb …
+
+Распаковывается libjs-jquery-ui (1.13.1+dfsg-1) …
+
+Выбор ранее не выбранного пакета libjs-jquery-timepicker.
+
+Подготовка к распаковке …/09-libjs-jquery-timepicker_1.6.3-1_all.deb …
+
+Распаковывается libjs-jquery-timepicker (1.6.3-1) …
+
+Выбор ранее не выбранного пакета libjs-sizzle.
+
+Подготовка к распаковке …/10-libjs-sizzle_2.3.6+ds+~2.3.3-1_all.deb …
+
+Распаковывается libjs-sizzle (2.3.6+ds+~2.3.3-1) …
+
+Выбор ранее не выбранного пакета libjs-underscore.
+
+Подготовка к распаковке …/11-libjs-underscore_1.13.2~dfsg-2_all.deb …
+
+Распаковывается libjs-underscore (1.13.2~dfsg-2) …
+
+Выбор ранее не выбранного пакета libjs-sphinxdoc.
+
+Подготовка к распаковке …/12-libjs-sphinxdoc_4.3.2-1_all.deb …
+
+Распаковывается libjs-sphinxdoc (4.3.2-1) …
+
+Выбор ранее не выбранного пакета libonig5:amd64.
+
+Подготовка к распаковке …/13-libonig5_6.9.7.1-2build1_amd64.deb …
+
+Распаковывается libonig5:amd64 (6.9.7.1-2build1) …
+
+Выбор ранее не выбранного пакета libzip4:amd64.
+
+Подготовка к распаковке …/14-libzip4_1.7.3-1ubuntu2_amd64.deb …
+
+Распаковывается libzip4:amd64 (1.7.3-1ubuntu2) …
+
+Выбор ранее не выбранного пакета node-jquery.
+
+Подготовка к распаковке …/15-node-jquery_3.6.0+dfsg+~3.5.13-1_all.deb …
+
+Распаковывается node-jquery (3.6.0+dfsg+~3.5.13-1) …
+
+Выбор ранее не выбранного пакета php8.1-bz2.
+
+Подготовка к распаковке …/16-php8.1-bz2_8.1.2-1ubuntu2.10_amd64.deb …
+
+Распаковывается php8.1-bz2 (8.1.2-1ubuntu2.10) …
+
+Выбор ранее не выбранного пакета php-bz2.
+
+Подготовка к распаковке …/17-php-bz2_2%3a8.1+92ubuntu1_all.deb …
+
+Распаковывается php-bz2 (2:8.1+92ubuntu1) …
+
+Выбор ранее не выбранного пакета php8.1-curl.
+
+Подготовка к распаковке …/18-php8.1-curl_8.1.2-1ubuntu2.10_amd64.deb …
+
+Распаковывается php8.1-curl (8.1.2-1ubuntu2.10) …
+
+Выбор ранее не выбранного пакета php-curl.
+
+Подготовка к распаковке …/19-php-curl_2%3a8.1+92ubuntu1_all.deb …
+
+Распаковывается php-curl (2:8.1+92ubuntu1) …
+
+Выбор ранее не выбранного пакета php8.1-gd.
+
+Подготовка к распаковке …/20-php8.1-gd_8.1.2-1ubuntu2.10_amd64.deb …
+
+Распаковывается php8.1-gd (8.1.2-1ubuntu2.10) …
+
+Выбор ранее не выбранного пакета php-gd.
+
+Подготовка к распаковке …/21-php-gd_2%3a8.1+92ubuntu1_all.deb …
+
+Распаковывается php-gd (2:8.1+92ubuntu1) …
+
+Выбор ранее не выбранного пакета php-google-recaptcha.
+
+Подготовка к распаковке …/22-php-google-recaptcha_1.2.4-3_all.deb …
+
+Распаковывается php-google-recaptcha (1.2.4-3) …
+
+Выбор ранее не выбранного пакета php-json.
+
+Подготовка к распаковке …/23-php-json_2%3a8.1+92ubuntu1_all.deb …
+
+Распаковывается php-json (2:8.1+92ubuntu1) …
+
+Выбор ранее не выбранного пакета php-mariadb-mysql-kbs.
+
+Подготовка к распаковке …/24-php-mariadb-mysql-kbs_1.2.12-1_all.deb …
+
+Распаковывается php-mariadb-mysql-kbs (1.2.12-1) …
+
+Выбор ранее не выбранного пакета php8.1-mbstring.
+
+Подготовка к распаковке …/25-php8.1-mbstring_8.1.2-1ubuntu2.10_amd64.deb …
+
+Распаковывается php8.1-mbstring (8.1.2-1ubuntu2.10) …
+
+Выбор ранее не выбранного пакета php-mbstring.
+
+Подготовка к распаковке …/26-php-mbstring_2%3a8.1+92ubuntu1_all.deb …
+
+Распаковывается php-mbstring (2:8.1+92ubuntu1) …
+
+Выбор ранее не выбранного пакета php8.1-mysql.
+
+Подготовка к распаковке …/27-php8.1-mysql_8.1.2-1ubuntu2.10_amd64.deb …
+
+Распаковывается php8.1-mysql (8.1.2-1ubuntu2.10) …
+
+Выбор ранее не выбранного пакета php-mysql.
+
+Подготовка к распаковке …/28-php-mysql_2%3a8.1+92ubuntu1_all.deb …
+
+Распаковывается php-mysql (2:8.1+92ubuntu1) …
+
+Выбор ранее не выбранного пакета php-nikic-fast-route.
+
+Подготовка к распаковке …/29-php-nikic-fast-route_1.3.0-3_all.deb …
+
+Распаковывается php-nikic-fast-route (1.3.0-3) …
+
+Выбор ранее не выбранного пакета php-psr-cache.
+
+Подготовка к распаковке …/30-php-psr-cache_3.0.0-1_all.deb …
+
+Распаковывается php-psr-cache (3.0.0-1) …
+
+Выбор ранее не выбранного пакета php-psr-log.
+
+Подготовка к распаковке …/31-php-psr-log_3.0.0-1_all.deb …
+
+Распаковывается php-psr-log (3.0.0-1) …
+
+Выбор ранее не выбранного пакета php-symfony-cache-contracts.
+
+Подготовка к распаковке …/32-php-symfony-cache-contracts_2.4.0-1ubuntu2_all.deb …
+
+Распаковывается php-symfony-cache-contracts (2.4.0-1ubuntu2) …
+
+Выбор ранее не выбранного пакета php-symfony-deprecation-contracts.
+
+Подготовка к распаковке …/33-php-symfony-deprecation-contracts_2.4.0-1ubuntu2_all.deb …
+
+Распаковывается php-symfony-deprecation-contracts (2.4.0-1ubuntu2) …
+
+Выбор ранее не выбранного пакета php-symfony-polyfill-php80.
+
+Подготовка к распаковке …/34-php-symfony-polyfill-php80_1.24.0-1ubuntu2_all.deb …
+
+Распаковывается php-symfony-polyfill-php80 (1.24.0-1ubuntu2) …
+
+Выбор ранее не выбранного пакета php-psr-container.
+
+Подготовка к распаковке …/35-php-psr-container_2.0.2-1_all.deb …
+
+Распаковывается php-psr-container (2.0.2-1) …
+
+Выбор ранее не выбранного пакета php-symfony-service-contracts.
+
+Подготовка к распаковке …/36-php-symfony-service-contracts_2.4.0-1ubuntu2_all.deb …
+
+Распаковывается php-symfony-service-contracts (2.4.0-1ubuntu2) …
+
+Выбор ранее не выбранного пакета php-symfony-var-exporter.
+
+Подготовка к распаковке …/37-php-symfony-var-exporter_5.4.4+dfsg-1ubuntu8_all.deb …
+
+Распаковывается php-symfony-var-exporter (5.4.4+dfsg-1ubuntu8) …
+
+Выбор ранее не выбранного пакета php-symfony-cache.
+
+Подготовка к распаковке …/38-php-symfony-cache_5.4.4+dfsg-1ubuntu8_all.deb …
+
+Распаковывается php-symfony-cache (5.4.4+dfsg-1ubuntu8) …
+
+Выбор ранее не выбранного пакета php-symfony-expression-language.
+
+Подготовка к распаковке …/39-php-symfony-expression-language_5.4.4+dfsg-1ubuntu8_all.deb …
+
+Распаковывается php-symfony-expression-language (5.4.4+dfsg-1ubuntu8) …
+
+Выбор ранее не выбранного пакета php-phpmyadmin-motranslator.
+
+Подготовка к распаковке …/40-php-phpmyadmin-motranslator_5.2.0-1build1_all.deb …
+
+Распаковывается php-phpmyadmin-motranslator (5.2.0-1build1) …
+
+Выбор ранее не выбранного пакета php-phpmyadmin-shapefile.
+
+Подготовка к распаковке …/41-php-phpmyadmin-shapefile_2.1-5_all.deb …
+
+Распаковывается php-phpmyadmin-shapefile (2.1-5) …
+
+Выбор ранее не выбранного пакета php-phpmyadmin-sql-parser.
+
+Подготовка к распаковке …/42-php-phpmyadmin-sql-parser_5.4.1-2_all.deb …
+
+Распаковывается php-phpmyadmin-sql-parser (5.4.1-2) …
+
+Выбор ранее не выбранного пакета php-phpseclib.
+
+Подготовка к распаковке …/43-php-phpseclib_2.0.36-1_all.deb …
+
+Распаковывается php-phpseclib (2.0.36-1) …
+
+Выбор ранее не выбранного пакета php-symfony-filesystem.
+
+Подготовка к распаковке …/44-php-symfony-filesystem_5.4.4+dfsg-1ubuntu8_all.deb …
+
+Распаковывается php-symfony-filesystem (5.4.4+dfsg-1ubuntu8) …
+
+Выбор ранее не выбранного пакета php-symfony-polyfill-php81.
+
+Подготовка к распаковке …/45-php-symfony-polyfill-php81_1.24.0-1ubuntu2_all.deb …
+
+Распаковывается php-symfony-polyfill-php81 (1.24.0-1ubuntu2) …
+
+Выбор ранее не выбранного пакета php-symfony-config.
+
+Подготовка к распаковке …/46-php-symfony-config_5.4.4+dfsg-1ubuntu8_all.deb …
+
+Распаковывается php-symfony-config (5.4.4+dfsg-1ubuntu8) …
+
+Выбор ранее не выбранного пакета php-symfony-dependency-injection.
+
+Подготовка к распаковке …/47-php-symfony-dependency-injection_5.4.4+dfsg-1ubuntu8_all.deb …
+
+Распаковывается php-symfony-dependency-injection (5.4.4+dfsg-1ubuntu8) …
+
+Выбор ранее не выбранного пакета php-tcpdf.
+
+Подготовка к распаковке …/48-php-tcpdf_6.4.4+dfsg1-1_all.deb …
+
+Распаковывается php-tcpdf (6.4.4+dfsg1-1) …
+
+Выбор ранее не выбранного пакета php-twig.
+
+Подготовка к распаковке …/49-php-twig_3.3.8-2ubuntu4_all.deb …
+
+Распаковывается php-twig (3.3.8-2ubuntu4) …
+
+Выбор ранее не выбранного пакета php-twig-i18n-extension.
+
+Подготовка к распаковке …/50-php-twig-i18n-extension_3.0.0-2_all.deb …
+
+Распаковывается php-twig-i18n-extension (3.0.0-2) …
+
+Выбор ранее не выбранного пакета php8.1-xml.
+
+Подготовка к распаковке …/51-php8.1-xml_8.1.2-1ubuntu2.10_amd64.deb …
+
+Распаковывается php8.1-xml (8.1.2-1ubuntu2.10) …
+
+Выбор ранее не выбранного пакета php-xml.
+
+Подготовка к распаковке …/52-php-xml_2%3a8.1+92ubuntu1_all.deb …
+
+Распаковывается php-xml (2:8.1+92ubuntu1) …
+
+Выбор ранее не выбранного пакета php8.1-zip.
+
+Подготовка к распаковке …/53-php8.1-zip_8.1.2-1ubuntu2.10_amd64.deb …
+
+Распаковывается php8.1-zip (8.1.2-1ubuntu2.10) …
+
+Выбор ранее не выбранного пакета php-zip.
+
+Подготовка к распаковке …/54-php-zip_2%3a8.1+92ubuntu1_all.deb …
+
+Распаковывается php-zip (2:8.1+92ubuntu1) …
+
+Выбор ранее не выбранного пакета libjs-codemirror.
+
+Подготовка к распаковке …/55-libjs-codemirror_5.65.0+~cs5.83.9-1_all.deb …
+
+Распаковывается libjs-codemirror (5.65.0+~cs5.83.9-1) …
+
+Выбор ранее не выбранного пакета phpmyadmin.
+
+Подготовка к распаковке …/56-phpmyadmin_4%3a5.1.1+dfsg1-5ubuntu1_all.deb …
+
+Распаковывается phpmyadmin (4:5.1.1+dfsg1-5ubuntu1) …
+
+Настраивается пакет javascript-common (11+nmu1) …
+
+apache2_invoke: Enable configuration javascript-common
+
+Настраивается пакет libjs-popper.js (1.16.1+ds-5) …
+
+Настраивается пакет php8.1-bz2 (8.1.2-1ubuntu2.10) …
+
+
+
+Creating config file /etc/php/8.1/mods-available/bz2.ini with new version
+
+Настраивается пакет php-json (2:8.1+92ubuntu1) …
+
+Настраивается пакет php-bz2 (2:8.1+92ubuntu1) …
+
+Настраивается пакет php-phpmyadmin-shapefile (2.1-5) …
+
+Настраивается пакет libzip4:amd64 (1.7.3-1ubuntu2) …
+
+Настраивается пакет php-psr-container (2.0.2-1) …
+
+Настраивается пакет php8.1-gd (8.1.2-1ubuntu2.10) …
+
+
+
+Creating config file /etc/php/8.1/mods-available/gd.ini with new version
+
+Настраивается пакет libjs-jquery-mousewheel (1:3.1.13-5) …
+
+Настраивается пакет php-symfony-service-contracts (2.4.0-1ubuntu2) …
+
+Настраивается пакет dbconfig-common (2.0.21) …
+
+
+
+Creating config file /etc/dbconfig-common/config with new version
+
+Настраивается пакет php-mariadb-mysql-kbs (1.2.12-1) …
+
+Настраивается пакет libjs-sizzle (2.3.6+ds+~2.3.3-1) …
+
+Настраивается пакет php8.1-curl (8.1.2-1ubuntu2.10) …
+
+
+
+Creating config file /etc/php/8.1/mods-available/curl.ini with new version
+
+Настраивается пакет php-phpseclib (2.0.36-1) …
+
+Настраивается пакет php8.1-xml (8.1.2-1ubuntu2.10) …
+
+
+
+Creating config file /etc/php/8.1/mods-available/dom.ini with new version
+
+
+
+Creating config file /etc/php/8.1/mods-available/simplexml.ini with new version
+
+
+
+Creating config file /etc/php/8.1/mods-available/xml.ini with new version
+
+
+
+Creating config file /etc/php/8.1/mods-available/xmlreader.ini with new version
+
+
+
+Creating config file /etc/php/8.1/mods-available/xmlwriter.ini with new version
+
+
+
+Creating config file /etc/php/8.1/mods-available/xsl.ini with new version
+
+Настраивается пакет php8.1-mysql (8.1.2-1ubuntu2.10) …
+
+
+
+Creating config file /etc/php/8.1/mods-available/mysqlnd.ini with new version
+
+
+
+Creating config file /etc/php/8.1/mods-available/mysqli.ini with new version
+
+
+
+Creating config file /etc/php/8.1/mods-available/pdo_mysql.ini with new version
+
+Настраивается пакет libjs-codemirror (5.65.0+~cs5.83.9-1) …
+
+Настраивается пакет icc-profiles-free (2.0.1+dfsg-1.1) …
+
+Настраивается пакет php-psr-cache (3.0.0-1) …
+
+Настраивается пакет php-psr-log (3.0.0-1) …
+
+Настраивается пакет php-nikic-fast-route (1.3.0-3) …
+
+Настраивается пакет php-symfony-polyfill-php80 (1.24.0-1ubuntu2) …
+
+Настраивается пакет php8.1-zip (8.1.2-1ubuntu2.10) …
+
+
+
+Creating config file /etc/php/8.1/mods-available/zip.ini with new version
+
+Настраивается пакет php-symfony-polyfill-php81 (1.24.0-1ubuntu2) …
+
+Настраивается пакет php-gd (2:8.1+92ubuntu1) …
+
+Настраивается пакет libjs-bootstrap4 (4.6.0+dfsg1-4) …
+
+Настраивается пакет php-google-recaptcha (1.2.4-3) …
+
+Настраивается пакет php-symfony-var-exporter (5.4.4+dfsg-1ubuntu8) …
+
+Настраивается пакет libjs-jquery (3.6.0+dfsg+~3.5.13-1) …
+
+Настраивается пакет libonig5:amd64 (6.9.7.1-2build1) …
+
+Настраивается пакет node-jquery (3.6.0+dfsg+~3.5.13-1) …
+
+Настраивается пакет libjs-underscore (1.13.2~dfsg-2) …
+
+Настраивается пакет php-symfony-deprecation-contracts (2.4.0-1ubuntu2) …
+
+Настраивается пакет php-xml (2:8.1+92ubuntu1) …
+
+Настраивается пакет php-curl (2:8.1+92ubuntu1) …
+
+Настраивается пакет php-mysql (2:8.1+92ubuntu1) …
+
+Настраивается пакет php-symfony-cache-contracts (2.4.0-1ubuntu2) …
+
+Настраивается пакет php-tcpdf (6.4.4+dfsg1-1) …
+
+Настраивается пакет php8.1-mbstring (8.1.2-1ubuntu2.10) …
+
+
+
+Creating config file /etc/php/8.1/mods-available/mbstring.ini with new version
+
+Настраивается пакет php-symfony-dependency-injection (5.4.4+dfsg-1ubuntu8) …
+
+Настраивается пакет dbconfig-mysql (2.0.21) …
+
+Настраивается пакет php-mbstring (2:8.1+92ubuntu1) …
+
+Настраивается пакет libjs-jquery-ui (1.13.1+dfsg-1) …
+
+Настраивается пакет php-symfony-filesystem (5.4.4+dfsg-1ubuntu8) …
+
+Настраивается пакет php-symfony-cache (5.4.4+dfsg-1ubuntu8) …
+
+Настраивается пакет php-symfony-expression-language (5.4.4+dfsg-1ubuntu8) …
+
+Настраивается пакет php-phpmyadmin-sql-parser (5.4.1-2) …
+
+Настраивается пакет php-twig (3.3.8-2ubuntu4) …
+
+Настраивается пакет libjs-sphinxdoc (4.3.2-1) …
+
+Настраивается пакет php-symfony-config (5.4.4+dfsg-1ubuntu8) …
+
+Настраивается пакет php-zip (2:8.1+92ubuntu1) …
+
+Настраивается пакет libjs-jquery-timepicker (1.6.3-1) …
+
+Настраивается пакет php-twig-i18n-extension (3.0.0-2) …
+
+Настраивается пакет php-phpmyadmin-motranslator (5.2.0-1build1) …
+
+Настраивается пакет phpmyadmin (4:5.1.1+dfsg1-5ubuntu1) …
+
+Determining localhost credentials from /etc/mysql/debian.cnf: succeeded.
+
+dbconfig-common: writing config to /etc/dbconfig-common/phpmyadmin.conf
+
+
+
+Creating config file /etc/dbconfig-common/phpmyadmin.conf with new version
+
+
+
+Creating config file /etc/phpmyadmin/config-db.php with new version
+
+checking privileges on database phpmyadmin for phpmyadmin@localhost: user creation needed.
+
+granting access to database phpmyadmin for phpmyadmin@localhost: success.
+
+verifying access for phpmyadmin@localhost: success.
+
+creating database phpmyadmin: success.
+
+verifying database phpmyadmin exists: success.
+
+populating database via sql...  done.
+
+dbconfig-common: flushing administrative password
+
+apache2_invoke: Enable configuration phpmyadmin
+
+Обрабатываются триггеры для php8.1-fpm (8.1.2-1ubuntu2.10) …
+
+NOTICE: Not enabling PHP 8.1 FPM by default.
+
+NOTICE: To enable PHP 8.1 FPM in Apache2 do:
+
+NOTICE: a2enmod proxy_fcgi setenvif
+
+NOTICE: a2enconf php8.1-fpm
+
+NOTICE: You are seeing this message because you have apache2 package installed.
+
+Обрабатываются триггеры для libapache2-mod-php8.1 (8.1.2-1ubuntu2.10) …
+
+Обрабатываются триггеры для hicolor-icon-theme (0.17-2) …
+
+Обрабатываются триггеры для libc-bin (2.35-0ubuntu3.1) …
+
+Обрабатываются триггеры для man-db (2.10.2-1) …
+
+Обрабатываются триггеры для php8.1-cli (8.1.2-1ubuntu2.10) …
+
+leaclover@leaclover-VirtualBox:/$ sudo nano /etc/phpmyadmin/apache.conf 
+
+
+#### Заменяем на уникальное слово
+
+Alias /phpLCadmin /usr/share/phpmyadmin
+
+####
+
+leaclover@leaclover-VirtualBox:/$ sudo service apache2 restart
