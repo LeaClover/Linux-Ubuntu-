@@ -1,0 +1,2476 @@
+leaclover@leaclover-VirtualBox:~$ sudo adduser ddd
+
+Добавляется пользователь «ddd» ...
+
+Добавляется новая группа «ddd» (1001) ...
+
+Добавляется новый пользователь «ddd» (1001) в группу «ddd» ...
+
+Создаётся домашний каталог «/home/ddd» ...
+
+Копирование файлов из «/etc/skel» ...
+
+Новый пароль: 
+
+НЕУДАЧНЫЙ ПАРОЛЬ: Пароль является палиндромом
+
+Повторите ввод нового пароля: 
+
+passwd: пароль успешно обновлён
+
+Изменение информации о пользователе ddd
+
+Введите новое значение или нажмите ENTER для выбора значения по умолчанию
+
+	Полное имя []: Dmitry
+
+	Номер комнаты []: 123
+
+	Рабочий телефон []: 4444
+
+	Домашний телефон []: 12344321
+
+	Другое []: none
+
+Данная информация корректна? [Y/n] y
+
+leaclover@leaclover-VirtualBox:~$ cat /etc/passwd
+
+root:x:0:0:root:/root:/bin/bash
+
+daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+
+bin:x:2:2:bin:/bin:/usr/sbin/nologin
+
+sys:x:3:3:sys:/dev:/usr/sbin/nologin
+
+sync:x:4:65534:sync:/bin:/bin/sync
+
+games:x:5:60:games:/usr/games:/usr/sbin/nologin
+
+man:x:6:12:man:/var/cache/man:/usr/sbin/nologin
+
+lp:x:7:7:lp:/var/spool/lpd:/usr/sbin/nologin
+
+mail:x:8:8:mail:/var/mail:/usr/sbin/nologin
+
+news:x:9:9:news:/var/spool/news:/usr/sbin/nologin
+
+uucp:x:10:10:uucp:/var/spool/uucp:/usr/sbin/nologin
+
+proxy:x:13:13:proxy:/bin:/usr/sbin/nologin
+
+www-data:x:33:33:www-data:/var/www:/usr/sbin/nologin
+
+backup:x:34:34:backup:/var/backups:/usr/sbin/nologin
+
+list:x:38:38:Mailing List Manager:/var/list:/usr/sbin/nologin
+
+irc:x:39:39:ircd:/run/ircd:/usr/sbin/nologin
+
+gnats:x:41:41:Gnats Bug-Reporting System (admin):/var/lib/gnats:/usr/sbin/nologin
+
+nobody:x:65534:65534:nobody:/nonexistent:/usr/sbin/nologin
+
+systemd-network:x:100:102:systemd Network Management,,,:/run/systemd:/usr/sbin/nologin
+
+systemd-resolve:x:101:103:systemd Resolver,,,:/run/systemd:/usr/sbin/nologin
+
+messagebus:x:102:105::/nonexistent:/usr/sbin/nologin
+
+systemd-timesync:x:103:106:systemd Time Synchronization,,,:/run/systemd:/usr/sbin/nologin
+
+syslog:x:104:111::/home/syslog:/usr/sbin/nologin
+
+_apt:x:105:65534::/nonexistent:/usr/sbin/nologin
+
+tss:x:106:112:TPM software stack,,,:/var/lib/tpm:/bin/false
+
+uuidd:x:107:115::/run/uuidd:/usr/sbin/nologin
+
+systemd-oom:x:108:116:systemd Userspace OOM Killer,,,:/run/systemd:/usr/sbin/nologin
+
+tcpdump:x:109:117::/nonexistent:/usr/sbin/nologin
+
+avahi-autoipd:x:110:119:Avahi autoip daemon,,,:/var/lib/avahi-autoipd:/usr/sbin/nologin
+
+usbmux:x:111:46:usbmux daemon,,,:/var/lib/usbmux:/usr/sbin/nologin
+
+dnsmasq:x:112:65534:dnsmasq,,,:/var/lib/misc:/usr/sbin/nologin
+
+kernoops:x:113:65534:Kernel Oops Tracking Daemon,,,:/:/usr/sbin/nologin
+
+avahi:x:114:121:Avahi mDNS daemon,,,:/run/avahi-daemon:/usr/sbin/nologin
+
+cups-pk-helper:x:115:122:user for cups-pk-helper service,,,:/home/cups-pk-helper:/usr/sbin/nologin
+
+rtkit:x:116:123:RealtimeKit,,,:/proc:/usr/sbin/nologin
+
+whoopsie:x:117:124::/nonexistent:/bin/false
+
+sssd:x:118:125:SSSD system user,,,:/var/lib/sss:/usr/sbin/nologin
+
+speech-dispatcher:x:119:29:Speech Dispatcher,,,:/run/speech-dispatcher:/bin/false
+
+nm-openvpn:x:120:126:NetworkManager OpenVPN,,,:/var/lib/openvpn/chroot:/usr/sbin/nologin
+
+saned:x:121:128::/var/lib/saned:/usr/sbin/nologin
+
+colord:x:122:129:colord colour management daemon,,,:/var/lib/colord:/usr/sbin/nologin
+
+geoclue:x:123:130::/var/lib/geoclue:/usr/sbin/nologin
+
+pulse:x:124:131:PulseAudio daemon,,,:/run/pulse:/usr/sbin/nologin
+
+gnome-initial-setup:x:125:65534::/run/gnome-initial-setup/:/bin/false
+
+hplip:x:126:7:HPLIP system user,,,:/run/hplip:/bin/false
+
+gdm:x:127:133:Gnome Display Manager:/var/lib/gdm3:/bin/false
+
+leaclover:x:1000:1000:leaclover,,,:/home/leaclover:/bin/bash
+
+sshd:x:128:65534::/run/sshd:/usr/sbin/nologin
+
+vboxadd:x:999:1::/var/run/vboxadd:/bin/false
+
+ddd:x:1001:1001:Dmitry,123,4444,12344321,none:/home/ddd:/bin/bash
+
+leaclover@leaclover-VirtualBox:~$ sudo userdel ddd -R
+
+userdel: для параметра «-R» требуется аргумент
+
+leaclover@leaclover-VirtualBox:~$ sudo userdel -r ddd
+
+userdel: почтовый ящик ddd (/var/mail/ddd) не найден
+
+leaclover@leaclover-VirtualBox:~$ cat /etc/passwd
+
+root:x:0:0:root:/root:/bin/bash
+
+daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+
+bin:x:2:2:bin:/bin:/usr/sbin/nologin
+
+sys:x:3:3:sys:/dev:/usr/sbin/nologin
+
+sync:x:4:65534:sync:/bin:/bin/sync
+
+games:x:5:60:games:/usr/games:/usr/sbin/nologin
+
+man:x:6:12:man:/var/cache/man:/usr/sbin/nologin
+
+lp:x:7:7:lp:/var/spool/lpd:/usr/sbin/nologin
+
+mail:x:8:8:mail:/var/mail:/usr/sbin/nologin
+
+news:x:9:9:news:/var/spool/news:/usr/sbin/nologin
+
+uucp:x:10:10:uucp:/var/spool/uucp:/usr/sbin/nologin
+
+proxy:x:13:13:proxy:/bin:/usr/sbin/nologin
+
+www-data:x:33:33:www-data:/var/www:/usr/sbin/nologin
+
+backup:x:34:34:backup:/var/backups:/usr/sbin/nologin
+
+list:x:38:38:Mailing List Manager:/var/list:/usr/sbin/nologin
+
+irc:x:39:39:ircd:/run/ircd:/usr/sbin/nologin
+
+gnats:x:41:41:Gnats Bug-Reporting System (admin):/var/lib/gnats:/usr/sbin/nologin
+
+nobody:x:65534:65534:nobody:/nonexistent:/usr/sbin/nologin
+
+systemd-network:x:100:102:systemd Network Management,,,:/run/systemd:/usr/sbin/nologin
+
+systemd-resolve:x:101:103:systemd Resolver,,,:/run/systemd:/usr/sbin/nologin
+
+messagebus:x:102:105::/nonexistent:/usr/sbin/nologin
+
+systemd-timesync:x:103:106:systemd Time Synchronization,,,:/run/systemd:/usr/sbin/nologin
+
+syslog:x:104:111::/home/syslog:/usr/sbin/nologin
+
+_apt:x:105:65534::/nonexistent:/usr/sbin/nologin
+
+tss:x:106:112:TPM software stack,,,:/var/lib/tpm:/bin/false
+
+uuidd:x:107:115::/run/uuidd:/usr/sbin/nologin
+
+systemd-oom:x:108:116:systemd Userspace OOM Killer,,,:/run/systemd:/usr/sbin/nologin
+
+tcpdump:x:109:117::/nonexistent:/usr/sbin/nologin
+
+avahi-autoipd:x:110:119:Avahi autoip daemon,,,:/var/lib/avahi-autoipd:/usr/sbin/nologin
+
+usbmux:x:111:46:usbmux daemon,,,:/var/lib/usbmux:/usr/sbin/nologin
+
+dnsmasq:x:112:65534:dnsmasq,,,:/var/lib/misc:/usr/sbin/nologin
+
+kernoops:x:113:65534:Kernel Oops Tracking Daemon,,,:/:/usr/sbin/nologin
+
+avahi:x:114:121:Avahi mDNS daemon,,,:/run/avahi-daemon:/usr/sbin/nologin
+
+cups-pk-helper:x:115:122:user for cups-pk-helper service,,,:/home/cups-pk-helper:/usr/sbin/nologin
+
+rtkit:x:116:123:RealtimeKit,,,:/proc:/usr/sbin/nologin
+
+whoopsie:x:117:124::/nonexistent:/bin/false
+
+sssd:x:118:125:SSSD system user,,,:/var/lib/sss:/usr/sbin/nologin
+
+speech-dispatcher:x:119:29:Speech Dispatcher,,,:/run/speech-dispatcher:/bin/false
+
+nm-openvpn:x:120:126:NetworkManager OpenVPN,,,:/var/lib/openvpn/chroot:/usr/sbin/nologin
+
+saned:x:121:128::/var/lib/saned:/usr/sbin/nologin
+
+colord:x:122:129:colord colour management daemon,,,:/var/lib/colord:/usr/sbin/nologin
+
+geoclue:x:123:130::/var/lib/geoclue:/usr/sbin/nologin
+
+pulse:x:124:131:PulseAudio daemon,,,:/run/pulse:/usr/sbin/nologin
+
+gnome-initial-setup:x:125:65534::/run/gnome-initial-setup/:/bin/false
+
+hplip:x:126:7:HPLIP system user,,,:/run/hplip:/bin/false
+
+gdm:x:127:133:Gnome Display Manager:/var/lib/gdm3:/bin/false
+
+leaclover:x:1000:1000:leaclover,,,:/home/leaclover:/bin/bash
+
+sshd:x:128:65534::/run/sshd:/usr/sbin/nologin
+
+vboxadd:x:999:1::/var/run/vboxadd:/bin/false
+
+leaclover@leaclover-VirtualBox:~$ sudo groupadd team_1234
+
+leaclover@leaclover-VirtualBox:~$ ll
+
+итого 108
+
+drwxr-x--- 16 leaclover leaclover 4096 янв 21 00:57  ./
+
+drwxr-xr-x  3 root      root      4096 янв 26 00:04  ../
+
+-rw-rw-r--  1 leaclover leaclover   16 янв 21 00:45  123
+
+-rw-------  1 leaclover leaclover 1659 янв 25 23:59  .bash_history
+
+-rw-r--r--  1 leaclover leaclover  220 янв 12 18:04  .bash_logout
+
+-rw-r--r--  1 leaclover leaclover 3771 янв 12 18:04  .bashrc
+
+drwx------ 11 leaclover leaclover 4096 янв 16 20:52  .cache/
+
+drwx------ 12 leaclover leaclover 4096 янв 16 20:44  .config/
+
+-rw-------  1 leaclover leaclover   20 янв 16 20:49  .lesshst
+
+drwx------  3 leaclover leaclover 4096 янв 16 19:40  .local/
+
+drwxrwxr-x  2 leaclover leaclover 4096 янв 21 00:57  newfolder/
+
+-rw-r--r--  1 leaclover leaclover  807 янв 12 18:04  .profile
+
+drwxr-x---  2 root      root      4096 янв 16 21:13  shared/
+
+drwx------  3 leaclover leaclover 4096 янв 16 19:40  snap/
+
+-rw-r--r--  1 leaclover leaclover    0 янв 16 20:33  .sudo_as_admin_successful
+
+-rw-r-----  1 leaclover leaclover    5 янв 19 00:49  .vboxclient-clipboard.pid
+
+-rw-r-----  1 leaclover leaclover    5 янв 19 00:49  .vboxclient-draganddrop.pid
+
+-rw-r-----  1 leaclover leaclover    5 янв 19 00:49  .vboxclient-seamless.pid
+
+-rw-r-----  1 leaclover leaclover    5 янв 19 00:49  .vboxclient-vmsvga-session-tty2.pid
+
+-rw-------  1 leaclover leaclover 1742 янв 21 00:31  .viminfo
+
+drwxr-xr-x  2 leaclover leaclover 4096 янв 16 19:40  Видео/
+
+drwxr-xr-x  2 leaclover leaclover 4096 янв 16 19:40  Документы/
+
+drwxr-xr-x  2 leaclover leaclover 4096 янв 16 19:40  Загрузки/
+
+drwxr-xr-x  2 leaclover leaclover 4096 янв 16 19:40  Изображения/
+
+drwxr-xr-x  2 leaclover leaclover 4096 янв 16 19:40  Музыка/
+
+drwxr-xr-x  2 leaclover leaclover 4096 янв 16 19:40  Общедоступные/
+
+drwxr-xr-x  2 leaclover leaclover 4096 янв 16 19:40 'Рабочий стол'/
+
+drwxr-xr-x  2 leaclover leaclover 4096 янв 16 19:40  Шаблоны/
+
+leaclover@leaclover-VirtualBox:~$ cat /etc/group
+
+root:x:0:
+
+daemon:x:1:
+
+bin:x:2:
+
+sys:x:3:
+
+adm:x:4:syslog,leaclover
+
+tty:x:5:
+
+disk:x:6:
+
+lp:x:7:
+
+mail:x:8:
+
+news:x:9:
+
+uucp:x:10:
+
+man:x:12:
+
+proxy:x:13:
+
+kmem:x:15:
+
+dialout:x:20:
+
+fax:x:21:
+
+voice:x:22:
+
+cdrom:x:24:leaclover
+
+floppy:x:25:
+
+tape:x:26:
+
+sudo:x:27:leaclover
+
+audio:x:29:pulse
+
+dip:x:30:leaclover
+
+www-data:x:33:
+
+backup:x:34:
+
+operator:x:37:
+
+list:x:38:
+
+irc:x:39:
+
+src:x:40:
+
+gnats:x:41:
+
+shadow:x:42:
+
+utmp:x:43:
+
+video:x:44:
+
+sasl:x:45:
+
+plugdev:x:46:leaclover
+
+staff:x:50:
+
+games:x:60:
+
+users:x:100:
+
+nogroup:x:65534:
+
+systemd-journal:x:101:
+
+systemd-network:x:102:
+
+systemd-resolve:x:103:
+
+crontab:x:104:
+
+messagebus:x:105:
+
+systemd-timesync:x:106:
+
+input:x:107:
+
+sgx:x:108:
+
+kvm:x:109:
+
+render:x:110:
+
+syslog:x:111:
+
+tss:x:112:
+
+bluetooth:x:113:
+
+ssl-cert:x:114:
+
+uuidd:x:115:
+
+systemd-oom:x:116:
+
+tcpdump:x:117:
+
+_ssh:x:118:
+
+avahi-autoipd:x:119:
+
+netdev:x:120:
+
+avahi:x:121:
+
+lpadmin:x:122:leaclover
+
+rtkit:x:123:
+
+whoopsie:x:124:
+
+sssd:x:125:
+
+nm-openvpn:x:126:
+
+scanner:x:127:saned
+
+saned:x:128:
+
+colord:x:129:
+
+geoclue:x:130:
+
+pulse:x:131:
+
+pulse-access:x:132:
+
+gdm:x:133:
+
+lxd:x:134:leaclover
+
+leaclover:x:1000:
+
+sambashare:x:135:leaclover
+
+vboxsf:x:999:leaclover
+
+vboxdrmipc:x:998:
+
+team_1234:x:1001:
+
+leaclover@leaclover-VirtualBox:~$ sudo useradd member1
+
+leaclover@leaclover-VirtualBox:~$ sudo useradd member2
+
+leaclover@leaclover-VirtualBox:~$ sudo useradd member3
+
+leaclover@leaclover-VirtualBox:~$ cat /etc/passwd
+
+root:x:0:0:root:/root:/bin/bash
+
+daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+
+bin:x:2:2:bin:/bin:/usr/sbin/nologin
+
+sys:x:3:3:sys:/dev:/usr/sbin/nologin
+
+sync:x:4:65534:sync:/bin:/bin/sync
+
+games:x:5:60:games:/usr/games:/usr/sbin/nologin
+
+man:x:6:12:man:/var/cache/man:/usr/sbin/nologin
+
+lp:x:7:7:lp:/var/spool/lpd:/usr/sbin/nologin
+
+mail:x:8:8:mail:/var/mail:/usr/sbin/nologin
+
+news:x:9:9:news:/var/spool/news:/usr/sbin/nologin
+
+uucp:x:10:10:uucp:/var/spool/uucp:/usr/sbin/nologin
+
+proxy:x:13:13:proxy:/bin:/usr/sbin/nologin
+
+www-data:x:33:33:www-data:/var/www:/usr/sbin/nologin
+
+backup:x:34:34:backup:/var/backups:/usr/sbin/nologin
+
+list:x:38:38:Mailing List Manager:/var/list:/usr/sbin/nologin
+
+irc:x:39:39:ircd:/run/ircd:/usr/sbin/nologin
+
+gnats:x:41:41:Gnats Bug-Reporting System (admin):/var/lib/gnats:/usr/sbin/nologin
+
+nobody:x:65534:65534:nobody:/nonexistent:/usr/sbin/nologin
+
+systemd-network:x:100:102:systemd Network Management,,,:/run/systemd:/usr/sbin/nologin
+
+systemd-resolve:x:101:103:systemd Resolver,,,:/run/systemd:/usr/sbin/nologin
+
+messagebus:x:102:105::/nonexistent:/usr/sbin/nologin
+
+systemd-timesync:x:103:106:systemd Time Synchronization,,,:/run/systemd:/usr/sbin/nologin
+
+syslog:x:104:111::/home/syslog:/usr/sbin/nologin
+
+_apt:x:105:65534::/nonexistent:/usr/sbin/nologin
+
+tss:x:106:112:TPM software stack,,,:/var/lib/tpm:/bin/false
+
+uuidd:x:107:115::/run/uuidd:/usr/sbin/nologin
+
+systemd-oom:x:108:116:systemd Userspace OOM Killer,,,:/run/systemd:/usr/sbin/nologin
+
+tcpdump:x:109:117::/nonexistent:/usr/sbin/nologin
+
+avahi-autoipd:x:110:119:Avahi autoip daemon,,,:/var/lib/avahi-autoipd:/usr/sbin/nologin
+
+usbmux:x:111:46:usbmux daemon,,,:/var/lib/usbmux:/usr/sbin/nologin
+
+dnsmasq:x:112:65534:dnsmasq,,,:/var/lib/misc:/usr/sbin/nologin
+
+kernoops:x:113:65534:Kernel Oops Tracking Daemon,,,:/:/usr/sbin/nologin
+
+avahi:x:114:121:Avahi mDNS daemon,,,:/run/avahi-daemon:/usr/sbin/nologin
+
+cups-pk-helper:x:115:122:user for cups-pk-helper service,,,:/home/cups-pk-helper:/usr/sbin/nologin
+
+rtkit:x:116:123:RealtimeKit,,,:/proc:/usr/sbin/nologin
+
+whoopsie:x:117:124::/nonexistent:/bin/false
+
+sssd:x:118:125:SSSD system user,,,:/var/lib/sss:/usr/sbin/nologin
+
+speech-dispatcher:x:119:29:Speech Dispatcher,,,:/run/speech-dispatcher:/bin/false
+
+nm-openvpn:x:120:126:NetworkManager OpenVPN,,,:/var/lib/openvpn/chroot:/usr/sbin/nologin
+
+saned:x:121:128::/var/lib/saned:/usr/sbin/nologin
+
+colord:x:122:129:colord colour management daemon,,,:/var/lib/colord:/usr/sbin/nologin
+
+geoclue:x:123:130::/var/lib/geoclue:/usr/sbin/nologin
+
+pulse:x:124:131:PulseAudio daemon,,,:/run/pulse:/usr/sbin/nologin
+
+gnome-initial-setup:x:125:65534::/run/gnome-initial-setup/:/bin/false
+
+hplip:x:126:7:HPLIP system user,,,:/run/hplip:/bin/false
+
+gdm:x:127:133:Gnome Display Manager:/var/lib/gdm3:/bin/false
+
+leaclover:x:1000:1000:leaclover,,,:/home/leaclover:/bin/bash
+
+sshd:x:128:65534::/run/sshd:/usr/sbin/nologin
+
+vboxadd:x:999:1::/var/run/vboxadd:/bin/false
+
+member1:x:1001:1002::/home/member1:/bin/sh
+
+member2:x:1002:1003::/home/member2:/bin/sh
+
+member3:x:1003:1004::/home/member3:/bin/sh
+
+leaclover@leaclover-VirtualBox:~$ groups
+
+leaclover adm cdrom sudo dip plugdev lpadmin lxd sambashare vboxsf
+
+leaclover@leaclover-VirtualBox:~$ sudo usermod -G team_1234 member1
+
+leaclover@leaclover-VirtualBox:~$ sudo usermod -G team_1234 member2
+
+leaclover@leaclover-VirtualBox:~$ cat /etc/group
+
+root:x:0:
+
+daemon:x:1:
+
+bin:x:2:
+
+sys:x:3:
+
+adm:x:4:syslog,leaclover
+
+tty:x:5:
+
+disk:x:6:
+
+lp:x:7:
+
+mail:x:8:
+
+news:x:9:
+
+uucp:x:10:
+
+man:x:12:
+
+proxy:x:13:
+
+kmem:x:15:
+
+dialout:x:20:
+
+fax:x:21:
+
+voice:x:22:
+
+cdrom:x:24:leaclover
+
+floppy:x:25:
+
+tape:x:26:
+
+sudo:x:27:leaclover
+
+audio:x:29:pulse
+
+dip:x:30:leaclover
+
+www-data:x:33:
+
+backup:x:34:
+
+operator:x:37:
+
+list:x:38:
+
+irc:x:39:
+
+src:x:40:
+
+gnats:x:41:
+
+shadow:x:42:
+
+utmp:x:43:
+
+video:x:44:
+
+sasl:x:45:
+
+plugdev:x:46:leaclover
+
+staff:x:50:
+
+games:x:60:
+
+users:x:100:
+
+nogroup:x:65534:
+
+systemd-journal:x:101:
+
+systemd-network:x:102:
+
+systemd-resolve:x:103:
+
+crontab:x:104:
+
+messagebus:x:105:
+
+systemd-timesync:x:106:
+
+input:x:107:
+
+sgx:x:108:
+
+kvm:x:109:
+
+render:x:110:
+
+syslog:x:111:
+
+tss:x:112:
+
+bluetooth:x:113:
+
+ssl-cert:x:114:
+
+uuidd:x:115:
+
+systemd-oom:x:116:
+
+tcpdump:x:117:
+
+_ssh:x:118:
+
+avahi-autoipd:x:119:
+
+netdev:x:120:
+
+avahi:x:121:
+
+lpadmin:x:122:leaclover
+
+rtkit:x:123:
+
+whoopsie:x:124:
+
+sssd:x:125:
+
+nm-openvpn:x:126:
+
+scanner:x:127:saned
+
+saned:x:128:
+
+colord:x:129:
+
+geoclue:x:130:
+
+pulse:x:131:
+
+pulse-access:x:132:
+
+gdm:x:133:
+
+lxd:x:134:leaclover
+
+leaclover:x:1000:
+
+sambashare:x:135:leaclover
+
+vboxsf:x:999:leaclover
+
+vboxdrmipc:x:998:
+
+team_1234:x:1001:member1,member2
+
+member1:x:1002:
+
+member2:x:1003:
+
+member3:x:1004:
+
+leaclover@leaclover-VirtualBox:~$ sudo deluser member1 team_1234
+
+Удаляется пользователь «member1» из группы «team_1234» ...
+
+Готово.
+
+leaclover@leaclover-VirtualBox:~$ cat /etc/group
+
+root:x:0:
+
+daemon:x:1:
+
+bin:x:2:
+
+sys:x:3:
+
+adm:x:4:syslog,leaclover
+
+tty:x:5:
+
+disk:x:6:
+
+lp:x:7:
+
+mail:x:8:
+
+news:x:9:
+
+uucp:x:10:
+
+man:x:12:
+
+proxy:x:13:
+
+kmem:x:15:
+
+dialout:x:20:
+
+fax:x:21:
+
+voice:x:22:
+
+cdrom:x:24:leaclover
+
+floppy:x:25:
+
+tape:x:26:
+
+sudo:x:27:leaclover
+
+audio:x:29:pulse
+
+dip:x:30:leaclover
+
+www-data:x:33:
+
+backup:x:34:
+
+operator:x:37:
+
+list:x:38:
+
+irc:x:39:
+
+src:x:40:
+
+gnats:x:41:
+
+shadow:x:42:
+
+utmp:x:43:
+
+video:x:44:
+
+sasl:x:45:
+
+plugdev:x:46:leaclover
+
+staff:x:50:
+
+games:x:60:
+
+users:x:100:
+
+nogroup:x:65534:
+
+systemd-journal:x:101:
+
+systemd-network:x:102:
+
+systemd-resolve:x:103:
+
+crontab:x:104:
+
+messagebus:x:105:
+
+systemd-timesync:x:106:
+
+input:x:107:
+
+sgx:x:108:
+
+kvm:x:109:
+
+render:x:110:
+
+syslog:x:111:
+
+tss:x:112:
+
+bluetooth:x:113:
+
+ssl-cert:x:114:
+
+uuidd:x:115:
+
+systemd-oom:x:116:
+
+tcpdump:x:117:
+
+_ssh:x:118:
+
+avahi-autoipd:x:119:
+
+netdev:x:120:
+
+avahi:x:121:
+
+lpadmin:x:122:leaclover
+
+rtkit:x:123:
+
+whoopsie:x:124:
+
+sssd:x:125:
+
+nm-openvpn:x:126:
+
+scanner:x:127:saned
+
+saned:x:128:
+
+colord:x:129:
+
+geoclue:x:130:
+
+pulse:x:131:
+
+pulse-access:x:132:
+
+gdm:x:133:
+
+lxd:x:134:leaclover
+
+leaclover:x:1000:
+
+sambashare:x:135:leaclover
+
+vboxsf:x:999:leaclover
+
+vboxdrmipc:x:998:
+
+team_1234:x:1001:member2
+
+member1:x:1002:
+
+member2:x:1003:
+
+member3:x:1004:
+
+leaclover@leaclover-VirtualBox:~$ sudo adduser godgod
+
+Добавляется пользователь «godgod» ...
+
+Добавляется новая группа «godgod» (1005) ...
+
+Добавляется новый пользователь «godgod» (1004) в группу «godgod» ...
+
+Создаётся домашний каталог «/home/godgod» ...
+
+Копирование файлов из «/etc/skel» ...
+
+Новый пароль: 
+
+НЕУДАЧНЫЙ ПАРОЛЬ: Пароль должен содержать не менее 8 символов
+
+Повторите ввод нового пароля: 
+
+passwd: пароль успешно обновлён
+
+Изменение информации о пользователе godgod
+
+Введите новое значение или нажмите ENTER для выбора значения по умолчанию
+
+	Полное имя []: GOD
+
+	Номер комнаты []: 
+
+	Рабочий телефон []: 
+
+	Домашний телефон []: 
+
+	Другое []: 
+
+Данная информация корректна? [Y/n] y
+
+leaclover@leaclover-VirtualBox:~$ sudo usermod -G sudo godgod
+
+leaclover@leaclover-VirtualBox:~$ su godgod
+
+Пароль: 
+
+To run a command as administrator (user "root"), use "sudo <command>".
+
+See "man sudo_root" for details.
+
+
+
+godgod@leaclover-VirtualBox:/home/leaclover$ sudo id leaclover
+
+[sudo] пароль для godgod: 
+
+uid=1000(leaclover) gid=1000(leaclover) группы=1000(leaclover),4(adm),24(cdrom),27(sudo),30(dip),46(plugdev),122(lpadmin),134(lxd),135(sambashare),999(vboxsf)
+
+godgod@leaclover-VirtualBox:/home/leaclover$ sudo userdel -r member1
+
+userdel: почтовый ящик member1 (/var/mail/member1) не найден
+
+userdel: домашний каталог пользователя member1 (/home/member1) не найден
+
+godgod@leaclover-VirtualBox:/home/leaclover$ more /etc/passwd
+
+root:x:0:0:root:/root:/bin/bash
+
+daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+
+bin:x:2:2:bin:/bin:/usr/sbin/nologin
+
+sys:x:3:3:sys:/dev:/usr/sbin/nologin
+
+sync:x:4:65534:sync:/bin:/bin/sync
+
+games:x:5:60:games:/usr/games:/usr/sbin/nologin
+
+man:x:6:12:man:/var/cache/man:/usr/sbin/nologin
+
+lp:x:7:7:lp:/var/spool/lpd:/usr/sbin/nologin
+
+mail:x:8:8:mail:/var/mail:/usr/sbin/nologin
+
+news:x:9:9:news:/var/spool/news:/usr/sbin/nologin
+
+uucp:x:10:10:uucp:/var/spool/uucp:/usr/sbin/nologin
+
+proxy:x:13:13:proxy:/bin:/usr/sbin/nologin
+
+www-data:x:33:33:www-data:/var/www:/usr/sbin/nologin
+
+backup:x:34:34:backup:/var/backups:/usr/sbin/nologin
+
+list:x:38:38:Mailing List Manager:/var/list:/usr/sbin/nologin
+
+irc:x:39:39:ircd:/run/ircd:/usr/sbin/nologin
+
+gnats:x:41:41:Gnats Bug-Reporting System (admin):/var/lib/gnats:/usr/sbin/nologin
+
+nobody:x:65534:65534:nobody:/nonexistent:/usr/sbin/nologin
+
+systemd-network:x:100:102:systemd Network Management,,,:/run/systemd:/usr/sbin/nologin
+
+systemd-resolve:x:101:103:systemd Resolver,,,:/run/systemd:/usr/sbin/nologin
+
+messagebus:x:102:105::/nonexistent:/usr/sbin/nologin
+
+systemd-timesync:x:103:106:systemd Time Synchronization,,,:/run/systemd:/usr/sbin/nologin
+
+syslog:x:104:111::/home/syslog:/usr/sbin/nologin
+
+_apt:x:105:65534::/nonexistent:/usr/sbin/nologin
+
+tss:x:106:112:TPM software stack,,,:/var/lib/tpm:/bin/false
+
+uuidd:x:107:115::/run/uuidd:/usr/sbin/nologin
+
+systemd-oom:x:108:116:systemd Userspace OOM Killer,,,:/run/systemd:/usr/sbin/nologin
+
+tcpdump:x:109:117::/nonexistent:/usr/sbin/nologin
+
+avahi-autoipd:x:110:119:Avahi autoip daemon,,,:/var/lib/avahi-autoipd:/usr/sbin/nologin
+
+usbmux:x:111:46:usbmux daemon,,,:/var/lib/usbmux:/usr/sbin/nologin
+
+dnsmasq:x:112:65534:dnsmasq,,,:/var/lib/misc:/usr/sbin/nologin
+
+kernoops:x:113:65534:Kernel Oops Tracking Daemon,,,:/:/usr/sbin/nologin
+
+avahi:x:114:121:Avahi mDNS daemon,,,:/run/avahi-daemon:/usr/sbin/nologin
+
+cups-pk-helper:x:115:122:user for cups-pk-helper service,,,:/home/cups-pk-helper:/usr/sbin/nologin
+
+rtkit:x:116:123:RealtimeKit,,,:/proc:/usr/sbin/nologin
+
+whoopsie:x:117:124::/nonexistent:/bin/false
+
+sssd:x:118:125:SSSD system user,,,:/var/lib/sss:/usr/sbin/nologin
+
+speech-dispatcher:x:119:29:Speech Dispatcher,,,:/run/speech-dispatcher:/bin/false
+
+nm-openvpn:x:120:126:NetworkManager OpenVPN,,,:/var/lib/openvpn/chroot:/usr/sbin/nologin
+
+saned:x:121:128::/var/lib/saned:/usr/sbin/nologin
+
+colord:x:122:129:colord colour management daemon,,,:/var/lib/colord:/usr/sbin/nologin
+
+geoclue:x:123:130::/var/lib/geoclue:/usr/sbin/nologin
+
+pulse:x:124:131:PulseAudio daemon,,,:/run/pulse:/usr/sbin/nologin
+
+gnome-initial-setup:x:125:65534::/run/gnome-initial-setup/:/bin/false
+
+hplip:x:126:7:HPLIP system user,,,:/run/hplip:/bin/false
+
+gdm:x:127:133:Gnome Display Manager:/var/lib/gdm3:/bin/false
+
+leaclover:x:1000:1000:leaclover,,,:/home/leaclover:/bin/bash
+
+sshd:x:128:65534::/run/sshd:/usr/sbin/nologin
+
+vboxadd:x:999:1::/var/run/vboxadd:/bin/false
+
+member2:x:1002:1003::/home/member2:/bin/sh
+
+member3:x:1003:1004::/home/member3:/bin/sh
+
+godgod:x:1004:1005:GOD,,,:/home/godgod:/bin/bash
+
+godgod@leaclover-VirtualBox:/home/leaclover$ 
+
+godgod@leaclover-VirtualBox:/home/leaclover$ exit
+
+exit
+
+leaclover@leaclover-VirtualBox:~$ sudo groupadd developer
+
+leaclover@leaclover-VirtualBox:~$ sudo useradd -s /bin/bash -m -d /home/user1 user1
+
+leaclover@leaclover-VirtualBox:~$ sudo useradd -s /bin/bash -m -d /home/user2 user2
+
+leaclover@leaclover-VirtualBox:~$ sudo useradd -s /bin/bash -m -d /home/user3 user3
+
+leaclover@leaclover-VirtualBox:~$ sudo usermod -G developer user1 user2 user3
+
+Использование: usermod [параметры] ПОЛЬЗОВАТЕЛЬ
+
+
+
+Параметры:
+
+  -b, --badnames                allow bad names
+
+  -c, --comment КОММЕНТАРИЙ     новое значение поля GECOS
+
+  -d, --home ДОМ_КАТ            новый домашний каталог учётной записи
+
+  -e, --expiredate ДАТА_УСТ     установить дату окончания действия
+
+                                учётной записи в ДАТА_УСТ
+
+  -f, --inactive НЕАКТИВНОСТЬ   установить период неактивности пароля после
+
+                                устаревания учётной записи равным НЕАКТИВНОСТЬ
+
+  -g, --gid ГРУППА              принудительно назначить первичную ГРУППУ
+
+  -G, --groups ГРУППЫ           список дополнительных ГРУПП
+
+  -a, --append                  добавить пользователя в дополнительные
+
+                                ГРУППЫ, указанные в параметре -G не удаляя
+
+                                пользователя из других групп
+
+  -h, --help                    показать данное сообщение и закончить работу
+
+  -l, --login НОВОЕ_ИМЯ         новое значение имени учётной записи
+
+  -L, --lock                    заблокировать учётную запись
+
+  -m, --move-home               переместить содержимое домашнего каталога в
+
+                                новое место (использовать только вместе с -d)
+
+  -o, --non-unique              разрешить создание учётной записи с уже
+
+                                имеющимся (не уникальным) UID
+
+  -p, --password ПАРОЛЬ         задать новый шифрованный пароль для
+
+                                учётной записи
+
+  -R, --root КАТ_CHROOT         каталог, в который выполняется chroot
+
+  -P, --prefix PREFIX_DIR       prefix directory where are located the /etc/* files
+
+  -s, --shell ОБОЛОЧКА          новая регистрационная оболочка для учётной
+
+                                записи
+
+  -u, --uid UID                 новый UID для учётной записи
+
+  -U, --unlock                  разблокировать учётную запись
+
+  -v, --add-subuids ПЕРВ-ПОСЛ   добавить диапазон подчинённых uid
+
+  -V, --del-subuids ПЕРВ-ПОСЛ   удалить диапазон подчинённых uid
+
+  -w, --add-subgids ПЕРВ-ПОСЛ   добавить диапазон подчинённых gid
+
+  -W, --del-subgids ПЕРВ-ПОСЛ   удалить диапазон подчинённых gid
+
+  -Z, --selinux-user SEUSER     новое пользовательское сопоставление
+
+                                SELinux для учётной записи
+
+
+
+leaclover@leaclover-VirtualBox:~$ sudo usermod -aG developer user1 user2 user3
+
+Использование: usermod [параметры] ПОЛЬЗОВАТЕЛЬ
+
+
+
+Параметры:
+
+  -b, --badnames                allow bad names
+
+  -c, --comment КОММЕНТАРИЙ     новое значение поля GECOS
+
+  -d, --home ДОМ_КАТ            новый домашний каталог учётной записи
+
+  -e, --expiredate ДАТА_УСТ     установить дату окончания действия
+
+                                учётной записи в ДАТА_УСТ
+
+  -f, --inactive НЕАКТИВНОСТЬ   установить период неактивности пароля после
+
+                                устаревания учётной записи равным НЕАКТИВНОСТЬ
+
+  -g, --gid ГРУППА              принудительно назначить первичную ГРУППУ
+
+  -G, --groups ГРУППЫ           список дополнительных ГРУПП
+
+  -a, --append                  добавить пользователя в дополнительные
+
+                                ГРУППЫ, указанные в параметре -G не удаляя
+
+                                пользователя из других групп
+
+  -h, --help                    показать данное сообщение и закончить работу
+
+  -l, --login НОВОЕ_ИМЯ         новое значение имени учётной записи
+
+  -L, --lock                    заблокировать учётную запись
+
+  -m, --move-home               переместить содержимое домашнего каталога в
+
+                                новое место (использовать только вместе с -d)
+
+  -o, --non-unique              разрешить создание учётной записи с уже
+
+                                имеющимся (не уникальным) UID
+
+  -p, --password ПАРОЛЬ         задать новый шифрованный пароль для
+
+                                учётной записи
+
+  -R, --root КАТ_CHROOT         каталог, в который выполняется chroot
+
+  -P, --prefix PREFIX_DIR       prefix directory where are located the /etc/* files
+
+  -s, --shell ОБОЛОЧКА          новая регистрационная оболочка для учётной
+
+                                записи
+
+  -u, --uid UID                 новый UID для учётной записи
+
+  -U, --unlock                  разблокировать учётную запись
+
+  -v, --add-subuids ПЕРВ-ПОСЛ   добавить диапазон подчинённых uid
+
+  -V, --del-subuids ПЕРВ-ПОСЛ   удалить диапазон подчинённых uid
+
+  -w, --add-subgids ПЕРВ-ПОСЛ   добавить диапазон подчинённых gid
+
+  -W, --del-subgids ПЕРВ-ПОСЛ   удалить диапазон подчинённых gid
+
+  -Z, --selinux-user SEUSER     новое пользовательское сопоставление
+
+                                SELinux для учётной записи
+
+
+
+leaclover@leaclover-VirtualBox:~$ sudo usermod -aG developer user1 user2 user3
+
+Использование: usermod [параметры] ПОЛЬЗОВАТЕЛЬ
+
+
+
+Параметры:
+
+  -b, --badnames                allow bad names
+
+  -c, --comment КОММЕНТАРИЙ     новое значение поля GECOS
+
+  -d, --home ДОМ_КАТ            новый домашний каталог учётной записи
+
+  -e, --expiredate ДАТА_УСТ     установить дату окончания действия
+
+                                учётной записи в ДАТА_УСТ
+
+  -f, --inactive НЕАКТИВНОСТЬ   установить период неактивности пароля после
+
+                                устаревания учётной записи равным НЕАКТИВНОСТЬ
+
+  -g, --gid ГРУППА              принудительно назначить первичную ГРУППУ
+
+  -G, --groups ГРУППЫ           список дополнительных ГРУПП
+
+  -a, --append                  добавить пользователя в дополнительные
+
+                                ГРУППЫ, указанные в параметре -G не удаляя
+
+                                пользователя из других групп
+
+  -h, --help                    показать данное сообщение и закончить работу
+
+  -l, --login НОВОЕ_ИМЯ         новое значение имени учётной записи
+
+  -L, --lock                    заблокировать учётную запись
+
+  -m, --move-home               переместить содержимое домашнего каталога в
+
+                                новое место (использовать только вместе с -d)
+
+  -o, --non-unique              разрешить создание учётной записи с уже
+
+                                имеющимся (не уникальным) UID
+
+  -p, --password ПАРОЛЬ         задать новый шифрованный пароль для
+
+                                учётной записи
+
+  -R, --root КАТ_CHROOT         каталог, в который выполняется chroot
+
+  -P, --prefix PREFIX_DIR       prefix directory where are located the /etc/* files
+
+  -s, --shell ОБОЛОЧКА          новая регистрационная оболочка для учётной
+
+                                записи
+
+  -u, --uid UID                 новый UID для учётной записи
+
+  -U, --unlock                  разблокировать учётную запись
+
+  -v, --add-subuids ПЕРВ-ПОСЛ   добавить диапазон подчинённых uid
+
+  -V, --del-subuids ПЕРВ-ПОСЛ   удалить диапазон подчинённых uid
+
+  -w, --add-subgids ПЕРВ-ПОСЛ   добавить диапазон подчинённых gid
+
+  -W, --del-subgids ПЕРВ-ПОСЛ   удалить диапазон подчинённых gid
+
+  -Z, --selinux-user SEUSER     новое пользовательское сопоставление
+
+                                SELinux для учётной записи
+
+
+
+leaclover@leaclover-VirtualBox:~$ cat /etc/group
+
+root:x:0:
+
+daemon:x:1:
+
+bin:x:2:
+
+sys:x:3:
+
+adm:x:4:syslog,leaclover
+
+tty:x:5:
+
+disk:x:6:
+
+lp:x:7:
+
+mail:x:8:
+
+news:x:9:
+
+uucp:x:10:
+
+man:x:12:
+
+proxy:x:13:
+
+kmem:x:15:
+
+dialout:x:20:
+
+fax:x:21:
+
+voice:x:22:
+
+cdrom:x:24:leaclover
+
+floppy:x:25:
+
+tape:x:26:
+
+sudo:x:27:leaclover,godgod
+
+audio:x:29:pulse
+
+dip:x:30:leaclover
+
+www-data:x:33:
+
+backup:x:34:
+
+operator:x:37:
+
+list:x:38:
+
+irc:x:39:
+
+src:x:40:
+
+gnats:x:41:
+
+shadow:x:42:
+
+utmp:x:43:
+
+video:x:44:
+
+sasl:x:45:
+
+plugdev:x:46:leaclover
+
+staff:x:50:
+
+games:x:60:
+
+users:x:100:
+
+nogroup:x:65534:
+
+systemd-journal:x:101:
+
+systemd-network:x:102:
+
+systemd-resolve:x:103:
+
+crontab:x:104:
+
+messagebus:x:105:
+
+systemd-timesync:x:106:
+
+input:x:107:
+
+sgx:x:108:
+
+kvm:x:109:
+
+render:x:110:
+
+syslog:x:111:
+
+tss:x:112:
+
+bluetooth:x:113:
+
+ssl-cert:x:114:
+
+uuidd:x:115:
+
+systemd-oom:x:116:
+
+tcpdump:x:117:
+
+_ssh:x:118:
+
+avahi-autoipd:x:119:
+
+netdev:x:120:
+
+avahi:x:121:
+
+lpadmin:x:122:leaclover
+
+rtkit:x:123:
+
+whoopsie:x:124:
+
+sssd:x:125:
+
+nm-openvpn:x:126:
+
+scanner:x:127:saned
+
+saned:x:128:
+
+colord:x:129:
+
+geoclue:x:130:
+
+pulse:x:131:
+
+pulse-access:x:132:
+
+gdm:x:133:
+
+lxd:x:134:leaclover
+
+leaclover:x:1000:
+
+sambashare:x:135:leaclover
+
+vboxsf:x:999:leaclover
+
+vboxdrmipc:x:998:
+
+team_1234:x:1001:member2
+
+member2:x:1003:
+
+member3:x:1004:
+
+godgod:x:1005:
+
+developer:x:1006:
+
+user1:x:1007:
+
+user2:x:1008:
+
+user3:x:1009:
+
+leaclover@leaclover-VirtualBox:~$ sudo usermod -aG developer user1
+
+leaclover@leaclover-VirtualBox:~$ sudo usermod -aG developer user2
+
+leaclover@leaclover-VirtualBox:~$ sudo usermod -aG developer user3
+
+leaclover@leaclover-VirtualBox:~$ cat /etc/group
+
+root:x:0:
+
+daemon:x:1:
+
+bin:x:2:
+
+sys:x:3:
+
+adm:x:4:syslog,leaclover
+
+tty:x:5:
+
+disk:x:6:
+
+lp:x:7:
+
+mail:x:8:
+
+news:x:9:
+
+uucp:x:10:
+
+man:x:12:
+
+proxy:x:13:
+
+kmem:x:15:
+
+dialout:x:20:
+
+fax:x:21:
+
+voice:x:22:
+
+cdrom:x:24:leaclover
+
+floppy:x:25:
+
+tape:x:26:
+
+sudo:x:27:leaclover,godgod
+
+audio:x:29:pulse
+
+dip:x:30:leaclover
+
+www-data:x:33:
+
+backup:x:34:
+
+operator:x:37:
+
+list:x:38:
+
+irc:x:39:
+
+src:x:40:
+
+gnats:x:41:
+
+shadow:x:42:
+
+utmp:x:43:
+
+video:x:44:
+
+sasl:x:45:
+
+plugdev:x:46:leaclover
+
+staff:x:50:
+
+games:x:60:
+
+users:x:100:
+
+nogroup:x:65534:
+
+systemd-journal:x:101:
+
+systemd-network:x:102:
+
+systemd-resolve:x:103:
+
+crontab:x:104:
+
+messagebus:x:105:
+
+systemd-timesync:x:106:
+
+input:x:107:
+
+sgx:x:108:
+
+kvm:x:109:
+
+render:x:110:
+
+syslog:x:111:
+
+tss:x:112:
+
+bluetooth:x:113:
+
+ssl-cert:x:114:
+
+uuidd:x:115:
+
+systemd-oom:x:116:
+
+tcpdump:x:117:
+
+_ssh:x:118:
+
+avahi-autoipd:x:119:
+
+netdev:x:120:
+
+avahi:x:121:
+
+lpadmin:x:122:leaclover
+
+rtkit:x:123:
+
+whoopsie:x:124:
+
+sssd:x:125:
+
+nm-openvpn:x:126:
+
+scanner:x:127:saned
+
+saned:x:128:
+
+colord:x:129:
+
+geoclue:x:130:
+
+pulse:x:131:
+
+pulse-access:x:132:
+
+gdm:x:133:
+
+lxd:x:134:leaclover
+
+leaclover:x:1000:
+
+sambashare:x:135:leaclover
+
+vboxsf:x:999:leaclover
+
+vboxdrmipc:x:998:
+
+team_1234:x:1001:member2
+
+member2:x:1003:
+
+member3:x:1004:
+
+godgod:x:1005:
+
+developer:x:1006:user1,user2,user3
+
+user1:x:1007:
+
+user2:x:1008:
+
+user3:x:1009:
+
+leaclover@leaclover-VirtualBox:~$ ll
+
+итого 108
+
+drwxr-x--- 16 leaclover leaclover 4096 янв 21 00:57  ./
+
+drwxr-xr-x  7 root      root      4096 янв 26 00:31  ../
+
+-rw-rw-r--  1 leaclover leaclover   16 янв 21 00:45  123
+
+-rw-------  1 leaclover leaclover 1659 янв 25 23:59  .bash_history
+
+-rw-r--r--  1 leaclover leaclover  220 янв 12 18:04  .bash_logout
+
+-rw-r--r--  1 leaclover leaclover 3771 янв 12 18:04  .bashrc
+
+drwx------ 11 leaclover leaclover 4096 янв 16 20:52  .cache/
+
+drwx------ 12 leaclover leaclover 4096 янв 16 20:44  .config/
+
+-rw-------  1 leaclover leaclover   20 янв 16 20:49  .lesshst
+
+drwx------  3 leaclover leaclover 4096 янв 16 19:40  .local/
+
+drwxrwxr-x  2 leaclover leaclover 4096 янв 21 00:57  newfolder/
+
+-rw-r--r--  1 leaclover leaclover  807 янв 12 18:04  .profile
+
+drwxr-x---  2 root      root      4096 янв 16 21:13  shared/
+
+drwx------  3 leaclover leaclover 4096 янв 16 19:40  snap/
+
+-rw-r--r--  1 leaclover leaclover    0 янв 16 20:33  .sudo_as_admin_successful
+
+-rw-r-----  1 leaclover leaclover    5 янв 19 00:49  .vboxclient-clipboard.pid
+
+-rw-r-----  1 leaclover leaclover    5 янв 19 00:49  .vboxclient-draganddrop.pid
+
+-rw-r-----  1 leaclover leaclover    5 янв 19 00:49  .vboxclient-seamless.pid
+
+-rw-r-----  1 leaclover leaclover    5 янв 19 00:49  .vboxclient-vmsvga-session-tty2.pid
+
+-rw-------  1 leaclover leaclover 1742 янв 21 00:31  .viminfo
+
+drwxr-xr-x  2 leaclover leaclover 4096 янв 16 19:40  Видео/
+
+drwxr-xr-x  2 leaclover leaclover 4096 янв 16 19:40  Документы/
+
+drwxr-xr-x  2 leaclover leaclover 4096 янв 16 19:40  Загрузки/
+
+drwxr-xr-x  2 leaclover leaclover 4096 янв 16 19:40  Изображения/
+
+drwxr-xr-x  2 leaclover leaclover 4096 янв 16 19:40  Музыка/
+
+drwxr-xr-x  2 leaclover leaclover 4096 янв 16 19:40  Общедоступные/
+
+drwxr-xr-x  2 leaclover leaclover 4096 янв 16 19:40 'Рабочий стол'/
+
+drwxr-xr-x  2 leaclover leaclover 4096 янв 16 19:40  Шаблоны/
+
+leaclover@leaclover-VirtualBox:~$ mkdir common_folder
+
+leaclover@leaclover-VirtualBox:~$ ll
+
+итого 112
+
+drwxr-x--- 17 leaclover leaclover 4096 янв 26 00:37  ./
+
+drwxr-xr-x  7 root      root      4096 янв 26 00:31  ../
+
+-rw-rw-r--  1 leaclover leaclover   16 янв 21 00:45  123
+
+-rw-------  1 leaclover leaclover 1659 янв 25 23:59  .bash_history
+
+-rw-r--r--  1 leaclover leaclover  220 янв 12 18:04  .bash_logout
+
+-rw-r--r--  1 leaclover leaclover 3771 янв 12 18:04  .bashrc
+
+drwx------ 11 leaclover leaclover 4096 янв 16 20:52  .cache/
+
+drwxrwxr-x  2 leaclover leaclover 4096 янв 26 00:37  common_folder/
+
+drwx------ 12 leaclover leaclover 4096 янв 16 20:44  .config/
+
+-rw-------  1 leaclover leaclover   20 янв 16 20:49  .lesshst
+
+drwx------  3 leaclover leaclover 4096 янв 16 19:40  .local/
+
+drwxrwxr-x  2 leaclover leaclover 4096 янв 21 00:57  newfolder/
+
+-rw-r--r--  1 leaclover leaclover  807 янв 12 18:04  .profile
+
+drwxr-x---  2 root      root      4096 янв 16 21:13  shared/
+
+drwx------  3 leaclover leaclover 4096 янв 16 19:40  snap/
+
+-rw-r--r--  1 leaclover leaclover    0 янв 16 20:33  .sudo_as_admin_successful
+
+-rw-r-----  1 leaclover leaclover    5 янв 19 00:49  .vboxclient-clipboard.pid
+
+-rw-r-----  1 leaclover leaclover    5 янв 19 00:49  .vboxclient-draganddrop.pid
+
+-rw-r-----  1 leaclover leaclover    5 янв 19 00:49  .vboxclient-seamless.pid
+
+-rw-r-----  1 leaclover leaclover    5 янв 19 00:49  .vboxclient-vmsvga-session-tty2.pid
+
+-rw-------  1 leaclover leaclover 1742 янв 21 00:31  .viminfo
+
+drwxr-xr-x  2 leaclover leaclover 4096 янв 16 19:40  Видео/
+
+drwxr-xr-x  2 leaclover leaclover 4096 янв 16 19:40  Документы/
+
+drwxr-xr-x  2 leaclover leaclover 4096 янв 16 19:40  Загрузки/
+
+drwxr-xr-x  2 leaclover leaclover 4096 янв 16 19:40  Изображения/
+
+drwxr-xr-x  2 leaclover leaclover 4096 янв 16 19:40  Музыка/
+
+drwxr-xr-x  2 leaclover leaclover 4096 янв 16 19:40  Общедоступные/
+
+drwxr-xr-x  2 leaclover leaclover 4096 янв 16 19:40 'Рабочий стол'/
+
+drwxr-xr-x  2 leaclover leaclover 4096 янв 16 19:40  Шаблоны/
+
+leaclover@leaclover-VirtualBox:~$ mv common_folder/ /home/
+
+mv: невозможно переместить 'common_folder/' в '/home/common_folder': Отказано в доступе
+
+leaclover@leaclover-VirtualBox:~$ pwd
+
+/home/leaclover
+
+leaclover@leaclover-VirtualBox:~$ mv /home/leaclover/common_folder/ /home/
+
+mv: невозможно переместить '/home/leaclover/common_folder/' в '/home/common_folder': Отказано в доступе
+
+leaclover@leaclover-VirtualBox:~$ mv -rf /home/leaclover/common_folder/ /home/ 
+
+mv: неверный ключ — «r»
+
+По команде «mv --help» можно получить дополнительную информацию.
+
+leaclover@leaclover-VirtualBox:~$ mv -f /home/leaclover/common_folder/ /home/ 
+
+mv: невозможно переместить '/home/leaclover/common_folder/' в '/home/common_folder': Отказано в доступе
+
+leaclover@leaclover-VirtualBox:~$ mv -r /home/leaclover/common_folder/ /home/ 
+
+mv: неверный ключ — «r»
+
+По команде «mv --help» можно получить дополнительную информацию.
+
+leaclover@leaclover-VirtualBox:~$ mv --help
+
+Использование: mv [ПАРАМЕТР]… [-T] ИСТОЧНИК НАЗНАЧЕНИЕ
+
+       или:    mv [ПАРАМЕТР]… ИСТОЧНИК… КАТАЛОГ
+
+       или:    mv [ПАРАМЕТР]… -t КАТАЛОГ ИСТОЧНИК…
+
+Переименовывает ИСТОЧНИК в НАЗНАЧЕНИЕ, или перемещает ИСТОЧНИК(и) в КАТАЛОГ.
+
+
+
+Аргументы, обязательные для длинных параметров, обязательны и для коротких.
+
+      --backup[=КОНТРОЛЬ]      создавать резервные копии целевых файлов
+
+  -b                           то же, что и --backup, но без аргумента
+
+  -f, --force                  переписывать существующие файлы не спрашивая
+
+  -i, --interactive            спрашивать перед тем как переписывать
+
+  -n, --no-clobber             не переписывать существующий файл
+
+Если указано более одного параметра -i, -f, -n, то используется последний.
+
+      --strip-trailing-slashes удаляет все конечные косые черты из каждого
+
+                               аргумента ИСТОЧНИК
+
+  -S, --suffix=СУФФИКС         перекрывает обычный суффикс для резервных копий
+
+  -t, --target-directory=КАТАЛОГ переместить все ИСТОЧНИКИ в КАТАЛОГ
+
+  -T, --no-target-directory    считать НАЗНАЧЕНИЕ обычным файлом
+
+  -u, --update                 перемещать только, если ИСТОЧНИК
+
+                               новее чем файл назначения, или когда файл
+
+                               назначения отсутствует
+
+  -v, --verbose                пояснять производимые действия
+
+  -Z, --context                задать контекст безопасности SELinux файлу
+
+                                 назначения как у типа по умолчанию
+
+      --help     показать эту справку и выйти
+
+      --version  показать информацию о версии и выйти
+
+
+
+По умолчанию суффикс для запасных копий «~», если только не установлена
+
+переменная окружения SIMPLE_BACKUP_SUFFIX или не задан параметр --suffix.
+
+Способ контроля версий может быть установлен при помощи ключа --backup
+
+или переменной окружения VERSION_CONTROL. Допустимые значения:
+
+
+
+  none, off       никогда не создавать резервных копий (даже если
+
+                  указан параметр --backup)
+
+  numbered, t     создавать нумерованные копии
+
+  existing, nil   пронумеровать, если уже существуют пронумерованные
+
+                  резервные копии, иначе создавать простые
+
+  simple. never   всегда создавать простые копии
+
+
+
+Страница справки по GNU coreutils: <https://www.gnu.org/software/coreutils/>
+
+Об ошибках в переводе сообщений сообщайте по адресу <https://translationproject.org/team/ru.html>
+
+Полная документация: <https://www.gnu.org/software/coreutils/mv>
+
+или доступная локально: info '(coreutils) mv invocation'
+
+leaclover@leaclover-VirtualBox:~$ rm -rf /home/leaclover/common_folder/
+
+leaclover@leaclover-VirtualBox:~$ mkdir /home/ common_folder
+
+mkdir: невозможно создать каталог «/home/»: Файл существует
+
+leaclover@leaclover-VirtualBox:~$ mkdir /home/common_folder
+
+mkdir: невозможно создать каталог «/home/common_folder»: Отказано в доступе
+
+leaclover@leaclover-VirtualBox:~$ sudo mkdir /home/common_folder
+
+[sudo] пароль для leaclover: 
+
+leaclover@leaclover-VirtualBox:~$ cd /home/
+
+leaclover@leaclover-VirtualBox:/home$ ll
+
+итого 32
+
+drwxr-xr-x  8 root      root      4096 янв 26 00:53 ./
+
+drwxr-xr-x 20 root      root      4096 янв 12 18:03 ../
+
+drwxr-xr-x  2 root      root      4096 янв 26 00:53 common_folder/
+
+drwxr-x---  2 godgod    godgod    4096 янв 26 00:29 godgod/
+
+drwxr-x--- 17 leaclover leaclover 4096 янв 26 00:52 leaclover/
+
+drwxr-x---  2 user1     user1     4096 янв 26 00:31 user1/
+
+drwxr-x---  2 user2     user2     4096 янв 26 00:31 user2/
+
+drwxr-x---  2 user3     user3     4096 янв 26 00:31 user3/
+
+leaclover@leaclover-VirtualBox:/home$ sudo chgrp -R developer /home/common_folder/
+
+leaclover@leaclover-VirtualBox:/home$ sudo chmod g+s common_folder/
+
+leaclover@leaclover-VirtualBox:/home$ ll
+
+итого 32
+
+drwxr-xr-x  8 root      root      4096 янв 26 00:53 ./
+
+drwxr-xr-x 20 root      root      4096 янв 12 18:03 ../
+
+drwxr-sr-x  2 root      developer 4096 янв 26 00:53 common_folder/
+
+drwxr-x---  2 godgod    godgod    4096 янв 26 00:29 godgod/
+
+drwxr-x--- 17 leaclover leaclover 4096 янв 26 00:52 leaclover/
+
+drwxr-x---  2 user1     user1     4096 янв 26 00:31 user1/
+
+drwxr-x---  2 user2     user2     4096 янв 26 00:31 user2/
+
+drwxr-x---  2 user3     user3     4096 янв 26 00:31 user3/
+
+leaclover@leaclover-VirtualBox:/home$ sudo passwd user1
+
+Новый пароль: 
+
+НЕУДАЧНЫЙ ПАРОЛЬ: Пароль является палиндромом
+
+Повторите ввод нового пароля: 
+
+passwd: пароль успешно обновлён
+
+leaclover@leaclover-VirtualBox:/home$ sudo passwd user2
+
+Новый пароль: 
+
+НЕУДАЧНЫЙ ПАРОЛЬ: Пароль является палиндромом
+
+Повторите ввод нового пароля: 
+
+passwd: пароль успешно обновлён
+
+leaclover@leaclover-VirtualBox:/home$ sudo passwd user3
+
+Новый пароль: 
+
+НЕУДАЧНЫЙ ПАРОЛЬ: Пароль является палиндромом
+
+Повторите ввод нового пароля: 
+
+passwd: пароль успешно обновлён
+
+leaclover@leaclover-VirtualBox:/home$ su user1
+
+Пароль: 
+
+user1@leaclover-VirtualBox:/home$ cat > file.txt
+
+bash: file.txt: Отказано в доступе
+
+user1@leaclover-VirtualBox:/home$ su cat > file.txt
+
+bash: file.txt: Отказано в доступе
+
+user1@leaclover-VirtualBox:/home$ cd /home/common_folder/
+
+user1@leaclover-VirtualBox:/home/common_folder$ cat > file.txt
+
+bash: file.txt: Отказано в доступе
+
+user1@leaclover-VirtualBox:/home/common_folder$ sudo chmod g+w common_folder
+
+[sudo] пароль для user1: 
+
+user1 отсутствует в файле sudoers. Данное действие будет занесено в журнал.
+
+user1@leaclover-VirtualBox:/home/common_folder$ exit
+
+exit
+
+leaclover@leaclover-VirtualBox:/home$ sudo chmod g+w common_folder/
+
+leaclover@leaclover-VirtualBox:/home$ ll
+
+итого 32
+
+drwxr-xr-x  8 root      root      4096 янв 26 00:53 ./
+
+drwxr-xr-x 20 root      root      4096 янв 12 18:03 ../
+
+drwxrwsr-x  2 root      developer 4096 янв 26 00:53 common_folder/
+
+drwxr-x---  2 godgod    godgod    4096 янв 26 00:29 godgod/
+
+drwxr-x--- 17 leaclover leaclover 4096 янв 26 00:52 leaclover/
+
+drwxr-x---  2 user1     user1     4096 янв 26 01:11 user1/
+
+drwxr-x---  2 user2     user2     4096 янв 26 00:31 user2/
+
+drwxr-x---  2 user3     user3     4096 янв 26 00:31 user3/
+
+leaclover@leaclover-VirtualBox:/home$ su user1
+
+Пароль: 
+
+user1@leaclover-VirtualBox:/home$ cd /
+
+bin/        cdrom/      etc/        lib/        lib64/      lost+found/ mnt/        proc/       run/        snap/       sys/        usr/
+
+boot/       dev/        home/       lib32/      libx32/     media/      opt/        root/       sbin/       srv/        tmp/        var/
+
+user1@leaclover-VirtualBox:/home$ cd /home/common_folder/
+
+user1@leaclover-VirtualBox:/home/common_folder$ cat > file1.txt
+
+1234
+
+12221212
+
+21221user1@leaclover-VirtualBox:/home/common_folder$ su user2
+
+Пароль: 
+
+user2@leaclover-VirtualBox:/home/common_folder$ cat file1.txt
+
+1234
+
+12221212
+
+21221user2@leaclover-VirtualBox:/home/common_folder$ nano file1.txt
+
+user2@leaclover-VirtualBox:/home/common_folder$ cat file1
+
+cat: file1: Нет такого файла или каталога
+
+user2@leaclover-VirtualBox:/home/common_folder$ cat file1.txt
+
+sssss1234
+
+12221212
+
+21221
+
+user2@leaclover-VirtualBox:/home/common_folder$ exit
+
+exit
+
+user1@leaclover-VirtualBox:/home/common_folder$ cat file1.txt
+
+sssss1234
+
+12221212
+
+21221
+
+user1@leaclover-VirtualBox:/home/common_folder$ sudo adduser user55
+
+[sudo] пароль для user1: 
+
+Попробуйте ещё раз.
+
+[sudo] пароль для user1: 
+
+Попробуйте ещё раз.
+
+[sudo] пароль для user1: 
+
+user1 отсутствует в файле sudoers. Данное действие будет занесено в журнал.
+
+user1@leaclover-VirtualBox:/home/common_folder$ exit
+
+exit
+
+leaclover@leaclover-VirtualBox:/home$ sudo adduser
+
+adduser: Можно указать только одно или два имени.
+
+leaclover@leaclover-VirtualBox:/home$ sudo adduser user55
+
+Добавляется пользователь «user55» ...
+
+Добавляется новая группа «user55» (1002) ...
+
+Добавляется новый пользователь «user55» (1001) в группу «user55» ...
+
+Создаётся домашний каталог «/home/user55» ...
+
+Копирование файлов из «/etc/skel» ...
+
+Новый пароль: 
+
+НЕУДАЧНЫЙ ПАРОЛЬ: Пароль является палиндромом
+
+Повторите ввод нового пароля: 
+
+passwd: пароль успешно обновлён
+
+Изменение информации о пользователе user55
+
+Введите новое значение или нажмите ENTER для выбора значения по умолчанию
+
+	Полное имя []: aaa
+
+	Номер комнаты []: 
+
+	Рабочий телефон []: 
+
+	Домашний телефон []: 
+
+	Другое []: 
+
+Данная информация корректна? [Y/n] 
+
+leaclover@leaclover-VirtualBox:/home$ more /etc/passwd
+
+root:x:0:0:root:/root:/bin/bash
+
+daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+
+bin:x:2:2:bin:/bin:/usr/sbin/nologin
+
+sys:x:3:3:sys:/dev:/usr/sbin/nologin
+
+sync:x:4:65534:sync:/bin:/bin/sync
+
+games:x:5:60:games:/usr/games:/usr/sbin/nologin
+
+man:x:6:12:man:/var/cache/man:/usr/sbin/nologin
+
+lp:x:7:7:lp:/var/spool/lpd:/usr/sbin/nologin
+
+mail:x:8:8:mail:/var/mail:/usr/sbin/nologin
+
+news:x:9:9:news:/var/spool/news:/usr/sbin/nologin
+
+uucp:x:10:10:uucp:/var/spool/uucp:/usr/sbin/nologin
+
+proxy:x:13:13:proxy:/bin:/usr/sbin/nologin
+
+www-data:x:33:33:www-data:/var/www:/usr/sbin/nologin
+
+backup:x:34:34:backup:/var/backups:/usr/sbin/nologin
+
+list:x:38:38:Mailing List Manager:/var/list:/usr/sbin/nologin
+
+irc:x:39:39:ircd:/run/ircd:/usr/sbin/nologin
+
+gnats:x:41:41:Gnats Bug-Reporting System (admin):/var/lib/gnats:/usr/sbin/nologin
+
+nobody:x:65534:65534:nobody:/nonexistent:/usr/sbin/nologin
+
+systemd-network:x:100:102:systemd Network Management,,,:/run/systemd:/usr/sbin/nologin
+
+systemd-resolve:x:101:103:systemd Resolver,,,:/run/systemd:/usr/sbin/nologin
+
+messagebus:x:102:105::/nonexistent:/usr/sbin/nologin
+
+systemd-timesync:x:103:106:systemd Time Synchronization,,,:/run/systemd:/usr/sbin/nologin
+
+syslog:x:104:111::/home/syslog:/usr/sbin/nologin
+
+_apt:x:105:65534::/nonexistent:/usr/sbin/nologin
+
+tss:x:106:112:TPM software stack,,,:/var/lib/tpm:/bin/false
+
+uuidd:x:107:115::/run/uuidd:/usr/sbin/nologin
+
+systemd-oom:x:108:116:systemd Userspace OOM Killer,,,:/run/systemd:/usr/sbin/nologin
+
+tcpdump:x:109:117::/nonexistent:/usr/sbin/nologin
+
+avahi-autoipd:x:110:119:Avahi autoip daemon,,,:/var/lib/avahi-autoipd:/usr/sbin/nologin
+
+usbmux:x:111:46:usbmux daemon,,,:/var/lib/usbmux:/usr/sbin/nologin
+
+dnsmasq:x:112:65534:dnsmasq,,,:/var/lib/misc:/usr/sbin/nologin
+
+kernoops:x:113:65534:Kernel Oops Tracking Daemon,,,:/:/usr/sbin/nologin
+
+avahi:x:114:121:Avahi mDNS daemon,,,:/run/avahi-daemon:/usr/sbin/nologin
+
+cups-pk-helper:x:115:122:user for cups-pk-helper service,,,:/home/cups-pk-helper:/usr/sbin/nologin
+
+rtkit:x:116:123:RealtimeKit,,,:/proc:/usr/sbin/nologin
+
+whoopsie:x:117:124::/nonexistent:/bin/false
+
+sssd:x:118:125:SSSD system user,,,:/var/lib/sss:/usr/sbin/nologin
+
+speech-dispatcher:x:119:29:Speech Dispatcher,,,:/run/speech-dispatcher:/bin/false
+
+nm-openvpn:x:120:126:NetworkManager OpenVPN,,,:/var/lib/openvpn/chroot:/usr/sbin/nologin
+
+saned:x:121:128::/var/lib/saned:/usr/sbin/nologin
+
+colord:x:122:129:colord colour management daemon,,,:/var/lib/colord:/usr/sbin/nologin
+
+geoclue:x:123:130::/var/lib/geoclue:/usr/sbin/nologin
+
+pulse:x:124:131:PulseAudio daemon,,,:/run/pulse:/usr/sbin/nologin
+
+gnome-initial-setup:x:125:65534::/run/gnome-initial-setup/:/bin/false
+
+hplip:x:126:7:HPLIP system user,,,:/run/hplip:/bin/false
+
+gdm:x:127:133:Gnome Display Manager:/var/lib/gdm3:/bin/false
+
+leaclover:x:1000:1000:leaclover,,,:/home/leaclover:/bin/bash
+
+sshd:x:128:65534::/run/sshd:/usr/sbin/nologin
+
+vboxadd:x:999:1::/var/run/vboxadd:/bin/false
+
+member2:x:1002:1003::/home/member2:/bin/sh
+
+member3:x:1003:1004::/home/member3:/bin/sh
+
+godgod:x:1004:1005:GOD,,,:/home/godgod:/bin/bash
+
+user1:x:1005:1007::/home/user1:/bin/bash
+
+user2:x:1006:1008::/home/user2:/bin/bash
+
+user3:x:1007:1009::/home/user3:/bin/bash
+
+user55:x:1001:1002:aaa,,,:/home/user55:/bin/bash
+
+leaclover@leaclover-VirtualBox:/home$ 
+
+leaclover@leaclover-VirtualBox:/home$ 
+
+leaclover@leaclover-VirtualBox:/home$ 
+
+leaclover@leaclover-VirtualBox:/home$ 
+
+leaclover@leaclover-VirtualBox:/home$ 
+
+leaclover@leaclover-VirtualBox:/home$ 
+
+leaclover@leaclover-VirtualBox:/home$ 
+
+leaclover@leaclover-VirtualBox:/home$ 
+
+leaclover@leaclover-VirtualBox:/home$ 
+
+leaclover@leaclover-VirtualBox:/home$ 
+
+leaclover@leaclover-VirtualBox:/home$ su user55
+
+Пароль: 
+
+user55@leaclover-VirtualBox:/home$ cd /home/common_folder/
+
+user55@leaclover-VirtualBox:/home/common_folder$ cat > file2
+
+bash: file2: Отказано в доступе
+
+user55@leaclover-VirtualBox:/home/common_folder$ exit
+
+exit
+
+leaclover@leaclover-VirtualBox:/home$ mkdir /home/common_folder/share
+
+mkdir: невозможно создать каталог «/home/common_folder/share»: Отказано в доступе
+
+leaclover@leaclover-VirtualBox:/home$ sudo mkdir /home/common_folder/share
+
+leaclover@leaclover-VirtualBox:/home$ cd /home/common_folder/
+
+leaclover@leaclover-VirtualBox:/home/common_folder$ ll
+
+итого 16
+
+drwxrwsr-x 3 root  developer 4096 янв 26 01:18 ./
+
+drwxr-xr-x 9 root  root      4096 янв 26 01:15 ../
+
+-rw-rw-r-- 1 user1 developer   25 янв 26 01:13 file1.txt
+
+drwxr-sr-x 2 root  developer 4096 янв 26 01:18 share/
+
+leaclover@leaclover-VirtualBox:/home/common_folder$ sudo chmod u:rwx g:rw o:r share/
+
+chmod: неверный режим: «u:rwx»
+
+По команде «chmod --help» можно получить дополнительную информацию.
+
+leaclover@leaclover-VirtualBox:/home/common_folder$ sudo chmod u=rwx g=rw o=r share/
+
+chmod: невозможно получить доступ к 'g=rw': Нет такого файла или каталога
+
+chmod: невозможно получить доступ к 'o=r': Нет такого файла или каталога
+
+leaclover@leaclover-VirtualBox:/home/common_folder$ sudo chmod u=rwx,g=rw,o=r share/
+
+leaclover@leaclover-VirtualBox:/home/common_folder$ sudo chmod g+s share/
+
+leaclover@leaclover-VirtualBox:/home/common_folder$ cd share/
+
+bash: cd: share/: Отказано в доступе
+
+leaclover@leaclover-VirtualBox:/home/common_folder$ su user1
+
+Пароль: 
+
+user1@leaclover-VirtualBox:/home/common_folder$ cd share/
+
+bash: cd: share/: Отказано в доступе
+
+user1@leaclover-VirtualBox:/home/common_folder$ exit
+
+exit
+
+leaclover@leaclover-VirtualBox:/home/common_folder$ sudo chgrp -R developer /home/common_folder/share/
+
+leaclover@leaclover-VirtualBox:/home/common_folder$ su user1
+
+Пароль: 
+
+user1@leaclover-VirtualBox:/home/common_folder$ cd share/
+
+bash: cd: share/: Отказано в доступе
+
+user1@leaclover-VirtualBox:/home/common_folder$ ll
+
+итого 16
+
+drwxrwsr-x 3 root  developer 4096 янв 26 01:18 ./
+
+drwxr-xr-x 9 root  root      4096 янв 26 01:15 ../
+
+-rw-rw-r-- 1 user1 developer   25 янв 26 01:13 file1.txt
+
+drwxrwSr-- 2 root  developer 4096 янв 26 01:18 share/
+
+user1@leaclover-VirtualBox:/home/common_folder$ exit
+
+exit
+
+leaclover@leaclover-VirtualBox:/home/common_folder$ sudo chmod g=rw /s
+
+sbin/     snap/     srv/      swapfile  sys/      
+
+leaclover@leaclover-VirtualBox:/home/common_folder$ sudo chmod g=rw /s
+
+sbin/     snap/     srv/      swapfile  sys/      
+
+leaclover@leaclover-VirtualBox:/home/common_folder$ sudo chmod g=rw share/
+
+leaclover@leaclover-VirtualBox:/home/common_folder$ su user1
+
+Пароль: 
+
+user1@leaclover-VirtualBox:/home/common_folder$ cd /home/common_folder/share/
+
+bash: cd: /home/common_folder/share/: Отказано в доступе
+
+user1@leaclover-VirtualBox:/home/common_folder$ ll
+
+итого 16
+
+drwxrwsr-x 3 root  developer 4096 янв 26 01:18 ./
+
+drwxr-xr-x 9 root  root      4096 янв 26 01:15 ../
+
+-rw-rw-r-- 1 user1 developer   25 янв 26 01:13 file1.txt
+
+drwxrwSr-- 2 root  developer 4096 янв 26 01:18 share/
+
+user1@leaclover-VirtualBox:/home/common_folder$ exit
+
+exit
+
+leaclover@leaclover-VirtualBox:/home/common_folder$ sudo chmod -R u=rwx,g=rwx,o=r /home/common_folder/share/
+
+leaclover@leaclover-VirtualBox:/home/common_folder$ sudo chmod -R +t /home/common_folder/share/
+
+leaclover@leaclover-VirtualBox:/home/common_folder$ su user1
+
+Пароль: 
+
+user1@leaclover-VirtualBox:/home/common_folder$ cd /home/common_folder/share/
+
+user1@leaclover-VirtualBox:/home/common_folder/share$ cat > mood_file
+
+moodmood
+
+user1@leaclover-VirtualBox:/home/common_folder/share$ su user2
+
+Пароль: 
+
+user2@leaclover-VirtualBox:/home/common_folder/share$ cat mood_file 
+
+moodmood
+
+user2@leaclover-VirtualBox:/home/common_folder/share$ rm mood_file 
+
+rm: невозможно удалить 'mood_file': Операция не позволена
+
+user2@leaclover-VirtualBox:/home/common_folder/share$ rm -rf mood_file 
+
+rm: невозможно удалить 'mood_file': Операция не позволена
+
+user2@leaclover-VirtualBox:/home/common_folder/share$ su user1
+
+Пароль: 
+
+user1@leaclover-VirtualBox:/home/common_folder/share$ rm mood_file 
+
+user1@leaclover-VirtualBox:/home/common_folder/share$ ll
+
+итого 8
+
+drwxrwsr-T 2 root developer 4096 янв 26 01:44 ./
+
+drwxrwsr-x 3 root developer 4096 янв 26 01:18 ../
+
+user1@leaclover-VirtualBox:/home/common_folder/share$ 
+
+
+
