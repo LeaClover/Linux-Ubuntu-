@@ -1,0 +1,1256 @@
+leaclover@leaclover-VirtualBox:~$ ll
+
+итого 100
+
+drwxr-x--- 15 leaclover leaclover 4096 янв 20 23:56  ./
+
+drwxr-xr-x  3 root      root      4096 янв 12 18:04  ../
+
+-rw-------  1 leaclover leaclover  402 янв 20 00:22  .bash_history
+
+-rw-r--r--  1 leaclover leaclover  220 янв 12 18:04  .bash_logout
+
+-rw-r--r--  1 leaclover leaclover 3771 янв 12 18:04  .bashrc
+
+drwx------ 11 leaclover leaclover 4096 янв 16 20:52  .cache/
+
+drwx------ 12 leaclover leaclover 4096 янв 16 20:44  .config/
+
+-rw-------  1 leaclover leaclover   20 янв 16 20:49  .lesshst
+
+drwx------  3 leaclover leaclover 4096 янв 16 19:40  .local/
+
+-rw-r--r--  1 leaclover leaclover  807 янв 12 18:04  .profile
+
+drwxr-x---  2 root      root      4096 янв 16 21:13  shared/
+
+drwx------  3 leaclover leaclover 4096 янв 16 19:40  snap/
+
+-rw-r--r--  1 leaclover leaclover    0 янв 16 20:33  .sudo_as_admin_successful
+
+-rw-r-----  1 leaclover leaclover    5 янв 19 00:49  .vboxclient-clipboard.pid
+
+-rw-r-----  1 leaclover leaclover    5 янв 19 00:49  .vboxclient-draganddrop.pid
+
+-rw-r-----  1 leaclover leaclover    5 янв 19 00:49  .vboxclient-seamless.pid
+
+-rw-r-----  1 leaclover leaclover    5 янв 19 00:49  .vboxclient-vmsvga-session-tty2.pid
+
+-rw-------  1 leaclover leaclover 1304 янв 20 23:56  .viminfo
+
+drwxr-xr-x  2 leaclover leaclover 4096 янв 16 19:40  Видео/
+
+drwxr-xr-x  2 leaclover leaclover 4096 янв 16 19:40  Документы/
+
+drwxr-xr-x  2 leaclover leaclover 4096 янв 16 19:40  Загрузки/
+
+drwxr-xr-x  2 leaclover leaclover 4096 янв 16 19:40  Изображения/
+
+drwxr-xr-x  2 leaclover leaclover 4096 янв 16 19:40  Музыка/
+
+drwxr-xr-x  2 leaclover leaclover 4096 янв 16 19:40  Общедоступные/
+
+drwxr-xr-x  2 leaclover leaclover 4096 янв 16 19:40 'Рабочий стол'/
+
+drwxr-xr-x  2 leaclover leaclover 4096 янв 16 19:40  Шаблоны/
+
+leaclover@leaclover-VirtualBox:~$ pwd
+
+/home/leaclover
+
+leaclover@leaclover-VirtualBox:~$ mkdir students/ mentors/
+
+leaclover@leaclover-VirtualBox:~$ ll
+
+итого 108
+
+drwxr-x--- 17 leaclover leaclover 4096 янв 21 00:23  ./
+
+drwxr-xr-x  3 root      root      4096 янв 12 18:04  ../
+
+-rw-------  1 leaclover leaclover  402 янв 20 00:22  .bash_history
+
+-rw-r--r--  1 leaclover leaclover  220 янв 12 18:04  .bash_logout
+
+-rw-r--r--  1 leaclover leaclover 3771 янв 12 18:04  .bashrc
+
+drwx------ 11 leaclover leaclover 4096 янв 16 20:52  .cache/
+
+drwx------ 12 leaclover leaclover 4096 янв 16 20:44  .config/
+
+-rw-------  1 leaclover leaclover   20 янв 16 20:49  .lesshst
+
+drwx------  3 leaclover leaclover 4096 янв 16 19:40  .local/
+
+drwxrwxr-x  2 leaclover leaclover 4096 янв 21 00:23  mentors/
+
+-rw-r--r--  1 leaclover leaclover  807 янв 12 18:04  .profile
+
+drwxr-x---  2 root      root      4096 янв 16 21:13  shared/
+
+drwx------  3 leaclover leaclover 4096 янв 16 19:40  snap/
+
+drwxrwxr-x  2 leaclover leaclover 4096 янв 21 00:23  students/
+
+-rw-r--r--  1 leaclover leaclover    0 янв 16 20:33  .sudo_as_admin_successful
+
+-rw-r-----  1 leaclover leaclover    5 янв 19 00:49  .vboxclient-clipboard.pid
+
+-rw-r-----  1 leaclover leaclover    5 янв 19 00:49  .vboxclient-draganddrop.pid
+
+-rw-r-----  1 leaclover leaclover    5 янв 19 00:49  .vboxclient-seamless.pid
+
+-rw-r-----  1 leaclover leaclover    5 янв 19 00:49  .vboxclient-vmsvga-session-tty2.pid
+
+-rw-------  1 leaclover leaclover 1304 янв 20 23:56  .viminfo
+
+drwxr-xr-x  2 leaclover leaclover 4096 янв 16 19:40  Видео/
+
+drwxr-xr-x  2 leaclover leaclover 4096 янв 16 19:40  Документы/
+
+drwxr-xr-x  2 leaclover leaclover 4096 янв 16 19:40  Загрузки/
+
+drwxr-xr-x  2 leaclover leaclover 4096 янв 16 19:40  Изображения/
+
+drwxr-xr-x  2 leaclover leaclover 4096 янв 16 19:40  Музыка/
+
+drwxr-xr-x  2 leaclover leaclover 4096 янв 16 19:40  Общедоступные/
+
+drwxr-xr-x  2 leaclover leaclover 4096 янв 16 19:40 'Рабочий стол'/
+
+drwxr-xr-x  2 leaclover leaclover 4096 янв 16 19:40  Шаблоны/
+
+leaclover@leaclover-VirtualBox:~$ cd s
+
+shared/   snap/     students/ 
+
+leaclover@leaclover-VirtualBox:~$ cd students
+
+leaclover@leaclover-VirtualBox:~/students$ cat > students_list.txt
+
+1. Рахманина Олеся Дмитриевна
+
+2. Хабаров Егор Антонович
+
+3. Сабадаш Станислав Сергеевич
+
+4. Калиничева Людмила Николаевна
+
+5. Иванов Иван Петровичleaclover@leaclover-VirtualBox:~/students$ cd ..
+
+leaclover@leaclover-VirtualBox:~$ cd mentors
+
+leaclover@leaclover-VirtualBox:~/mentors$ cat > mentors_list.txt
+
+1. Александров Александр Игоревич
+
+2. Рахманина Карина Дмитриевна
+
+3. Семенов Виталий Владимировичleaclover@leaclover-VirtualBox:~/mentors$ cat mentors_list.txt
+
+1. Александров Александр Игоревич
+
+2. Рахманина Карина Дмитриевна
+
+3. Семенов Виталий Владимировичleaclover@leaclover-VirtualBox:~/mentors$ vim mentors_list.txt
+
+leaclover@leaclover-VirtualBox:~/mentors$ cat mentors_list.txt
+
+1. Александров Александр Игоревич
+
+2. Рахманина Карина Дмитриевна
+
+3. Семенов Виталий Владимирович
+
+4. Истраткина Светлана Валерьевна
+
+5. Шайдерова Вера Алексеевна
+
+leaclover@leaclover-VirtualBox:~/mentors$ cd ..
+
+leaclover@leaclover-VirtualBox:~$ cd students
+
+leaclover@leaclover-VirtualBox:~/students$ nano students_list.txt
+
+leaclover@leaclover-VirtualBox:~/students$ cat students_list.txt
+
+1. Рахманина Олеся Дмитриевна
+
+2. Хабаров Егор Антонович
+
+3. Сабадаш Станислав Сергеевич
+
+4. Калиничева Людмила Николаевна
+
+5. Иванов Иван Петрович
+
+6. Виноградов Олег Владимирович
+
+leaclover@leaclover-VirtualBox:~/students$ cd ..
+
+leaclover@leaclover-VirtualBox:~$ tree
+
+.
+
+├── mentors
+
+│   └── mentors_list.txt
+
+├── shared  [error opening dir]
+
+├── snap
+
+│   └── snapd-desktop-integration
+
+│       ├── 14
+
+│       │   ├── Видео
+
+│       │   ├── Документы
+
+│       │   ├── Загрузки
+
+│       │   ├── Изображения
+
+│       │   ├── Музыка
+
+│       │   ├── Общедоступные
+
+│       │   ├── Рабочий стол
+
+│       │   └── Шаблоны
+
+│       ├── 49
+
+│       │   ├── Видео
+
+│       │   ├── Документы
+
+│       │   ├── Загрузки
+
+│       │   ├── Изображения
+
+│       │   ├── Музыка
+
+│       │   ├── Общедоступные
+
+│       │   ├── Рабочий стол
+
+│       │   └── Шаблоны
+
+│       ├── common
+
+│       └── current -> 49
+
+├── students
+
+│   └── students_list.txt
+
+├── Видео
+
+├── Документы
+
+├── Загрузки
+
+├── Изображения
+
+├── Музыка
+
+├── Общедоступные
+
+├── Рабочий стол
+
+└── Шаблоны
+
+
+
+33 directories, 2 files
+
+leaclover@leaclover-VirtualBox:~$ mv /mentors/mentors_list.txt /students
+
+mv: не удалось выполнить stat для '/mentors/mentors_list.txt': Нет такого файла или каталога
+
+leaclover@leaclover-VirtualBox:~$ mv /mentors/mentors_list.txt /students/
+
+mv: не удалось выполнить stat для '/mentors/mentors_list.txt': Нет такого файла или каталога
+
+leaclover@leaclover-VirtualBox:~$ mv /mentors/mentors_list.txt/ /students/
+
+mv: не удалось выполнить stat для '/mentors/mentors_list.txt/': Нет такого файла или каталога
+
+leaclover@leaclover-VirtualBox:~$ mv mentors_list.txt /students/
+
+mv: не удалось выполнить stat для 'mentors_list.txt': Нет такого файла или каталога
+
+leaclover@leaclover-VirtualBox:~$ cd mentors
+
+leaclover@leaclover-VirtualBox:~/mentors$ pwd
+
+/home/leaclover/mentors
+
+leaclover@leaclover-VirtualBox:~/mentors$ cd ..
+
+leaclover@leaclover-VirtualBox:~$ mv /home/leaclover/mentors/mentors_list.txt /home/leaclover/s
+
+shared/   snap/     students/ 
+
+leaclover@leaclover-VirtualBox:~$ mv /home/leaclover/mentors/mentors_list.txt /home/leaclover/students/
+
+leaclover@leaclover-VirtualBox:~$ tree
+
+.
+
+├── mentors
+
+├── shared  [error opening dir]
+
+├── snap
+
+│   └── snapd-desktop-integration
+
+│       ├── 14
+
+│       │   ├── Видео
+
+│       │   ├── Документы
+
+│       │   ├── Загрузки
+
+│       │   ├── Изображения
+
+│       │   ├── Музыка
+
+│       │   ├── Общедоступные
+
+│       │   ├── Рабочий стол
+
+│       │   └── Шаблоны
+
+│       ├── 49
+
+│       │   ├── Видео
+
+│       │   ├── Документы
+
+│       │   ├── Загрузки
+
+│       │   ├── Изображения
+
+│       │   ├── Музыка
+
+│       │   ├── Общедоступные
+
+│       │   ├── Рабочий стол
+
+│       │   └── Шаблоны
+
+│       ├── common
+
+│       └── current -> 49
+
+├── students
+
+│   ├── mentors_list.txt
+
+│   └── students_list.txt
+
+├── Видео
+
+├── Документы
+
+├── Загрузки
+
+├── Изображения
+
+├── Музыка
+
+├── Общедоступные
+
+├── Рабочий стол
+
+└── Шаблоны
+
+
+
+33 directories, 2 files
+
+leaclover@leaclover-VirtualBox:~$ rm mentors/
+
+rm: невозможно удалить 'mentors/': Это каталог
+
+leaclover@leaclover-VirtualBox:~$ rm -rf mentors/
+
+leaclover@leaclover-VirtualBox:~$ ll
+
+итого 104
+
+drwxr-x--- 16 leaclover leaclover 4096 янв 21 00:40  ./
+
+drwxr-xr-x  3 root      root      4096 янв 12 18:04  ../
+
+-rw-------  1 leaclover leaclover  402 янв 20 00:22  .bash_history
+
+-rw-r--r--  1 leaclover leaclover  220 янв 12 18:04  .bash_logout
+
+-rw-r--r--  1 leaclover leaclover 3771 янв 12 18:04  .bashrc
+
+drwx------ 11 leaclover leaclover 4096 янв 16 20:52  .cache/
+
+drwx------ 12 leaclover leaclover 4096 янв 16 20:44  .config/
+
+-rw-------  1 leaclover leaclover   20 янв 16 20:49  .lesshst
+
+drwx------  3 leaclover leaclover 4096 янв 16 19:40  .local/
+
+-rw-r--r--  1 leaclover leaclover  807 янв 12 18:04  .profile
+
+drwxr-x---  2 root      root      4096 янв 16 21:13  shared/
+
+drwx------  3 leaclover leaclover 4096 янв 16 19:40  snap/
+
+drwxrwxr-x  2 leaclover leaclover 4096 янв 21 00:39  students/
+
+-rw-r--r--  1 leaclover leaclover    0 янв 16 20:33  .sudo_as_admin_successful
+
+-rw-r-----  1 leaclover leaclover    5 янв 19 00:49  .vboxclient-clipboard.pid
+
+-rw-r-----  1 leaclover leaclover    5 янв 19 00:49  .vboxclient-draganddrop.pid
+
+-rw-r-----  1 leaclover leaclover    5 янв 19 00:49  .vboxclient-seamless.pid
+
+-rw-r-----  1 leaclover leaclover    5 янв 19 00:49  .vboxclient-vmsvga-session-tty2.pid
+
+-rw-------  1 leaclover leaclover 1742 янв 21 00:31  .viminfo
+
+drwxr-xr-x  2 leaclover leaclover 4096 янв 16 19:40  Видео/
+
+drwxr-xr-x  2 leaclover leaclover 4096 янв 16 19:40  Документы/
+
+drwxr-xr-x  2 leaclover leaclover 4096 янв 16 19:40  Загрузки/
+
+drwxr-xr-x  2 leaclover leaclover 4096 янв 16 19:40  Изображения/
+
+drwxr-xr-x  2 leaclover leaclover 4096 янв 16 19:40  Музыка/
+
+drwxr-xr-x  2 leaclover leaclover 4096 янв 16 19:40  Общедоступные/
+
+drwxr-xr-x  2 leaclover leaclover 4096 янв 16 19:40 'Рабочий стол'/
+
+drwxr-xr-x  2 leaclover leaclover 4096 янв 16 19:40  Шаблоны/
+
+leaclover@leaclover-VirtualBox:~$ mv students/ students_and_mentors/
+
+leaclover@leaclover-VirtualBox:~$ ll
+
+итого 104
+
+drwxr-x--- 16 leaclover leaclover 4096 янв 21 00:42  ./
+
+drwxr-xr-x  3 root      root      4096 янв 12 18:04  ../
+
+-rw-------  1 leaclover leaclover  402 янв 20 00:22  .bash_history
+
+-rw-r--r--  1 leaclover leaclover  220 янв 12 18:04  .bash_logout
+
+-rw-r--r--  1 leaclover leaclover 3771 янв 12 18:04  .bashrc
+
+drwx------ 11 leaclover leaclover 4096 янв 16 20:52  .cache/
+
+drwx------ 12 leaclover leaclover 4096 янв 16 20:44  .config/
+
+-rw-------  1 leaclover leaclover   20 янв 16 20:49  .lesshst
+
+drwx------  3 leaclover leaclover 4096 янв 16 19:40  .local/
+
+-rw-r--r--  1 leaclover leaclover  807 янв 12 18:04  .profile
+
+drwxr-x---  2 root      root      4096 янв 16 21:13  shared/
+
+drwx------  3 leaclover leaclover 4096 янв 16 19:40  snap/
+
+drwxrwxr-x  2 leaclover leaclover 4096 янв 21 00:39  students_and_mentors/
+
+-rw-r--r--  1 leaclover leaclover    0 янв 16 20:33  .sudo_as_admin_successful
+
+-rw-r-----  1 leaclover leaclover    5 янв 19 00:49  .vboxclient-clipboard.pid
+
+-rw-r-----  1 leaclover leaclover    5 янв 19 00:49  .vboxclient-draganddrop.pid
+
+-rw-r-----  1 leaclover leaclover    5 янв 19 00:49  .vboxclient-seamless.pid
+
+-rw-r-----  1 leaclover leaclover    5 янв 19 00:49  .vboxclient-vmsvga-session-tty2.pid
+
+-rw-------  1 leaclover leaclover 1742 янв 21 00:31  .viminfo
+
+drwxr-xr-x  2 leaclover leaclover 4096 янв 16 19:40  Видео/
+
+drwxr-xr-x  2 leaclover leaclover 4096 янв 16 19:40  Документы/
+
+drwxr-xr-x  2 leaclover leaclover 4096 янв 16 19:40  Загрузки/
+
+drwxr-xr-x  2 leaclover leaclover 4096 янв 16 19:40  Изображения/
+
+drwxr-xr-x  2 leaclover leaclover 4096 янв 16 19:40  Музыка/
+
+drwxr-xr-x  2 leaclover leaclover 4096 янв 16 19:40  Общедоступные/
+
+drwxr-xr-x  2 leaclover leaclover 4096 янв 16 19:40 'Рабочий стол'/
+
+drwxr-xr-x  2 leaclover leaclover 4096 янв 16 19:40  Шаблоны/
+
+leaclover@leaclover-VirtualBox:~$ tree
+
+.
+
+├── shared  [error opening dir]
+
+├── snap
+
+│   └── snapd-desktop-integration
+
+│       ├── 14
+
+│       │   ├── Видео
+
+│       │   ├── Документы
+
+│       │   ├── Загрузки
+
+│       │   ├── Изображения
+
+│       │   ├── Музыка
+
+│       │   ├── Общедоступные
+
+│       │   ├── Рабочий стол
+
+│       │   └── Шаблоны
+
+│       ├── 49
+
+│       │   ├── Видео
+
+│       │   ├── Документы
+
+│       │   ├── Загрузки
+
+│       │   ├── Изображения
+
+│       │   ├── Музыка
+
+│       │   ├── Общедоступные
+
+│       │   ├── Рабочий стол
+
+│       │   └── Шаблоны
+
+│       ├── common
+
+│       └── current -> 49
+
+├── students_and_mentors
+
+│   ├── mentors_list.txt
+
+│   └── students_list.txt
+
+├── Видео
+
+├── Документы
+
+├── Загрузки
+
+├── Изображения
+
+├── Музыка
+
+├── Общедоступные
+
+├── Рабочий стол
+
+└── Шаблоны
+
+
+
+32 directories, 2 files
+
+leaclover@leaclover-VirtualBox:~$ rm -rf s
+
+shared/               snap/                 students_and_mentors/ 
+
+leaclover@leaclover-VirtualBox:~$ rm -rf students_and_mentors/
+
+leaclover@leaclover-VirtualBox:~$ tree
+
+.
+
+├── shared  [error opening dir]
+
+├── snap
+
+│   └── snapd-desktop-integration
+
+│       ├── 14
+
+│       │   ├── Видео
+
+│       │   ├── Документы
+
+│       │   ├── Загрузки
+
+│       │   ├── Изображения
+
+│       │   ├── Музыка
+
+│       │   ├── Общедоступные
+
+│       │   ├── Рабочий стол
+
+│       │   └── Шаблоны
+
+│       ├── 49
+
+│       │   ├── Видео
+
+│       │   ├── Документы
+
+│       │   ├── Загрузки
+
+│       │   ├── Изображения
+
+│       │   ├── Музыка
+
+│       │   ├── Общедоступные
+
+│       │   ├── Рабочий стол
+
+│       │   └── Шаблоны
+
+│       ├── common
+
+│       └── current -> 49
+
+├── Видео
+
+├── Документы
+
+├── Загрузки
+
+├── Изображения
+
+├── Музыка
+
+├── Общедоступные
+
+├── Рабочий стол
+
+└── Шаблоны
+
+
+
+31 directories, 0 files
+
+leaclover@leaclover-VirtualBox:~$ cat > file1
+
+111
+
+222
+
+333
+
+444
+
+leaclover@leaclover-VirtualBox:~$ cp file1 file2
+
+leaclover@leaclover-VirtualBox:~$ ll
+
+итого 108
+
+drwxr-x--- 15 leaclover leaclover 4096 янв 21 00:45  ./
+
+drwxr-xr-x  3 root      root      4096 янв 12 18:04  ../
+
+-rw-------  1 leaclover leaclover  402 янв 20 00:22  .bash_history
+
+-rw-r--r--  1 leaclover leaclover  220 янв 12 18:04  .bash_logout
+
+-rw-r--r--  1 leaclover leaclover 3771 янв 12 18:04  .bashrc
+
+drwx------ 11 leaclover leaclover 4096 янв 16 20:52  .cache/
+
+drwx------ 12 leaclover leaclover 4096 янв 16 20:44  .config/
+
+-rw-rw-r--  1 leaclover leaclover   16 янв 21 00:44  file1
+
+-rw-rw-r--  1 leaclover leaclover   16 янв 21 00:45  file2
+
+-rw-------  1 leaclover leaclover   20 янв 16 20:49  .lesshst
+
+drwx------  3 leaclover leaclover 4096 янв 16 19:40  .local/
+
+-rw-r--r--  1 leaclover leaclover  807 янв 12 18:04  .profile
+
+drwxr-x---  2 root      root      4096 янв 16 21:13  shared/
+
+drwx------  3 leaclover leaclover 4096 янв 16 19:40  snap/
+
+-rw-r--r--  1 leaclover leaclover    0 янв 16 20:33  .sudo_as_admin_successful
+
+-rw-r-----  1 leaclover leaclover    5 янв 19 00:49  .vboxclient-clipboard.pid
+
+-rw-r-----  1 leaclover leaclover    5 янв 19 00:49  .vboxclient-draganddrop.pid
+
+-rw-r-----  1 leaclover leaclover    5 янв 19 00:49  .vboxclient-seamless.pid
+
+-rw-r-----  1 leaclover leaclover    5 янв 19 00:49  .vboxclient-vmsvga-session-tty2.pid
+
+-rw-------  1 leaclover leaclover 1742 янв 21 00:31  .viminfo
+
+drwxr-xr-x  2 leaclover leaclover 4096 янв 16 19:40  Видео/
+
+drwxr-xr-x  2 leaclover leaclover 4096 янв 16 19:40  Документы/
+
+drwxr-xr-x  2 leaclover leaclover 4096 янв 16 19:40  Загрузки/
+
+drwxr-xr-x  2 leaclover leaclover 4096 янв 16 19:40  Изображения/
+
+drwxr-xr-x  2 leaclover leaclover 4096 янв 16 19:40  Музыка/
+
+drwxr-xr-x  2 leaclover leaclover 4096 янв 16 19:40  Общедоступные/
+
+drwxr-xr-x  2 leaclover leaclover 4096 янв 16 19:40 'Рабочий стол'/
+
+drwxr-xr-x  2 leaclover leaclover 4096 янв 16 19:40  Шаблоны/
+
+leaclover@leaclover-VirtualBox:~$ ln -s file1 file3
+
+leaclover@leaclover-VirtualBox:~$ ll
+
+итого 108
+
+drwxr-x--- 15 leaclover leaclover 4096 янв 21 00:46  ./
+
+drwxr-xr-x  3 root      root      4096 янв 12 18:04  ../
+
+-rw-------  1 leaclover leaclover  402 янв 20 00:22  .bash_history
+
+-rw-r--r--  1 leaclover leaclover  220 янв 12 18:04  .bash_logout
+
+-rw-r--r--  1 leaclover leaclover 3771 янв 12 18:04  .bashrc
+
+drwx------ 11 leaclover leaclover 4096 янв 16 20:52  .cache/
+
+drwx------ 12 leaclover leaclover 4096 янв 16 20:44  .config/
+
+-rw-rw-r--  1 leaclover leaclover   16 янв 21 00:44  file1
+
+-rw-rw-r--  1 leaclover leaclover   16 янв 21 00:45  file2
+
+lrwxrwxrwx  1 leaclover leaclover    5 янв 21 00:46  file3 -> file1
+
+-rw-------  1 leaclover leaclover   20 янв 16 20:49  .lesshst
+
+drwx------  3 leaclover leaclover 4096 янв 16 19:40  .local/
+
+-rw-r--r--  1 leaclover leaclover  807 янв 12 18:04  .profile
+
+drwxr-x---  2 root      root      4096 янв 16 21:13  shared/
+
+drwx------  3 leaclover leaclover 4096 янв 16 19:40  snap/
+
+-rw-r--r--  1 leaclover leaclover    0 янв 16 20:33  .sudo_as_admin_successful
+
+-rw-r-----  1 leaclover leaclover    5 янв 19 00:49  .vboxclient-clipboard.pid
+
+-rw-r-----  1 leaclover leaclover    5 янв 19 00:49  .vboxclient-draganddrop.pid
+
+-rw-r-----  1 leaclover leaclover    5 янв 19 00:49  .vboxclient-seamless.pid
+
+-rw-r-----  1 leaclover leaclover    5 янв 19 00:49  .vboxclient-vmsvga-session-tty2.pid
+
+-rw-------  1 leaclover leaclover 1742 янв 21 00:31  .viminfo
+
+drwxr-xr-x  2 leaclover leaclover 4096 янв 16 19:40  Видео/
+
+drwxr-xr-x  2 leaclover leaclover 4096 янв 16 19:40  Документы/
+
+drwxr-xr-x  2 leaclover leaclover 4096 янв 16 19:40  Загрузки/
+
+drwxr-xr-x  2 leaclover leaclover 4096 янв 16 19:40  Изображения/
+
+drwxr-xr-x  2 leaclover leaclover 4096 янв 16 19:40  Музыка/
+
+drwxr-xr-x  2 leaclover leaclover 4096 янв 16 19:40  Общедоступные/
+
+drwxr-xr-x  2 leaclover leaclover 4096 янв 16 19:40 'Рабочий стол'/
+
+drwxr-xr-x  2 leaclover leaclover 4096 янв 16 19:40  Шаблоны/
+
+leaclover@leaclover-VirtualBox:~$ ln file1 file4
+
+leaclover@leaclover-VirtualBox:~$ ll
+
+итого 112
+
+drwxr-x--- 15 leaclover leaclover 4096 янв 21 00:47  ./
+
+drwxr-xr-x  3 root      root      4096 янв 12 18:04  ../
+
+-rw-------  1 leaclover leaclover  402 янв 20 00:22  .bash_history
+
+-rw-r--r--  1 leaclover leaclover  220 янв 12 18:04  .bash_logout
+
+-rw-r--r--  1 leaclover leaclover 3771 янв 12 18:04  .bashrc
+
+drwx------ 11 leaclover leaclover 4096 янв 16 20:52  .cache/
+
+drwx------ 12 leaclover leaclover 4096 янв 16 20:44  .config/
+
+-rw-rw-r--  2 leaclover leaclover   16 янв 21 00:44  file1
+
+-rw-rw-r--  1 leaclover leaclover   16 янв 21 00:45  file2
+
+lrwxrwxrwx  1 leaclover leaclover    5 янв 21 00:46  file3 -> file1
+
+-rw-rw-r--  2 leaclover leaclover   16 янв 21 00:44  file4
+
+-rw-------  1 leaclover leaclover   20 янв 16 20:49  .lesshst
+
+drwx------  3 leaclover leaclover 4096 янв 16 19:40  .local/
+
+-rw-r--r--  1 leaclover leaclover  807 янв 12 18:04  .profile
+
+drwxr-x---  2 root      root      4096 янв 16 21:13  shared/
+
+drwx------  3 leaclover leaclover 4096 янв 16 19:40  snap/
+
+-rw-r--r--  1 leaclover leaclover    0 янв 16 20:33  .sudo_as_admin_successful
+
+-rw-r-----  1 leaclover leaclover    5 янв 19 00:49  .vboxclient-clipboard.pid
+
+-rw-r-----  1 leaclover leaclover    5 янв 19 00:49  .vboxclient-draganddrop.pid
+
+-rw-r-----  1 leaclover leaclover    5 янв 19 00:49  .vboxclient-seamless.pid
+
+-rw-r-----  1 leaclover leaclover    5 янв 19 00:49  .vboxclient-vmsvga-session-tty2.pid
+
+-rw-------  1 leaclover leaclover 1742 янв 21 00:31  .viminfo
+
+drwxr-xr-x  2 leaclover leaclover 4096 янв 16 19:40  Видео/
+
+drwxr-xr-x  2 leaclover leaclover 4096 янв 16 19:40  Документы/
+
+drwxr-xr-x  2 leaclover leaclover 4096 янв 16 19:40  Загрузки/
+
+drwxr-xr-x  2 leaclover leaclover 4096 янв 16 19:40  Изображения/
+
+drwxr-xr-x  2 leaclover leaclover 4096 янв 16 19:40  Музыка/
+
+drwxr-xr-x  2 leaclover leaclover 4096 янв 16 19:40  Общедоступные/
+
+drwxr-xr-x  2 leaclover leaclover 4096 янв 16 19:40 'Рабочий стол'/
+
+drwxr-xr-x  2 leaclover leaclover 4096 янв 16 19:40  Шаблоны/
+
+leaclover@leaclover-VirtualBox:~$ ls -ali
+
+итого 112
+
+797559 drwxr-x--- 15 leaclover leaclover 4096 янв 21 00:47  .
+
+786433 drwxr-xr-x  3 root      root      4096 янв 12 18:04  ..
+
+793032 -rw-------  1 leaclover leaclover  402 янв 20 00:22  .bash_history
+
+801592 -rw-r--r--  1 leaclover leaclover  220 янв 12 18:04  .bash_logout
+
+801591 -rw-r--r--  1 leaclover leaclover 3771 янв 12 18:04  .bashrc
+
+818772 drwx------ 11 leaclover leaclover 4096 янв 16 20:52  .cache
+
+818777 drwx------ 12 leaclover leaclover 4096 янв 16 20:44  .config
+
+787608 -rw-rw-r--  2 leaclover leaclover   16 янв 21 00:44  file1
+
+792701 -rw-rw-r--  1 leaclover leaclover   16 янв 21 00:45  file2
+
+792728 lrwxrwxrwx  1 leaclover leaclover    5 янв 21 00:46  file3 -> file1
+
+787608 -rw-rw-r--  2 leaclover leaclover   16 янв 21 00:44  file4
+
+797081 -rw-------  1 leaclover leaclover   20 янв 16 20:49  .lesshst
+
+818797 drwx------  3 leaclover leaclover 4096 янв 16 19:40  .local
+
+797560 -rw-r--r--  1 leaclover leaclover  807 янв 12 18:04  .profile
+
+934107 drwxr-x---  2 root      root      4096 янв 16 21:13  shared
+
+818701 drwx------  3 leaclover leaclover 4096 янв 16 19:40  snap
+
+819066 -rw-r--r--  1 leaclover leaclover    0 янв 16 20:33  .sudo_as_admin_successful
+
+792656 -rw-r-----  1 leaclover leaclover    5 янв 19 00:49  .vboxclient-clipboard.pid
+
+792673 -rw-r-----  1 leaclover leaclover    5 янв 19 00:49  .vboxclient-draganddrop.pid
+
+792672 -rw-r-----  1 leaclover leaclover    5 янв 19 00:49  .vboxclient-seamless.pid
+
+792674 -rw-r-----  1 leaclover leaclover    5 янв 19 00:49  .vboxclient-vmsvga-session-tty2.pid
+
+792733 -rw-------  1 leaclover leaclover 1742 янв 21 00:31  .viminfo
+
+818850 drwxr-xr-x  2 leaclover leaclover 4096 янв 16 19:40  Видео
+
+818847 drwxr-xr-x  2 leaclover leaclover 4096 янв 16 19:40  Документы
+
+818844 drwxr-xr-x  2 leaclover leaclover 4096 янв 16 19:40  Загрузки
+
+818849 drwxr-xr-x  2 leaclover leaclover 4096 янв 16 19:40  Изображения
+
+818848 drwxr-xr-x  2 leaclover leaclover 4096 янв 16 19:40  Музыка
+
+818846 drwxr-xr-x  2 leaclover leaclover 4096 янв 16 19:40  Общедоступные
+
+818843 drwxr-xr-x  2 leaclover leaclover 4096 янв 16 19:40 'Рабочий стол'
+
+818845 drwxr-xr-x  2 leaclover leaclover 4096 янв 16 19:40  Шаблоны
+
+leaclover@leaclover-VirtualBox:~$ rm -rf file1
+
+leaclover@leaclover-VirtualBox:~$ more file1
+
+more: невозможно открыть file1: Нет такого файла или каталога
+
+leaclover@leaclover-VirtualBox:~$ more file2
+
+111
+
+222
+
+333
+
+444
+
+leaclover@leaclover-VirtualBox:~$ more file3
+
+more: невозможно открыть file3: Нет такого файла или каталога
+
+leaclover@leaclover-VirtualBox:~$ more file4
+
+111
+
+222
+
+333
+
+444
+
+leaclover@leaclover-VirtualBox:~$ ls -ali
+
+итого 108
+
+797559 drwxr-x--- 15 leaclover leaclover 4096 янв 21 00:48  .
+
+786433 drwxr-xr-x  3 root      root      4096 янв 12 18:04  ..
+
+793032 -rw-------  1 leaclover leaclover  402 янв 20 00:22  .bash_history
+
+801592 -rw-r--r--  1 leaclover leaclover  220 янв 12 18:04  .bash_logout
+
+801591 -rw-r--r--  1 leaclover leaclover 3771 янв 12 18:04  .bashrc
+
+818772 drwx------ 11 leaclover leaclover 4096 янв 16 20:52  .cache
+
+818777 drwx------ 12 leaclover leaclover 4096 янв 16 20:44  .config
+
+792701 -rw-rw-r--  1 leaclover leaclover   16 янв 21 00:45  file2
+
+792728 lrwxrwxrwx  1 leaclover leaclover    5 янв 21 00:46  file3 -> file1
+
+787608 -rw-rw-r--  1 leaclover leaclover   16 янв 21 00:44  file4
+
+797081 -rw-------  1 leaclover leaclover   20 янв 16 20:49  .lesshst
+
+818797 drwx------  3 leaclover leaclover 4096 янв 16 19:40  .local
+
+797560 -rw-r--r--  1 leaclover leaclover  807 янв 12 18:04  .profile
+
+934107 drwxr-x---  2 root      root      4096 янв 16 21:13  shared
+
+818701 drwx------  3 leaclover leaclover 4096 янв 16 19:40  snap
+
+819066 -rw-r--r--  1 leaclover leaclover    0 янв 16 20:33  .sudo_as_admin_successful
+
+792656 -rw-r-----  1 leaclover leaclover    5 янв 19 00:49  .vboxclient-clipboard.pid
+
+792673 -rw-r-----  1 leaclover leaclover    5 янв 19 00:49  .vboxclient-draganddrop.pid
+
+792672 -rw-r-----  1 leaclover leaclover    5 янв 19 00:49  .vboxclient-seamless.pid
+
+792674 -rw-r-----  1 leaclover leaclover    5 янв 19 00:49  .vboxclient-vmsvga-session-tty2.pid
+
+792733 -rw-------  1 leaclover leaclover 1742 янв 21 00:31  .viminfo
+
+818850 drwxr-xr-x  2 leaclover leaclover 4096 янв 16 19:40  Видео
+
+818847 drwxr-xr-x  2 leaclover leaclover 4096 янв 16 19:40  Документы
+
+818844 drwxr-xr-x  2 leaclover leaclover 4096 янв 16 19:40  Загрузки
+
+818849 drwxr-xr-x  2 leaclover leaclover 4096 янв 16 19:40  Изображения
+
+818848 drwxr-xr-x  2 leaclover leaclover 4096 янв 16 19:40  Музыка
+
+818846 drwxr-xr-x  2 leaclover leaclover 4096 янв 16 19:40  Общедоступные
+
+818843 drwxr-xr-x  2 leaclover leaclover 4096 янв 16 19:40 'Рабочий стол'
+
+818845 drwxr-xr-x  2 leaclover leaclover 4096 янв 16 19:40  Шаблоны
+
+leaclover@leaclover-VirtualBox:~$ mv file2 123
+
+leaclover@leaclover-VirtualBox:~$ mv file3 abc
+
+leaclover@leaclover-VirtualBox:~$ mv file4 11abc
+
+leaclover@leaclover-VirtualBox:~$ ls -ali
+
+итого 108
+
+797559 drwxr-x--- 15 leaclover leaclover 4096 янв 21 00:52  .
+
+786433 drwxr-xr-x  3 root      root      4096 янв 12 18:04  ..
+
+787608 -rw-rw-r--  1 leaclover leaclover   16 янв 21 00:44  11abc
+
+792701 -rw-rw-r--  1 leaclover leaclover   16 янв 21 00:45  123
+
+792728 lrwxrwxrwx  1 leaclover leaclover    5 янв 21 00:46  abc -> file1
+
+793032 -rw-------  1 leaclover leaclover  402 янв 20 00:22  .bash_history
+
+801592 -rw-r--r--  1 leaclover leaclover  220 янв 12 18:04  .bash_logout
+
+801591 -rw-r--r--  1 leaclover leaclover 3771 янв 12 18:04  .bashrc
+
+818772 drwx------ 11 leaclover leaclover 4096 янв 16 20:52  .cache
+
+818777 drwx------ 12 leaclover leaclover 4096 янв 16 20:44  .config
+
+797081 -rw-------  1 leaclover leaclover   20 янв 16 20:49  .lesshst
+
+818797 drwx------  3 leaclover leaclover 4096 янв 16 19:40  .local
+
+797560 -rw-r--r--  1 leaclover leaclover  807 янв 12 18:04  .profile
+
+934107 drwxr-x---  2 root      root      4096 янв 16 21:13  shared
+
+818701 drwx------  3 leaclover leaclover 4096 янв 16 19:40  snap
+
+819066 -rw-r--r--  1 leaclover leaclover    0 янв 16 20:33  .sudo_as_admin_successful
+
+792656 -rw-r-----  1 leaclover leaclover    5 янв 19 00:49  .vboxclient-clipboard.pid
+
+792673 -rw-r-----  1 leaclover leaclover    5 янв 19 00:49  .vboxclient-draganddrop.pid
+
+792672 -rw-r-----  1 leaclover leaclover    5 янв 19 00:49  .vboxclient-seamless.pid
+
+792674 -rw-r-----  1 leaclover leaclover    5 янв 19 00:49  .vboxclient-vmsvga-session-tty2.pid
+
+792733 -rw-------  1 leaclover leaclover 1742 янв 21 00:31  .viminfo
+
+818850 drwxr-xr-x  2 leaclover leaclover 4096 янв 16 19:40  Видео
+
+818847 drwxr-xr-x  2 leaclover leaclover 4096 янв 16 19:40  Документы
+
+818844 drwxr-xr-x  2 leaclover leaclover 4096 янв 16 19:40  Загрузки
+
+818849 drwxr-xr-x  2 leaclover leaclover 4096 янв 16 19:40  Изображения
+
+818848 drwxr-xr-x  2 leaclover leaclover 4096 янв 16 19:40  Музыка
+
+818846 drwxr-xr-x  2 leaclover leaclover 4096 янв 16 19:40  Общедоступные
+
+818843 drwxr-xr-x  2 leaclover leaclover 4096 янв 16 19:40 'Рабочий стол'
+
+818845 drwxr-xr-x  2 leaclover leaclover 4096 янв 16 19:40  Шаблоны
+
+leaclover@leaclover-VirtualBox:~$ more 123
+
+111
+
+222
+
+333
+
+444
+
+leaclover@leaclover-VirtualBox:~$ more abc
+
+more: невозможно открыть abc: Нет такого файла или каталога
+
+leaclover@leaclover-VirtualBox:~$ more 11abc
+
+111
+
+222
+
+333
+
+444
+
+leaclover@leaclover-VirtualBox:~$ ln -s 123 112233
+
+leaclover@leaclover-VirtualBox:~$ ls -ali
+
+итого 108
+
+797559 drwxr-x--- 15 leaclover leaclover 4096 янв 21 00:54  .
+
+786433 drwxr-xr-x  3 root      root      4096 янв 12 18:04  ..
+
+792702 lrwxrwxrwx  1 leaclover leaclover    3 янв 21 00:54  112233 -> 123
+
+787608 -rw-rw-r--  1 leaclover leaclover   16 янв 21 00:44  11abc
+
+792701 -rw-rw-r--  1 leaclover leaclover   16 янв 21 00:45  123
+
+792728 lrwxrwxrwx  1 leaclover leaclover    5 янв 21 00:46  abc -> file1
+
+793032 -rw-------  1 leaclover leaclover  402 янв 20 00:22  .bash_history
+
+801592 -rw-r--r--  1 leaclover leaclover  220 янв 12 18:04  .bash_logout
+
+801591 -rw-r--r--  1 leaclover leaclover 3771 янв 12 18:04  .bashrc
+
+818772 drwx------ 11 leaclover leaclover 4096 янв 16 20:52  .cache
+
+818777 drwx------ 12 leaclover leaclover 4096 янв 16 20:44  .config
+
+797081 -rw-------  1 leaclover leaclover   20 янв 16 20:49  .lesshst
+
+818797 drwx------  3 leaclover leaclover 4096 янв 16 19:40  .local
+
+797560 -rw-r--r--  1 leaclover leaclover  807 янв 12 18:04  .profile
+
+934107 drwxr-x---  2 root      root      4096 янв 16 21:13  shared
+
+818701 drwx------  3 leaclover leaclover 4096 янв 16 19:40  snap
+
+819066 -rw-r--r--  1 leaclover leaclover    0 янв 16 20:33  .sudo_as_admin_successful
+
+792656 -rw-r-----  1 leaclover leaclover    5 янв 19 00:49  .vboxclient-clipboard.pid
+
+792673 -rw-r-----  1 leaclover leaclover    5 янв 19 00:49  .vboxclient-draganddrop.pid
+
+792672 -rw-r-----  1 leaclover leaclover    5 янв 19 00:49  .vboxclient-seamless.pid
+
+792674 -rw-r-----  1 leaclover leaclover    5 янв 19 00:49  .vboxclient-vmsvga-session-tty2.pid
+
+792733 -rw-------  1 leaclover leaclover 1742 янв 21 00:31  .viminfo
+
+818850 drwxr-xr-x  2 leaclover leaclover 4096 янв 16 19:40  Видео
+
+818847 drwxr-xr-x  2 leaclover leaclover 4096 янв 16 19:40  Документы
+
+818844 drwxr-xr-x  2 leaclover leaclover 4096 янв 16 19:40  Загрузки
+
+818849 drwxr-xr-x  2 leaclover leaclover 4096 янв 16 19:40  Изображения
+
+818848 drwxr-xr-x  2 leaclover leaclover 4096 янв 16 19:40  Музыка
+
+818846 drwxr-xr-x  2 leaclover leaclover 4096 янв 16 19:40  Общедоступные
+
+818843 drwxr-xr-x  2 leaclover leaclover 4096 янв 16 19:40 'Рабочий стол'
+
+818845 drwxr-xr-x  2 leaclover leaclover 4096 янв 16 19:40  Шаблоны
+
+leaclover@leaclover-VirtualBox:~$ mv 112233 /home/leaclover/newfolder/
+
+mv: невозможно переместить '112233' в '/home/leaclover/newfolder/': Это не каталог
+
+leaclover@leaclover-VirtualBox:~$ mkdir newfolder
+
+leaclover@leaclover-VirtualBox:~$ mv 112233 newfolder/
+
+leaclover@leaclover-VirtualBox:~$ ll
+
+итого 112
+
+drwxr-x--- 16 leaclover leaclover 4096 янв 21 00:56  ./
+
+drwxr-xr-x  3 root      root      4096 янв 12 18:04  ../
+
+-rw-rw-r--  1 leaclover leaclover   16 янв 21 00:44  11abc
+
+-rw-rw-r--  1 leaclover leaclover   16 янв 21 00:45  123
+
+lrwxrwxrwx  1 leaclover leaclover    5 янв 21 00:46  abc -> file1
+
+-rw-------  1 leaclover leaclover  402 янв 20 00:22  .bash_history
+
+-rw-r--r--  1 leaclover leaclover  220 янв 12 18:04  .bash_logout
+
+-rw-r--r--  1 leaclover leaclover 3771 янв 12 18:04  .bashrc
+
+drwx------ 11 leaclover leaclover 4096 янв 16 20:52  .cache/
+
+drwx------ 12 leaclover leaclover 4096 янв 16 20:44  .config/
+
+-rw-------  1 leaclover leaclover   20 янв 16 20:49  .lesshst
+
+drwx------  3 leaclover leaclover 4096 янв 16 19:40  .local/
+
+drwxrwxr-x  2 leaclover leaclover 4096 янв 21 00:56  newfolder/
+
+-rw-r--r--  1 leaclover leaclover  807 янв 12 18:04  .profile
+
+drwxr-x---  2 root      root      4096 янв 16 21:13  shared/
+
+drwx------  3 leaclover leaclover 4096 янв 16 19:40  snap/
+
+-rw-r--r--  1 leaclover leaclover    0 янв 16 20:33  .sudo_as_admin_successful
+
+-rw-r-----  1 leaclover leaclover    5 янв 19 00:49  .vboxclient-clipboard.pid
+
+-rw-r-----  1 leaclover leaclover    5 янв 19 00:49  .vboxclient-draganddrop.pid
+
+-rw-r-----  1 leaclover leaclover    5 янв 19 00:49  .vboxclient-seamless.pid
+
+-rw-r-----  1 leaclover leaclover    5 янв 19 00:49  .vboxclient-vmsvga-session-tty2.pid
+
+-rw-------  1 leaclover leaclover 1742 янв 21 00:31  .viminfo
+
+drwxr-xr-x  2 leaclover leaclover 4096 янв 16 19:40  Видео/
+
+drwxr-xr-x  2 leaclover leaclover 4096 янв 16 19:40  Документы/
+
+drwxr-xr-x  2 leaclover leaclover 4096 янв 16 19:40  Загрузки/
+
+drwxr-xr-x  2 leaclover leaclover 4096 янв 16 19:40  Изображения/
+
+drwxr-xr-x  2 leaclover leaclover 4096 янв 16 19:40  Музыка/
+
+drwxr-xr-x  2 leaclover leaclover 4096 янв 16 19:40  Общедоступные/
+
+drwxr-xr-x  2 leaclover leaclover 4096 янв 16 19:40 'Рабочий стол'/
+
+drwxr-xr-x  2 leaclover leaclover 4096 янв 16 19:40  Шаблоны/
+
+leaclover@leaclover-VirtualBox:~$ mv 11abc newfolder
+
+leaclover@leaclover-VirtualBox:~$ mv abc newfolder
+
+leaclover@leaclover-VirtualBox:~$ cd newfolder
+
+leaclover@leaclover-VirtualBox:~/newfolder$ ls -sli
+
+итого 4
+
+792702 0 lrwxrwxrwx 1 leaclover leaclover  3 янв 21 00:54 112233 -> 123
+
+787608 4 -rw-rw-r-- 1 leaclover leaclover 16 янв 21 00:44 11abc
+
+792728 0 lrwxrwxrwx 1 leaclover leaclover  5 янв 21 00:46 abc -> file1
+
